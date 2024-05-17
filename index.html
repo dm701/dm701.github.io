@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-05-17 Fri 06:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>dm701</title>
+<meta name="author" content="dm" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet"
+                         href="../other/mystyle.css"
+                         type="text/css"/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">dm701</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb9cc023">1. Github repositories</a></li>
+<li><a href="#org17eb1b2">2. Machine learning and deep learning</a>
+<ul>
+<li><a href="#org708d982">2.1. Little learner</a>
+<ul>
+<li><a href="#org66c3199">2.1.1. Functions short definitions</a></li>
+<li><a href="#orgde32033">2.1.2. Gradients</a></li>
+<li><a href="#org6e82853">2.1.3. Rate of change</a></li>
+<li><a href="#org2d775a1">2.1.4. RMSProp</a></li>
+<li><a href="#org72e1185">2.1.5. Update of parameters</a></li>
+<li><a href="#org36681e1">2.1.6. Velocity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb9cc023" class="outline-2">
+<h2 id="orgb9cc023"><span class="section-number-2">1.</span> Github repositories</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="https://github.com/dm701/AI-for-media">AI for media</a></li>
+<li><a href="https://github.com/dm701/Data-Science-assignments">Data science assignments</a></li>
+<li><a href="https://github.com/dm701/NLP-project">NLP project</a></li>
+<li><a href="https://github.com/dm701/Personalisation-and-machine-learning">Personalisation and machine learning</a></li>
+<li><a href="https://github.com/dm701/STEM-assignments">STEM assignments</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org17eb1b2" class="outline-2">
+<h2 id="org17eb1b2"><span class="section-number-2">2.</span> Machine learning and deep learning</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org708d982" class="outline-3">
+<h3 id="org708d982"><span class="section-number-3">2.1.</span> Little learner</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+This section is a series of notes about machine learning and deep
+learning in the context of the book
+<a href="https://www.thelittlelearner.com/">"The Little Learner: A straight line to deep learning"</a> by
+<i>Daniel P. Friedman and Anurag Mendhekar</i>
+</p>
+</div>
+<div id="outline-container-org66c3199" class="outline-4">
+<h4 id="org66c3199"><span class="section-number-4">2.1.1.</span> Functions short definitions</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li><p>
+<span class="underline">Expectant and objective functions</span>
+</p>
+
+<p>
+A function invocation such as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(l2-loss line)
+</pre>
+</div>
+
+<p>
+which in a "same-as" chart transcribes as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(lambda (xs ys)
+  (lambda (theta)
+    (let ((pred-ys ((line xs) theta)))
+      (sum
+       (sqr
+        (- ys pred-ys)))))
+</pre>
+</div>
+
+<p>
+produces another function. This function which is produced when
+<b>l2-loss</b> is invoked with a <b>target</b> function (<b>line</b> in this case),
+is referred to as an <b>expectant</b> function. This is because it is
+<b>expecting</b> a data set as arguments.
+</p>
+
+<p>
+When an expectant function receives a data set, for example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((l2-loss line) line-xs line-ys)
+</pre>
+</div>
+
+<p>
+which in a "same-as" chart transcribes as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(lambda (theta)
+  (let ((pred-ys ((line line-xs) theta)))
+    (sum
+     (sqr
+      (- line-ys pred-ys)))))
+</pre>
+</div>
+
+<p>
+produces a function which <b>awaits</b> a theta. The name of the produced
+function is known as an <b>objective</b> function. When provided with a
+theta, the objective function returns a scalar representing the
+<b>loss</b>, which is a measure of how far away we are from the well fitted
+theta.
+</p>
+
+<p>
+The objective function would be called as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(((l2-loss line) line-xs line-ys) (list 0.0 0.0))
+</pre>
+</div></li>
+
+<li><p>
+<span class="underline">Parameterized functions</span>
+</p>
+
+<p>
+Functions such as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(define line
+  (lambda (x)
+    (lambda (theta)
+      (+ (* (ref theta 0) x) (ref theta 1)))))
+</pre>
+</div>
+
+<p>
+are known as <b>parameterized functions</b>.
+</p>
+
+<p>
+Parameterized functions are used where we must figure out the right
+values for the parameters (here, theta 0 and theta 1) from given
+values of x and the corresponding values of y.
+</p>
+
+<p>
+In this case when line is invoked, for example, with the <b>argument</b> 8
+as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(line 8)
+</pre>
+</div>
+
+<p>
+we can say that it is waiting to accept arguments for its parameters
+<b>theta 0</b> and <b>theta 1</b>.
+</p>
+
+<p>
+Another thing to note is that when (line 8) is invoked on theta 0 and
+theta 1 as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((line 8) 4 6)
+</pre>
+</div>
+
+<p>
+we can then determine y.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde32033" class="outline-4">
+<h4 id="orgde32033"><span class="section-number-4">2.1.2.</span> Gradients</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li><p>
+<span class="underline">Gradient short definition</span>
+</p>
+
+<p>
+A gradient is a general way of understanding the rate of change of a
+parameterized function with respect to <b>all</b> its parameters.
+</p></li>
+
+<li><p>
+<span class="underline">Gradient fancy name</span>
+</p>
+
+<p>
+The gradient is a fancy word for derivative, or the rate of change of
+a function.
+</p>
+
+<p>
+The term "gradient" is typically used for functions with several
+inputs and a single output (a scalar field). Yes, you can say a line
+has a gradient (its slope), but using "gradient" for single-variable
+functions is unnecessarily confusing.
+</p></li>
+
+<li><p>
+<span class="underline">Gradient-of function short explanation</span>
+</p>
+
+<p>
+The result of the "gradient-of" function is a list of gradients of the
+<b>objective function</b> f with respect to each parameter in theta, and is
+referred to as the gradient list.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6e82853" class="outline-4">
+<h4 id="org6e82853"><span class="section-number-4">2.1.3.</span> Rate of change</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li><p>
+<span class="underline">Rate of change short definition</span>
+</p>
+
+<p>
+The rate of change of a function (of the <b>objective</b> function in most
+cases), such as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((l2-loss line) line-xs line-ys)
+</pre>
+</div>
+
+<p>
+determines how its result changes when its argument (i.e. theta) is
+revised.
+</p>
+
+<p>
+The rate of change is also known as the <b>derivative</b>.
+</p>
+
+<p>
+A more concrete example of this would be to invoke an objective
+function as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(((l2-loss line) line-xs line-ys) (list 0.0 0.0))
+</pre>
+</div>
+
+<p>
+which would achieve the objective of finding a well-fitted theta by
+returning the <b>loss</b> for this particular theta.
+</p>
+
+<p>
+If the returned loss was, for instance, 33.21, we would test the
+behaviour of "theta 0" to see how we should revise it. We then change
+"theta 0" by increasing it a small amount for testing purposes, so
+that our new "theta 0 is" 0.0099. If the loss goes down, for instance,
+to 32.59, we are slightly closer to our ideal loss. In other words we
+changed the loss by:
+</p>
+
+<p>
+(32.59 − 33.21) = −0.62
+</p>
+
+<p>
+Now that increasing our "theta 0" by 0.0099 has changed our loss by
+-0.62 we would say that our <b>rate of change</b> is:
+</p>
+
+<p>
+-0.62 / 0.0099 = -62.63
+</p></li>
+
+<li><p>
+<span class="underline">Rate of change calculation</span>
+</p>
+
+<p>
+The rate of change is determined by subtracting the old (which so far
+has been greater) loss from the new (which so far has been smaller)
+loss, and in our examples so far this has resulted in negative values.
+</p></li>
+
+<li><p>
+<span class="underline">Using the rate of change</span>
+</p>
+
+<p>
+Increasing theta from 0.0 by a small value can result in a rate of
+change which has a large <b>absolute value</b>, meaning that a small
+increase in theta causes a relatively large decrease in its loss.
+</p>
+
+<p>
+This idea can be used to determine how much further to revise theta so
+as to achieve a bigger loss. However we should be wary that the
+revision of theta moves us <b>closer</b> but does not <b>overshoot</b> the ideal
+loss.
+</p>
+
+<p>
+This problem can be resolved by taking a small scalar (like 0.01),
+<b>and multiply the rate of change by it and revise our theta by that amount</b>.
+</p>
+
+<p>
+This small scalar is known as the <b>learning rate</b>.
+</p></li>
+
+<li><p>
+<span class="underline">Theta revision after finding the rate of change</span>
+</p>
+
+<p>
+The rate of change is multiplied by alpha (the learning rate) and the
+returned (negative) value used to update/revise theta by subtracting
+from theta this negative value (which has resulted in a positive
+revision of theta so far).
+</p>
+
+<p>
+The rate of change <b>cannot</b> be reused as it depends on the current
+theta.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2d775a1" class="outline-4">
+<h4 id="org2d775a1"><span class="section-number-4">2.1.4.</span> RMSProp</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<ul class="org-ul">
+<li><p>
+<span class="underline">RMSProp short definition</span>
+</p>
+
+<p>
+This algorithm works by modifying the <b>fraction</b> of the <b>gradient</b> used at
+each revision.
+</p>
+
+<p>
+Since our alpha so far has been a constant, we know that it causes the
+velocity of the gradient descent to slow down in a similar way.
+</p>
+
+<p>
+Because alpha represents the fraction of the gradient we're going to
+use as our velocity, another approach to addressing this problem is to
+make this fraction <b>adaptive</b>. Adaptive here means that the fraction
+is decided based on the gradient and its <b>historical</b> values.
+</p></li>
+
+<li><p>
+<span class="underline">RMSProp reason for squaring gradient in smooth invocation</span>
+The gradient g can be negative, and if we get too many consecutive
+negative gradients, then our historical averages can themselves become
+negative.
+</p>
+
+<p>
+This is a problem because r gets used by the <b>modifier</b>" G i.e.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ (sqrt r) epsilon)
+</pre>
+</div>
+
+<p>
+and its being negative can make alpha-hat (i.e. the learning rate)
+negative. When that happens, we end up ascending the gradient instead
+of descending it.
+</p>
+
+<p>
+This means that we would move our theta in a direction that
+<b>increases</b> the loss instead of a direction that <b>decreases</b> the loss.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org72e1185" class="outline-4">
+<h4 id="org72e1185"><span class="section-number-4">2.1.5.</span> Update of parameters</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<p>
+The following function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(define naked-u
+  (lambda (P g)
+    (− P (* alpha g))))
+</pre>
+</div>
+
+<p>
+updates the parameters by multiplying the gradient g by the learning
+rate alpha, and subtracts the result from the parameter P to yield the
+next P, so that ultimately we get closer to a well-fitted theta.
+</p>
+</div>
+</div>
+<div id="outline-container-org36681e1" class="outline-4">
+<h4 id="org36681e1"><span class="section-number-4">2.1.6.</span> Velocity</h4>
+<div class="outline-text-4" id="text-2-1-6">
+<ul class="org-ul">
+<li><p>
+<span class="underline">Velocity of descent short definition</span>
+</p>
+
+<p>
+The <b>change</b> that we make to a given parameter at each revision is known
+as the <b>velocity of descent</b>.
+</p>
+
+<p>
+In the following expression:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(define naked-u
+  (lambda (P g)
+    (− P (* alpha g))))
+</pre>
+</div>
+
+<p>
+since we subtract (* alpha g), the change to P, (i.e., the velocity)
+is:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(− (* alpha g))
+</pre>
+</div></li>
+
+<li><p>
+<span class="underline">Velocity of descent slowing concept</span>
+</p>
+
+<p>
+We can observe from a loss graph with tangents, that as each tangent
+approaches the lowest point on a graph, they get less and less steep
+towards the bottom of the curve i.e. their slope (<b>the gradient</b>) gets
+smaller.
+</p>
+
+<p>
+In fact, as the curve's bottom is approached, the gradient gets closer
+and closer to 0.0.
+</p>
+
+<p>
+What happens when we multiply a really small gradient with a really
+small learning rate as we do:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(* alpha g)
+</pre>
+</div>
+
+<p>
+in update functions is that we get something even smaller. So at each
+revision closer to the bottom, the amount of change to each parameter
+gets smaller and smaller.
+</p>
+
+<p>
+Therefore we can say the <b>velocity of descent</b> slows down as we
+approach the bottom of the curve.
+</p></li>
+
+<li><p>
+<span class="underline">Velocity of descent speed up concept</span>
+</p>
+
+<p>
+The problem of the <b>velocity of descent</b> slowing down can be remedied
+by boosting our velocity. This is achieved by adding some fraction
+<b>mu</b> of the velocity <b>v</b>, of the previous revision, to the change we
+expect to make in the current revision.
+</p>
+
+<p>
+Therefore our velocity which was:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(− (* alpha g))
+</pre>
+</div>
+
+<p>
+becomes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ (* mu v) (- (* alpha g)))
+</pre>
+</div>
+
+<p>
+which is better written as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(- (* mu v) (* alpha g))
+</pre>
+</div>
+
+<p>
+Here, <b>v</b> represents the velocity of the most recent revision.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: dm</p>
+<p class="date">Created: 2024-05-17 Fri 06:20</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
