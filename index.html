@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-05-17 Fri 06:26 -->
+<!-- 2024-05-17 Fri 21:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>dm701</title>
@@ -32,8 +32,9 @@
 <li><a href="#orgde32033">2.1.2. Gradients</a></li>
 <li><a href="#org6e82853">2.1.3. Rate of change</a></li>
 <li><a href="#org2d775a1">2.1.4. RMSProp</a></li>
-<li><a href="#org72e1185">2.1.5. Update of parameters</a></li>
-<li><a href="#org36681e1">2.1.6. Velocity</a></li>
+<li><a href="#org860c051">2.1.5. Tensors</a></li>
+<li><a href="#org72e1185">2.1.6. Update of parameters</a></li>
+<li><a href="#org36681e1">2.1.7. Velocity</a></li>
 </ul>
 </li>
 </ul>
@@ -415,9 +416,158 @@ This means that we would move our theta in a direction that
 </ul>
 </div>
 </div>
-<div id="outline-container-org72e1185" class="outline-4">
-<h4 id="org72e1185"><span class="section-number-4">2.1.5.</span> Update of parameters</h4>
+<div id="outline-container-org860c051" class="outline-4">
+<h4 id="org860c051"><span class="section-number-4">2.1.5.</span> Tensors</h4>
 <div class="outline-text-4" id="text-2-1-5">
+<ul class="org-ul">
+<li><p>
+Here is a tensor<sup>1</sup>. A tensor<sup>1</sup> has only <b>scalars</b> and groups scalars
+together:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[5.0 7.18 3.1416]
+</pre>
+</div></li>
+
+<li><p>
+A tensor<sup>2</sup> can be thought of as a <b>matrix</b> or a <b>two-dimensional
+array</b>. The elements of a tensor<sup>2</sup> are tensors<sup>1</sup>, for example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[7 6 2 5] [3 8 6 9] [9 4 6 5]]
+</pre>
+</div>
+
+<p>
+has 3 elements:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[7 6 2 5]
+[3 8 6 9]
+</pre>
+</div>
+
+<p>
+and:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[9 4 6 5]
+</pre>
+</div>
+
+<p>
+Therefore if we have a tensor whose elements are tensors<sup>m</sup>, that
+makes it a tensor<sup>m+1</sup>. One condition however is that all the
+tensors<sup>m</sup> must have the same numbers of elements.
+</p></li>
+
+<li><p>
+A scalar such as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">9
+</pre>
+</div>
+
+<p>
+is also a tensor. It is a tensor<sup>0</sup>, but <b>zero-dimensional</b> arrays
+are rarely mentioned.
+</p></li>
+
+<li><p>
+The above superscripts have a name, they are known as the <b>rank</b> of
+the tensor. The rank of a tensor tells us how deeply nested its
+elements are. For instance, here is a tensor<sup>3</sup>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[[8 9] [4 7]]]
+</pre>
+</div>
+
+<p>
+this is because it has 1 tensor<sup>2</sup> element that has 2 tensor<sup>1</sup>
+elements of 2 scalars each.
+</p></li>
+
+<li><p>
+In any given tensor, the nested tensors have the same number of
+elements. For example, the nested tensors of tensors<sup>2</sup> are all
+tensors<sup>1</sup>, and each of those tensors<sup>1</sup> has the same number of
+tensors<sup>0</sup>.
+</p>
+
+<p>
+This means that the tensors<sup>m</sup> that are elements of a tensor<sup>m+1</sup>
+have the same <b>shape</b>.
+</p></li>
+
+<li><p>
+The <b>shape</b> of:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[5.2 6.3 8.0] [6.9 7.1 0.5]]
+</pre>
+</div>
+
+<p>
+is this list of positive natural numbers:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(list 2 3)
+</pre>
+</div>
+
+<p>
+because it is a tensor<sup>2</sup> of 2 tensors<sup>1</sup>, each of which has 3
+tensors<sup>0</sup> elements.
+</p>
+
+<p>
+The shape of:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[[5] [6] [8]] [[7] [9] [5]]]
+</pre>
+</div>
+
+<p>
+is:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(list 2 3 1)
+</pre>
+</div>
+
+<p>
+It is:
+</p>
+
+<ul class="org-ul">
+<li>a tensor<sup>3</sup> of 2 tensor<sup>2</sup> elements.</li>
+
+<li>Each of those tensor<sup>2</sup> has 3 tensor<sup>1</sup> elements.</li>
+
+<li>Each of those tensor<sup>1</sup> has 1 tensor<sup>0</sup> element, which is a scalar.</li>
+</ul></li>
+
+<li>Another useful thing to note is that the rank of a tensor is equal
+to the length of its shape.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org72e1185" class="outline-4">
+<h4 id="org72e1185"><span class="section-number-4">2.1.6.</span> Update of parameters</h4>
+<div class="outline-text-4" id="text-2-1-6">
 <p>
 The following function:
 </p>
@@ -437,8 +587,8 @@ next P, so that ultimately we get closer to a well-fitted theta.
 </div>
 </div>
 <div id="outline-container-org36681e1" class="outline-4">
-<h4 id="org36681e1"><span class="section-number-4">2.1.6.</span> Velocity</h4>
-<div class="outline-text-4" id="text-2-1-6">
+<h4 id="org36681e1"><span class="section-number-4">2.1.7.</span> Velocity</h4>
+<div class="outline-text-4" id="text-2-1-7">
 <ul class="org-ul">
 <li><p>
 <span class="underline">Velocity of descent short definition</span>
@@ -556,7 +706,7 @@ Here, <b>v</b> represents the velocity of the most recent revision.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: dm</p>
-<p class="date">Created: 2024-05-17 Fri 06:26</p>
+<p class="date">Created: 2024-05-17 Fri 21:00</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
