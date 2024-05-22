@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-05-17 Fri 21:00 -->
+<!-- 2024-05-22 Wed 11:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>dm701</title>
@@ -26,15 +26,33 @@
 <li><a href="#orgb9cc023">1. Github repositories</a></li>
 <li><a href="#org17eb1b2">2. Machine learning and deep learning</a>
 <ul>
-<li><a href="#org708d982">2.1. Little learner</a>
+<li><a href="#org8b0eb00">2.1. General</a>
 <ul>
-<li><a href="#org66c3199">2.1.1. Functions short definitions</a></li>
-<li><a href="#orgde32033">2.1.2. Gradients</a></li>
-<li><a href="#org6e82853">2.1.3. Rate of change</a></li>
-<li><a href="#org2d775a1">2.1.4. RMSProp</a></li>
-<li><a href="#org860c051">2.1.5. Tensors</a></li>
-<li><a href="#org72e1185">2.1.6. Update of parameters</a></li>
-<li><a href="#org36681e1">2.1.7. Velocity</a></li>
+<li><a href="#org5652949">2.1.1. Elementwise operations</a></li>
+<li><a href="#org4cf7bc6">2.1.2. Hadamard product</a></li>
+<li><a href="#org87f96a4">2.1.3. Tensor broadcasting</a></li>
+</ul>
+</li>
+<li><a href="#org708d982">2.2. Little learner</a>
+<ul>
+<li><a href="#orgb119b63">2.2.1. Functions</a>
+<ul>
+<li><a href="#org4444a28">2.2.1.1. Expectant and objective functions</a></li>
+<li><a href="#org38cd5df">2.2.1.2. Extended functions</a></li>
+<li><a href="#org8b98f70">2.2.1.3. Parameterized functions</a></li>
+</ul>
+</li>
+<li><a href="#orgde32033">2.2.2. Gradients</a></li>
+<li><a href="#org6e82853">2.2.3. Rate of change</a></li>
+<li><a href="#org2d775a1">2.2.4. RMSProp</a></li>
+<li><a href="#org860c051">2.2.5. Tensors</a>
+<ul>
+<li><a href="#orge231765">2.2.5.1. Tensor rank</a></li>
+<li><a href="#orgd4ebb43">2.2.5.2. Tensor shape</a></li>
+</ul>
+</li>
+<li><a href="#org72e1185">2.2.6. Update of parameters</a></li>
+<li><a href="#org36681e1">2.2.7. Velocity</a></li>
 </ul>
 </li>
 </ul>
@@ -59,24 +77,119 @@
 <h2 id="org17eb1b2"><span class="section-number-2">2.</span> Machine learning and deep learning</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org708d982" class="outline-3">
-<h3 id="org708d982"><span class="section-number-3">2.1.</span> Little learner</h3>
+<div id="outline-container-org8b0eb00" class="outline-3">
+<h3 id="org8b0eb00"><span class="section-number-3">2.1.</span> General</h3>
 <div class="outline-text-3" id="text-2-1">
-<p>
-This section is a series of notes about machine learning and deep
-learning in the context of the book
-<a href="https://www.thelittlelearner.com/">"The Little Learner: A straight line to deep learning"</a> by
-<i>Daniel P. Friedman and Anurag Mendhekar</i>
-</p>
 </div>
-<div id="outline-container-org66c3199" class="outline-4">
-<h4 id="org66c3199"><span class="section-number-4">2.1.1.</span> Functions short definitions</h4>
+<div id="outline-container-org5652949" class="outline-4">
+<h4 id="org5652949"><span class="section-number-4">2.1.1.</span> Elementwise operations</h4>
 <div class="outline-text-4" id="text-2-1-1">
-<ul class="org-ul">
-<li><p>
-<span class="underline">Expectant and objective functions</span>
+<p>
+In elementwise operations like addition, subtraction, and division,
+values that correspond positionally are combined to produce a new
+tensor. The first value in tensor <i>A</i> is paired with the first value
+in tensor <i>B</i>. The second value is paired with the second, and so
+on. This means the tensors must have equal dimensions (i.e. equal
+<a href="#orgd4ebb43">shapes</a>) in order to complete the operation.<br />
 </p>
 
+
+<div id="org789b34d" class="figure">
+<p><img src="img/Elementwise_operations.png" alt="Elementwise_operations.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Elementwise operation</p>
+</div>
+
+<p>
+Source: <a href="https://ml-cheatsheet.readthedocs.io/en/latest/linear_algebra.html#elementwise-operations">ML-cheatsheets</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org4cf7bc6" class="outline-4">
+<h4 id="org4cf7bc6"><span class="section-number-4">2.1.2.</span> Hadamard product</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+According to <a href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">wikipedia</a>, the <b>Hadamard product</b> (also known as <b>element
+wise product</b>) is an operation which takes in two matrices of the same
+shape and returns a matrix of the multiplied corresponding elements.
+</p>
+</div>
+</div>
+<div id="outline-container-org87f96a4" class="outline-4">
+<h4 id="org87f96a4"><span class="section-number-4">2.1.3.</span> Tensor broadcasting</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+According to <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">numpy</a>, tensor operations are usually done on pairs of
+tensors on an element-by-element basis. In the simplest case, the two
+tensors must have the exact same shape. For example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(* [1.0 2.0 3.0] [2.0 2.0 2.0])
+</pre>
+</div>
+
+<p>
+will return:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[2.0 4.0 6.0]
+</pre>
+</div>
+
+<p>
+Broadcasting rules can <b>relax</b> these constraints when the tensors'
+shapes meet certain constraints. The simplest broadcasting example
+occurs when a tensor and a scalar are combined in an operation:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(* [1.0 2.0 3.0] 2.0)
+</pre>
+</div>
+
+<p>
+returns:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[2.0 4.0 6.0]
+</pre>
+</div>
+
+<p>
+We can think of the scalar being <b>stretched</b> during the arithmetic
+operation, into a tensor the same shape as the first one. The new
+elements in the stretched tensor are just copies of the original
+scalar.
+</p>
+
+
+<div id="orgea804e7" class="figure">
+<p><img src="img/broadcasting_1.png" alt="broadcasting_1.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>In the simplest example of broadcasting, the scalar <b>b</b> is stretched to become an array of same shape as <b>a</b> so the shapes are compatible for element-by-element multiplication. Source <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">Numpy</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org708d982" class="outline-3">
+<h3 id="org708d982"><span class="section-number-3">2.2.</span> Little learner</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+This section is a series of notes about machine learning and deep
+learning in the context of the book <a href="https://www.thelittlelearner.com/">"The Little Learner: A straight
+line to deep learning"</a> by <i>Daniel P. Friedman and Anurag Mendhekar</i>.
+</p>
+</div>
+<div id="outline-container-orgb119b63" class="outline-4">
+<h4 id="orgb119b63"><span class="section-number-4">2.2.1.</span> Functions</h4>
+<div class="outline-text-4" id="text-2-2-1">
+</div>
+<div id="outline-container-org4444a28" class="outline-5">
+<h5 id="org4444a28"><span class="section-number-5">2.2.1.1.</span> Expectant and objective functions</h5>
+<div class="outline-text-5" id="text-2-2-1-1">
 <p>
 A function invocation such as:
 </p>
@@ -144,12 +257,401 @@ The objective function would be called as such:
 <div class="org-src-container">
 <pre class="src src-racket">(((l2-loss line) line-xs line-ys) (list 0.0 0.0))
 </pre>
-</div></li>
-
+</div>
+</div>
+</div>
+<div id="outline-container-org38cd5df" class="outline-5">
+<h5 id="org38cd5df"><span class="section-number-5">2.2.1.2.</span> Extended functions</h5>
+<div class="outline-text-5" id="text-2-2-1-2">
+<ul class="org-ul">
 <li><p>
-<span class="underline">Parameterized functions</span>
+In the context of this book, some functions were built to work on
+both scalars and tensors. They are referred as <b>extended</b>
+functions.<br />
+For instance, the function:
 </p>
 
+<div class="org-src-container">
+<pre class="src src-racket">+
+</pre>
+</div>
+
+<p>
+is one of them.<br />
+Other functions that work with scalars can be extended similarly.
+</p></li>
+
+<li><p>
+In its "regular" (i.e. non-extended) way, the function + works as
+such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ 1 1)
+5
+</pre>
+</div>
+
+<p>
+However, because + is built using <b>extension</b> it can also work on
+tensors:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ [2] [7])
+[9]
+</pre>
+</div>
+
+<p>
+here is a "same-as" chart to illustrate how this results in [9]:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ [2] [7])
+[(+ 2 7)]
+[9]
+</pre>
+</div>
+
+<p>
+When there is a function invocation like + on tensors, we look
+inside those tensors to determine the invocation's final value.
+</p>
+
+<p>
+Here is another example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ [5 6 7] [2 0 1])
+</pre>
+</div>
+
+<p>
+transcribes as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[(+ 5 2) (+ 6 0) (+ 7 1)]
+</pre>
+</div>
+
+<p>
+and results in:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[7 6 8]
+</pre>
+</div>
+
+<p>
+It's as if + <b>descends</b> into its tensor<sup>1</sup> arguments to results in
+another tensor<sup>1</sup>. The last step results in the tensor<sup>1</sup> of the
+values of the three sums.
+</p>
+
+<p>
+We can also add 2 tensors<sup>2</sup> of the same shape, for instance:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ [[4 6 7] [2 0 1]]
+   [[1 2 2] [6 3 1]])
+</pre>
+</div>
+
+<p>
+transcribes as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[(+ [4 6 7] [1 2 2])
+ (+ [2 0 1] [6 3 1])]
+
+[[(+ 4 1) (+ 6 2) (+ 7 2)]
+ [(+ 2 6) (+ 0 3) (+ 1 1)]]
+</pre>
+</div>
+
+<p>
+and results in:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[5 8 9] [8 3 2]]
+</pre>
+</div>
+
+<p>
+The authors then go on to explain that tensors <b>must</b> be of the same
+shape before they can be added together, and that getting functions
+such as + to work on tensors of <b>arbitrary</b> ranks is known as
+<b>pointwise extension</b>. This however seems to be more commonly known
+as <a href="#org5652949">elementwise operations</a>.
+</p></li>
+
+<li><p>
+The point by the authors that tensors <b>must</b> have the same shape
+before computation can be performed on them is, later in the text,
+contradicted and unfortunately not very well explained. Nevertheless
+we are shown that the following operation can actually be performed
+on tensors:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ 4 [3 6 5])
+</pre>
+</div>
+
+<p>
+by doing this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[(+ 4 3) (+ 4 6) (+ 4 5)]
+</pre>
+</div>
+
+<p>
+which results in:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[7 10 9]
+</pre>
+</div>
+
+<p>
+Another example given is:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(+ [6 9 1] [[4 3 8] [7 4 7]])
+</pre>
+</div>
+
+<p>
+and in this case, we can look inside the tensor<sup>2</sup> argument and add
+the tensor<sup>1</sup> argument just as we did in the previous addition:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[(+ [6 9 1] [4 3 8])
+ (+ [6 9 1] [7 4 7])]
+
+[[(+ 6 4) (+ 9 3) (+ 1 8)]
+ [(+ 6 7) (+ 9 4) (+ 1 7)]]
+</pre>
+</div>
+
+<p>
+which results in:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[10 12 9] [13 13 8]]
+</pre>
+</div>
+
+<p>
+This is in fact called <a href="#org87f96a4">tensor broadcasting</a>.
+</p></li>
+
+<li><p>
+The reader is subsequently introduced to the extended version of:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">*
+</pre>
+</div>
+
+<p>
+with the following operation:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(* [[4 6 5] [6 9 7]] 3)
+</pre>
+</div>
+
+<p>
+and these are the steps:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[(* [4 6 5] 3) (* [6 9 7] 3)]
+
+[[(* 4 3) (* 6 3) (* 5 3)]
+ [(* 6 3) (* 9 3) (* 7 3)]]
+</pre>
+</div>
+
+<p>
+which returns:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[12 18 15] [18 27 14]]
+</pre>
+</div>
+
+<p>
+We are told that this is the <b>Hadamard multiplication</b>.<br />
+Upon further research this does not appear to fit the definition of
+the Hadamard multiplication, or rather <a href="#org4cf7bc6">Hadamard product</a>, but a
+simple tensor to scalar multiplication which involves broadcasting.
+</p></li>
+
+<li><p>
+Other extended functions such as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">sqrt
+</pre>
+</div>
+
+<p>
+descend into tensors. In the case of a tensor<sup>1</sup>, this is how sqrt
+works:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(sqrt [9 16 25])
+
+[(sqrt 9) (sqrt 16) (sqrt 25)]
+</pre>
+</div>
+
+<p>
+which returns:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[3 4 5]
+</pre>
+</div>
+
+<p>
+In the case of a tensor<sup>2</sup>, it works this way:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(sqrt [[49 81 16] [64 25 36]])
+
+[(sqrt [[49 81 16]]) (sqrt [[64 25 36]])]
+
+[[(sqrt 49) (sqrt 81) (sqrt 16)]
+ [(sqrt 64) (sqrt 25) (sqrt 36)]]
+</pre>
+</div>
+
+<p>
+and this results in:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[7 9 4] [8 5 6]]
+</pre>
+</div>
+
+<p>
+In other words, the function descends inside each tensor<sup>1</sup> until it
+finds a tensor<sup>0</sup> at which point it gets their square root.<br />
+However, not all extended functions descend until they find scalars.
+The function
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">sum
+</pre>
+</div>
+
+<p>
+which extends the function
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">sum-1
+</pre>
+</div>
+
+<p>
+descends into its argument until it finds a tensor<sup>1</sup> instead of a
+tensor<sup>0</sup>.<br />
+This is how sum-1 is defined:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(define sum1
+  (lambda (t)
+    (summed t (sub1 ) 0.0)))
+
+(define summed
+  (lambda (t i a)
+    (cond
+      ((zero? i) (+ (tref t 0) a))
+      (else
+       (summed t (sub1 i) (+ (tref t i) a))))))
+</pre>
+</div>
+
+<p>
+And this is how it behaves:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(sum-1 [10.0 12.0 14.0])
+</pre>
+</div>
+
+<p>
+which returns:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">32
+</pre>
+</div>
+
+<p>
+Here's <i>sum</i> working on a tensor<sup>3</sup>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(sum [[[1 2] [3 4]] [[5 6] [7 8]]])
+
+[(sum [[1 2] [3 4]])
+ (sum [[5 6] [7 8]])]
+
+[[(sum-1 [1 2]) (sum-1 [3 4])]
+ [(sum-1 [5 6]) (sum-1 [7 8])]]
+</pre>
+</div>
+
+<p>
+which results in:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[[3 7] [11 15]]
+</pre>
+</div>
+
+<p>
+What can be noted about the rank of the resulting tensor is that it
+is <b>one rank less than the rank of the input</b>. In this case the
+input tensor was rank 3 and the output tensor is rank 2.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8b98f70" class="outline-5">
+<h5 id="org8b98f70"><span class="section-number-5">2.2.1.3.</span> Parameterized functions</h5>
+<div class="outline-text-5" id="text-2-2-1-3">
 <p>
 Functions such as:
 </p>
@@ -199,13 +701,13 @@ theta 1 as such:
 
 <p>
 we can then determine y.
-</p></li>
-</ul>
+</p>
+</div>
 </div>
 </div>
 <div id="outline-container-orgde32033" class="outline-4">
-<h4 id="orgde32033"><span class="section-number-4">2.1.2.</span> Gradients</h4>
-<div class="outline-text-4" id="text-2-1-2">
+<h4 id="orgde32033"><span class="section-number-4">2.2.2.</span> Gradients</h4>
+<div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li><p>
 <span class="underline">Gradient short definition</span>
@@ -245,8 +747,8 @@ referred to as the gradient list.
 </div>
 </div>
 <div id="outline-container-org6e82853" class="outline-4">
-<h4 id="org6e82853"><span class="section-number-4">2.1.3.</span> Rate of change</h4>
-<div class="outline-text-4" id="text-2-1-3">
+<h4 id="org6e82853"><span class="section-number-4">2.2.3.</span> Rate of change</h4>
+<div class="outline-text-4" id="text-2-2-3">
 <ul class="org-ul">
 <li><p>
 <span class="underline">Rate of change short definition</span>
@@ -296,7 +798,7 @@ changed the loss by:
 </p>
 
 <p>
-(32.59 − 33.21) = −0.62
+(32.59 - 33.21) = -0.62
 </p>
 
 <p>
@@ -363,8 +865,8 @@ theta.
 </div>
 </div>
 <div id="outline-container-org2d775a1" class="outline-4">
-<h4 id="org2d775a1"><span class="section-number-4">2.1.4.</span> RMSProp</h4>
-<div class="outline-text-4" id="text-2-1-4">
+<h4 id="org2d775a1"><span class="section-number-4">2.2.4.</span> RMSProp</h4>
+<div class="outline-text-4" id="text-2-2-4">
 <ul class="org-ul">
 <li><p>
 <span class="underline">RMSProp short definition</span>
@@ -417,8 +919,8 @@ This means that we would move our theta in a direction that
 </div>
 </div>
 <div id="outline-container-org860c051" class="outline-4">
-<h4 id="org860c051"><span class="section-number-4">2.1.5.</span> Tensors</h4>
-<div class="outline-text-4" id="text-2-1-5">
+<h4 id="org860c051"><span class="section-number-4">2.2.5.</span> Tensors</h4>
+<div class="outline-text-4" id="text-2-2-5">
 <ul class="org-ul">
 <li><p>
 Here is a tensor<sup>1</sup>. A tensor<sup>1</sup> has only <b>scalars</b> and groups scalars
@@ -478,7 +980,12 @@ A scalar such as:
 is also a tensor. It is a tensor<sup>0</sup>, but <b>zero-dimensional</b> arrays
 are rarely mentioned.
 </p></li>
-
+</ul>
+</div>
+<div id="outline-container-orge231765" class="outline-5">
+<h5 id="orge231765"><span class="section-number-5">2.2.5.1.</span> Tensor rank</h5>
+<div class="outline-text-5" id="text-2-2-5-1">
+<ul class="org-ul">
 <li><p>
 The above superscripts have a name, they are known as the <b>rank</b> of
 the tensor. The rank of a tensor tells us how deeply nested its
@@ -506,7 +1013,13 @@ tensors<sup>0</sup>.
 This means that the tensors<sup>m</sup> that are elements of a tensor<sup>m+1</sup>
 have the same <b>shape</b>.
 </p></li>
-
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd4ebb43" class="outline-5">
+<h5 id="orgd4ebb43"><span class="section-number-5">2.2.5.2.</span> Tensor shape</h5>
+<div class="outline-text-5" id="text-2-2-5-2">
+<ul class="org-ul">
 <li><p>
 The <b>shape</b> of:
 </p>
@@ -565,9 +1078,10 @@ to the length of its shape.</li>
 </ul>
 </div>
 </div>
+</div>
 <div id="outline-container-org72e1185" class="outline-4">
-<h4 id="org72e1185"><span class="section-number-4">2.1.6.</span> Update of parameters</h4>
-<div class="outline-text-4" id="text-2-1-6">
+<h4 id="org72e1185"><span class="section-number-4">2.2.6.</span> Update of parameters</h4>
+<div class="outline-text-4" id="text-2-2-6">
 <p>
 The following function:
 </p>
@@ -587,8 +1101,8 @@ next P, so that ultimately we get closer to a well-fitted theta.
 </div>
 </div>
 <div id="outline-container-org36681e1" class="outline-4">
-<h4 id="org36681e1"><span class="section-number-4">2.1.7.</span> Velocity</h4>
-<div class="outline-text-4" id="text-2-1-7">
+<h4 id="org36681e1"><span class="section-number-4">2.2.7.</span> Velocity</h4>
+<div class="outline-text-4" id="text-2-2-7">
 <ul class="org-ul">
 <li><p>
 <span class="underline">Velocity of descent short definition</span>
@@ -706,7 +1220,7 @@ Here, <b>v</b> represents the velocity of the most recent revision.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: dm</p>
-<p class="date">Created: 2024-05-17 Fri 21:00</p>
+<p class="date">Created: 2024-05-22 Wed 11:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
