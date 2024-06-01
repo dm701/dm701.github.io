@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-05-25 Sat 21:27 -->
+<!-- 2024-06-01 Sat 06:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>dm701</title>
@@ -40,11 +40,16 @@
 <ul>
 <li><a href="#org4444a28">Expectant and objective functions</a></li>
 <li><a href="#org38cd5df">Extended functions</a></li>
-<li><a href="#org7925b9e">Loss function</a></li>
+<li><a href="#orgee35afe">Loss function</a></li>
 <li><a href="#org8b98f70">Parameterized functions</a></li>
 </ul>
 </li>
-<li><a href="#orgde32033">Gradients</a></li>
+<li><a href="#orgde32033">Gradients</a>
+<ul>
+<li><a href="#org9639605">Nomenclature</a></li>
+<li><a href="#org7161a33">Gradient descent</a></li>
+</ul>
+</li>
 <li><a href="#org6e82853">Rate of change</a></li>
 <li><a href="#org2d775a1">RMSProp</a></li>
 <li><a href="#org860c051">Tensors</a>
@@ -110,7 +115,7 @@ on. This means the tensors must have equal dimensions (i.e. equal
 <p>
 The <b>Hadamard product</b> (also known as <b>element wise product</b>) is an
 operation which takes in two matrices of the same shape and returns a
-matrix of the multiplied corresponding elements (source <a href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">wikipedia</a>).
+matrix of the multiplied corresponding elements (source: <a href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">wikipedia</a>).
 </p>
 </div>
 </div>
@@ -267,11 +272,11 @@ which in a "same-as" chart transcribes as:
 </div>
 
 <p>
-produces a function which <b>awaits</b> a theta. The name of the produced
-function is known as an <b>objective</b> function. When provided with a
-theta, the objective function returns a scalar representing the
-<b>loss</b>, which is a measure of how far away we are from the well fitted
-theta.
+it produces a function which <b>awaits</b> a &theta;. The name of the
+produced function is known as an <a id="org7925b9e"></a>*objective*
+function. When provided with a &theta;, the objective function
+returns a scalar representing the <a href="#orgee35afe">loss</a>, which is a measure of how
+far away we are from the well fitted &theta;.
 </p>
 
 <p>
@@ -282,6 +287,24 @@ The objective function would be called as such:
 <pre class="src src-racket">(((l2-loss line) line-xs line-ys) (list 0.0 0.0))
 </pre>
 </div>
+
+<p>
+<b>Key point</b>:
+</p>
+
+<p>
+One ought to be mindful that
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((l2-loss line) line-xs line-ys)
+</pre>
+</div>
+
+<p>
+is <b>not</b> a direct function call. It is itself a function which takes
+a &theta; as input.
+</p>
 </div>
 </div>
 <div id="outline-container-org38cd5df" class="outline-5">
@@ -673,28 +696,28 @@ input tensor was rank 3 and the output tensor is rank 2.
 </ul>
 </div>
 </div>
-<div id="outline-container-org7925b9e" class="outline-5">
-<h5 id="org7925b9e">Loss function</h5>
-<div class="outline-text-5" id="text-org7925b9e">
+<div id="outline-container-orgee35afe" class="outline-5">
+<h5 id="orgee35afe">Loss function</h5>
+<div class="outline-text-5" id="text-orgee35afe">
 <p>
 The loss function, also called <b>cost</b> or <b>error</b> function (source:
 <a href="https://en.wikipedia.org/wiki/Loss_function">wikipedia</a>), is a mathematical process that quantifies the error margin
 between a model's prediction and the actual target value. It acts as a
 guide for the learning process within a machine learning algorithm
 (source: <a href="https://www.datacamp.com/tutorial/loss-function-in-machine-learning">datacamp</a>), to tell us how far we are from a well-fitted
-theta.
+&theta;.
 </p>
 
 <p>
 A scalar is required in order to gauge how far we are from the
-well-fitted theta, which is known as the <b>loss</b>. The loss should be as
+well-fitted &theta;, which is known as the <b>loss</b>. The loss should be as
 close to 0.0 as possible.
 </p>
 
 <p>
-This loss is determined every time theta is revised, and since the
-loss shows how far we are from the well-fitted theta, it is used as
-guide for revising theta.
+This loss is determined every time &theta; is revised, and since the
+loss shows how far we are from the well-fitted &theta;, it is used as
+guide for revising &theta;.
 </p>
 
 <p>
@@ -711,7 +734,7 @@ figuring out the difference between the given <i>ys</i> and the predicted
 
 <p>
 This however, would not be good enough as if we had a dataset and a
-theta that gave us a tensor difference of:
+&theta; that gave us a tensor difference of:
 </p>
 
 <div class="org-src-container">
@@ -731,7 +754,7 @@ the result of:
 <p>
 would return an ideal loss of 0.0, which is incorrect. As can be
 observed, although the individual difference are significant in most
-cases, the sum of 0.0 suggests that the theta is a perfect fit.
+cases, the sum of 0.0 suggests that the &theta; is a perfect fit.
 </p>
 
 <p>
@@ -786,7 +809,7 @@ are known as <b>parameterized functions</b>.
 
 <p>
 Parameterized functions are used where we must figure out the right
-values for the parameters (here, theta 0 and theta 1) from given
+values for the parameters (here, &theta;<sub>0</sub> and &theta;<sub>1</sub>) from given
 values of x and the corresponding values of y.
 </p>
 
@@ -802,12 +825,12 @@ as such:
 
 <p>
 we can say that it is waiting to accept arguments for its parameters
-<b>theta 0</b> and <b>theta 1</b>.
+&theta;<sub>0</sub> and &theta;<sub>1</sub>.
 </p>
 
 <p>
-Another thing to note is that when (line 8) is invoked on theta 0 and
-theta 1 as such:
+Another thing to note is that when (line 8) is invoked on &theta;<sub>0</sub> and
+&theta;<sub>1</sub> as such:
 </p>
 
 <div class="org-src-container">
@@ -824,6 +847,10 @@ we can then determine y.
 <div id="outline-container-orgde32033" class="outline-4">
 <h4 id="orgde32033">Gradients</h4>
 <div class="outline-text-4" id="text-orgde32033">
+</div>
+<div id="outline-container-org9639605" class="outline-5">
+<h5 id="org9639605">Nomenclature</h5>
+<div class="outline-text-5" id="text-org9639605">
 <ul class="org-ul">
 <li><p>
 <span class="underline">Gradient short definition</span>
@@ -847,19 +874,247 @@ a function.
 The term "gradient" is typically used for functions with several
 inputs and a single output (a scalar field). Yes, you can say a line
 has a gradient (its slope), but using "gradient" for single-variable
-functions is unnecessarily confusing.
+functions is unnecessarily confusing (source: <a href="https://betterexplained.com/articles/vector-calculus-understanding-the-gradient/">betterexplained</a>).
 </p></li>
 
 <li><p>
-<span class="underline">Gradient-of function short explanation</span>
+<span class="underline"><a id="org0ce0959"></a>&nabla; function short explanation</span>
 </p>
 
 <p>
-The result of the "gradient-of" function is a list of gradients of the
-<b>objective function</b> f with respect to each parameter in theta, and is
-referred to as the gradient list.
+To find the gradient of a function at given values of its arguments,
+we need to use the function &nabla; (i.e. <i>gradient-of</i>). The first
+argument to &nabla; is a function <i>f</i> (an <a href="#org7925b9e">objective function</a>) that
+computes the <a href="#orgee35afe">loss</a> (a scalar value) using a dataset and the list of
+parameters &theta; as its input. The second argument to &nabla; is the
+initial values of &theta;, the parameters for which we want to
+compute the gradients of the function <i>f</i>.<br />
+In other words &nabla; computes the gradient of <b>another function</b>
+with respect to its parameters.
+</p>
+
+<p>
+The way to call &nabla; is like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(gradient-of ((l2-loss line) line-xs line-ys) (list 0.0 0.0))
+</pre>
+</div>
+
+<p>
+and this is a detailed explanation of how it works:
+</p>
+
+<p>
+<b>Key points</b>:
+</p>
+
+<ol class="org-ol">
+<li><p>
+The (<a href="#org7925b9e">objective</a>) function <i>f</i> generated by
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((l2-loss line) line-xs line-ys)
+</pre>
+</div>
+
+<p>
+is designed to take &theta; (<b>a list of tensors</b>) as its input.
+</p></li>
+
+<li>The &nabla; function itself manages the passing of &theta; to <i>f</i>
+internally.</li>
+
+<li>Inside &nabla;:
+
+<ul class="org-ul">
+<li><i>f</i> is invoked with <i>dual numbers</i> version of &theta;.</li>
+
+<li>This invocation effectively passes the &theta; values to <i>f</i>.</li>
+</ul></li>
+</ol>
+
+<p>
+The result of the &nabla; function is a list of gradients of the
+<a href="#org7925b9e">objective function</a> with respect to <b>each</b> parameter in &theta;, and
+is referred to as the gradient list.
 </p></li>
 </ul>
+</div>
+</div>
+<div id="outline-container-org7161a33" class="outline-5">
+<h5 id="org7161a33">Gradient descent</h5>
+<div class="outline-text-5" id="text-org7161a33">
+<p>
+Here is a graph of what is referred to (in this particular book) as
+a <b>loss curve</b>:
+</p>
+
+
+<div id="org7f6f53b" class="figure">
+<p><img src="img/LL_loss_curve.png" alt="LL_loss_curve.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Loss curve</p>
+</div>
+
+<p>
+The <i>y</i>-axis represents the <a href="#orgee35afe">loss</a> and the <i>x</i>-axis represents &theta;<sub>0</sub>,
+which is also referred to as <b>weight</b>. So for any possible value of
+the weight, this graph shows the corresponding value of the loss <b>as
+an orange dot</b>.<br />
+To draw this graph five weights (i.e. <b>five different values for</b>
+&theta;<sub>0</sub>) were chosen, -1.0, 0.0, 1.0, 2.0, and 3.0.
+</p>
+
+<p>
+For each weight, we determine its corresponding loss while keeping
+&theta;<sub>1</sub> (i.e. the <b>bias</b>) at 0.0, using the following dataset:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[2.0 1.0 4.0 3.0]
+</pre>
+</div>
+
+<p>
+for the x values (<i>line-xs</i>), and
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">[1.8 1.2 4.2 3.3]
+</pre>
+</div>
+
+<p>
+for the y values (<i>line-ys</i>).<br />
+Subsequently, this <a href="#org4444a28">objective functions</a> (<i>obj</i>) is used:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((l2-loss line) line-xs line-ys)
+</pre>
+</div>
+
+<p>
+by providing it with a &theta; which is constructed out of each of
+those five weights for &theta;<sub>0</sub>, and 0.0 for &theta;<sub>1</sub> (the bias). In
+other words, the <i>obj</i> expression takes parameters as its arguments
+and returns a scalar which represents the loss.<br />
+Those are the corresponding losses for each weight:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(obj (list -1.0 0.0))
+
+=&gt; 126.21
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-racket">(obj (list 0.0 0.0))
+
+=&gt; 33.21
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-racket">(obj (list 1.0 0.0))
+
+=&gt; 0.21
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-racket">(obj (list 2.0 0.0))
+
+=&gt; 27.21
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-racket">(obj (list 3.0 0.0))
+
+=&gt; 114.21
+</pre>
+</div>
+
+<p>
+This type of graph is used to show <i>quantities</i> that are <b>not</b> part of
+the dataset. In this context, <i>quantities</i> are values or metrics that
+are derived from the model and its training process (i.e. <b>the
+relationship between the loss and</b> &theta;) rather than being directly
+observed data points (i.e. <b>these are not part of the raw input
+data</b>).<br />
+In other words, the graph illustrates internal aspects of the model
+(like the parameter values and loss) rather than showing the raw input
+data directly. This distinction is important because it shifts the
+focus from the data itself to the model's behavior and performance
+during training.
+</p>
+
+<p>
+We can see on the graph that an estimate weight value of 0.0 for
+&theta;<sub>0</sub> (whilst keeping &theta;<sub>1</sub> at 0.0) corresponds to a loss of
+33.21. The point (0.0, 33.21) is circled in this graph:
+</p>
+
+
+<div id="orgb948b55" class="figure">
+<p><img src="img/LL_loss_curve_2.png" alt="LL_loss_curve_2.png" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Loss curve</p>
+</div>
+
+<p>
+One can also observe that the loss is lowest at the <b>bottom</b> of the
+curve. Because of this, what we need to do is to <i>roll</i> down the curve
+to get to its bottom. The idea is to roll down as fast as possible
+without <a href="#org9beed48">overshooting</a>, we use the <a href="#org6e82853">rate of change</a> for this.
+</p>
+
+<p>
+Here's how the rate of change is represented on the loss curve:
+</p>
+
+
+<div id="org2dc1f56" class="figure">
+<p><img src="img/LL_loss_curve_3.png" alt="LL_loss_curve_3.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Loss curve with tangent</p>
+</div>
+
+<p>
+The turquoise line is known as a <i>tangent</i> and touches the curve at
+exactly <b>one</b> point, which in this case is (0.0 33.21). The rate of
+change determined is the <i>slope</i> of the tangent, it is called the
+<a href="#org9639605">gradient</a>.
+</p>
+
+<p>
+Now if we were to <a href="#orgde0f8b8">revise</a> our &theta;<sub>0</sub> by, say 0.6623, this is how the
+loss curve would look like:
+</p>
+
+
+<div id="orgfa898cb" class="figure">
+<p><img src="img/LL_loss_curve_4.png" alt="LL_loss_curve_4.png" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Loss curve with tangents</p>
+</div>
+
+<p>
+What's interesting about this graph is that the second (revised)
+tangent is less steep compared to the tangent for the initial &theta;<sub>0</sub>
+estimate (of 0.0). Therefore, the gradient of the second is lower than
+the first.
+</p>
+
+<p>
+In order to find the gradient we need to use the function <a href="#org0ce0959">&nabla;</a>.
+</p>
+</div>
 </div>
 </div>
 <div id="outline-container-org6e82853" class="outline-4">
@@ -871,7 +1126,7 @@ referred to as the gradient list.
 </p>
 
 <p>
-The rate of change of a function (of the <b>objective</b> function in most
+The rate of change of a function (of the <a href="#org4444a28">objective</a> function in most
 cases), such as:
 </p>
 
@@ -881,7 +1136,7 @@ cases), such as:
 </div>
 
 <p>
-determines how its result changes when its argument (i.e. theta) is
+determines how its result changes when its argument (i.e. &theta;) is
 revised.
 </p>
 
@@ -900,17 +1155,17 @@ function as such:
 </div>
 
 <p>
-which would achieve the objective of finding a well-fitted theta by
-returning the <b>loss</b> for this particular theta.
+which would achieve the objective of finding a well-fitted &theta; by
+returning the <a href="#orgee35afe">loss</a> for this particular &theta;.
 </p>
 
 <p>
 If the returned loss was, for instance, 33.21, we would test the
-behaviour of "theta 0" to see how we should revise it. We then change
-"theta 0" by increasing it a small amount for testing purposes, so
-that our new "theta 0 is" 0.0099. If the loss goes down, for instance,
-to 32.59, we are slightly closer to our ideal loss. In other words we
-changed the loss by:
+behaviour of &theta;<sub>0</sub> to see how we should revise it. We then change
+&theta;<sub>0</sub> by increasing it a small amount for testing purposes, so
+that our new &theta;<sub>0</sub> is 0.0099. If the loss goes down, for
+instance, to 32.59, we are slightly closer to our ideal loss. In
+other words we changed the loss by:
 </p>
 
 <p>
@@ -918,7 +1173,7 @@ changed the loss by:
 </p>
 
 <p>
-Now that increasing our "theta 0" by 0.0099 has changed our loss by
+Now that increasing our &theta;<sub>0</sub> by 0.0099 has changed our loss by
 -0.62 we would say that our <b>rate of change</b> is:
 </p>
 
@@ -941,21 +1196,22 @@ loss, and in our examples so far this has resulted in negative values.
 </p>
 
 <p>
-Increasing theta from 0.0 by a small value can result in a rate of
+Increasing &theta; from 0.0 by a small value can result in a rate of
 change which has a large <b>absolute value</b>, meaning that a small
-increase in theta causes a relatively large decrease in its loss.
+increase in &theta; causes a relatively large decrease in its loss.
 </p>
 
 <p>
-This idea can be used to determine how much further to revise theta so
-as to achieve a bigger loss. However we should be wary that the
-revision of theta moves us <b>closer</b> but does not <b>overshoot</b> the ideal
-loss.
+This idea can be used to determine how much further to revise &theta;
+so as to achieve a bigger loss. However we should be wary that the
+revision of &theta; moves us <b>closer</b> but does not <a id="org9beed48"></a>
+<b>overshoot</b> the ideal loss.
 </p>
 
 <p>
 This problem can be resolved by taking a small scalar (like 0.01),
-<b>and multiply the rate of change by it and revise our theta by that amount</b>.
+<b>and multiply the rate of change by it and revise our</b> &theta; <b>by
+that amount</b>.
 </p>
 
 <p>
@@ -963,19 +1219,19 @@ This small scalar is known as the <b>learning rate</b>.
 </p></li>
 
 <li><p>
-<span class="underline">Theta revision after finding the rate of change</span>
+<span class="underline">&theta; <a id="orgde0f8b8"></a>revision after finding the rate of change</span>
 </p>
 
 <p>
 The rate of change is multiplied by alpha (the learning rate) and the
-returned (negative) value used to update/revise theta by subtracting
-from theta this negative value (which has resulted in a positive
-revision of theta so far).
+returned (negative) value used to update/revise &theta; by subtracting
+from &theta; this negative value (which has resulted in a positive
+revision of &theta; so far).
 </p>
 
 <p>
 The rate of change <b>cannot</b> be reused as it depends on the current
-theta.
+&theta;.
 </p></li>
 </ul>
 </div>
@@ -1031,8 +1287,9 @@ of descending it.
 </p>
 
 <p>
-This means that we would move our theta in a direction that
-<b>increases</b> the loss instead of a direction that <b>decreases</b> the loss.
+This means that we would move our &theta; in a direction that
+<b>increases</b> the loss instead of a direction that <b>decreases</b> the
+loss.
 </p></li>
 </ul>
 </div>
@@ -1215,7 +1472,7 @@ The following function:
 <p>
 updates the parameters by multiplying the gradient g by the learning
 rate alpha, and subtracts the result from the parameter P to yield the
-next P, so that ultimately we get closer to a well-fitted theta.
+next P, so that ultimately we get closer to a well-fitted &theta;.
 </p>
 </div>
 </div>
@@ -1339,7 +1596,7 @@ Here, <b>v</b> represents the velocity of the most recent revision.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: dm</p>
-<p class="date">Created: 2024-05-25 Sat 21:27</p>
+<p class="date">Created: 2024-06-01 Sat 06:56</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
