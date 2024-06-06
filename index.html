@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-06-01 Sat 06:56 -->
+<!-- 2024-06-06 Thu 20:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>dm701</title>
@@ -15,6 +15,38 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -28,6 +60,8 @@
 <ul>
 <li><a href="#org8b0eb00">General</a>
 <ul>
+<li><a href="#org42785c0"><span class="todo TODO">TODO</span> Automatic differentiation</a></li>
+<li><a href="#orge9336c7"><span class="todo TODO">TODO</span> Dual numbers</a></li>
 <li><a href="#org5652949">Elementwise operations</a></li>
 <li><a href="#org4cf7bc6">Hadamard product</a></li>
 <li><a href="#org99c01cb">Outliers</a></li>
@@ -36,6 +70,7 @@
 </li>
 <li><a href="#org708d982">Little learner</a>
 <ul>
+<li><a href="#org371ea22">Basic machine learning</a></li>
 <li><a href="#orgb119b63">Functions</a>
 <ul>
 <li><a href="#org4444a28">Expectant and objective functions</a></li>
@@ -88,21 +123,21 @@
 <h3 id="org8b0eb00">General</h3>
 <div class="outline-text-3" id="text-org8b0eb00">
 </div>
+<div id="outline-container-org42785c0" class="outline-4">
+<h4 id="org42785c0"><span class="todo TODO">TODO</span> Automatic differentiation</h4>
+</div>
+<div id="outline-container-orge9336c7" class="outline-4">
+<h4 id="orge9336c7"><span class="todo TODO">TODO</span> <a id="org67bce01"></a>Dual numbers</h4>
+</div>
 <div id="outline-container-org5652949" class="outline-4">
 <h4 id="org5652949">Elementwise operations</h4>
 <div class="outline-text-4" id="text-org5652949">
 <p>
-In elementwise operations like addition, subtraction, and division,
-values that correspond positionally are combined to produce a new
-tensor. The first value in tensor <i>A</i> is paired with the first value
-in tensor <i>B</i>. The second value is paired with the second, and so
-on. This means the tensors must have equal dimensions (i.e. equal
-<a href="#orgd4ebb43">shapes</a>) in order to complete the operation (source:
-<a href="https://ml-cheatsheet.readthedocs.io/en/latest/linear_algebra.html#elementwise-operations">ml-cheatsheets</a>).
+In elementwise operations like addition, subtraction, and division, values that correspond positionally are combined to produce a new tensor. The first value in tensor <i>A</i> is paired with the first value in tensor <i>B</i>. The second value is paired with the second, and so on. This means the tensors must have equal dimensions (i.e. equal <a href="#orgd4ebb43">shapes</a>) in order to complete the operation (source: <a href="https://ml-cheatsheet.readthedocs.io/en/latest/linear_algebra.html#elementwise-operations">ml-cheatsheets</a>).
 </p>
 
 
-<div id="org7f16d57" class="figure">
+<div id="org22036b1" class="figure">
 <p><img src="img/Elementwise_operations.png" alt="Elementwise_operations.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Elementwise operation</p>
@@ -113,9 +148,7 @@ on. This means the tensors must have equal dimensions (i.e. equal
 <h4 id="org4cf7bc6">Hadamard product</h4>
 <div class="outline-text-4" id="text-org4cf7bc6">
 <p>
-The <b>Hadamard product</b> (also known as <b>element wise product</b>) is an
-operation which takes in two matrices of the same shape and returns a
-matrix of the multiplied corresponding elements (source: <a href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">wikipedia</a>).
+The <b>Hadamard product</b> (also known as <b>element wise product</b>) is an operation which takes in two matrices of the same shape and returns a matrix of the multiplied corresponding elements (source: <a href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">wikipedia</a>).
 </p>
 </div>
 </div>
@@ -123,10 +156,7 @@ matrix of the multiplied corresponding elements (source: <a href="https://en.wik
 <h4 id="org99c01cb">Outliers</h4>
 <div class="outline-text-4" id="text-org99c01cb">
 <p>
-An outlier is a data point significantly different from other data
-points in a dataset. Outliers can occur for various reasons, such as
-measurement errors, data entry errors, or natural variations in the
-data. They can significantly impact analysis in machine learning.
+An outlier is a data point significantly different from other data points in a dataset. Outliers can occur for various reasons, such as measurement errors, data entry errors, or natural variations in the data. They can significantly impact analysis in machine learning.
 </p>
 
 <p>
@@ -139,8 +169,7 @@ An example of this is if we were to take the following dataset:
 </div>
 
 <p>
-just by looking at it, one can quickly say ‘101’ is an outlier because
-it is much larger than the other values (source: <a href="https://www.almabetter.com/bytes/articles/outlier-detection-methods-and-techniques-in-machine-learning-with-examples">almabetter</a> and <a href="https://www.analyticsvidhya.com/blog/2021/05/detecting-and-treating-outliers-treating-the-odd-one-out/">analyticsvidhya</a>).
+just by looking at it, one can quickly say ‘101’ is an outlier because it is much larger than the other values (source: <a href="https://www.almabetter.com/bytes/articles/outlier-detection-methods-and-techniques-in-machine-learning-with-examples">almabetter</a> and <a href="https://www.analyticsvidhya.com/blog/2021/05/detecting-and-treating-outliers-treating-the-odd-one-out/">analyticsvidhya</a>).
 </p>
 </div>
 </div>
@@ -148,9 +177,7 @@ it is much larger than the other values (source: <a href="https://www.almabetter
 <h4 id="org87f96a4">Tensor broadcasting</h4>
 <div class="outline-text-4" id="text-org87f96a4">
 <p>
-According to <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">numpy</a>, tensor operations are usually done on pairs of
-tensors on an element-by-element basis. In the simplest case, the two
-tensors must have the exact same shape. For example:
+According to <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">numpy</a>, tensor operations are usually done on pairs of tensors on an element-by-element basis. In the simplest case, the two tensors must have the exact same shape. For example:
 </p>
 
 <div class="org-src-container">
@@ -168,9 +195,7 @@ will return:
 </div>
 
 <p>
-Broadcasting rules can <b>relax</b> these constraints when the tensors'
-shapes meet certain constraints. The simplest broadcasting example
-occurs when a tensor and a scalar are combined in an operation:
+Broadcasting rules can <b>relax</b> these constraints when the tensors' shapes meet certain constraints. The simplest broadcasting example occurs when a tensor and a scalar are combined in an operation:
 </p>
 
 <div class="org-src-container">
@@ -188,14 +213,11 @@ returns:
 </div>
 
 <p>
-We can think of the scalar being <b>stretched</b> during the arithmetic
-operation, into a tensor the same shape as the first one. The new
-elements in the stretched tensor are just copies of the original
-scalar.
+We can think of the scalar being <b>stretched</b> during the arithmetic operation, into a tensor the same shape as the first one. The new elements in the stretched tensor are just copies of the original scalar.
 </p>
 
 
-<div id="orgd98eb26" class="figure">
+<div id="org0342ef7" class="figure">
 <p><img src="img/broadcasting_1.png" alt="broadcasting_1.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>In the simplest example of broadcasting, the scalar <b>b</b> is stretched to become an array of same shape as <b>a</b> so the shapes are compatible for element-by-element multiplication (source: <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">numpy</a>).</p>
@@ -207,10 +229,198 @@ scalar.
 <h3 id="org708d982">Little learner</h3>
 <div class="outline-text-3" id="text-org708d982">
 <p>
-This section is a series of notes about machine learning and deep
-learning in the context of the book <a href="https://www.thelittlelearner.com/">"The Little Learner: A straight
-line to deep learning"</a> by <i>Daniel P. Friedman and Anurag Mendhekar</i>.
+This section is a series of notes about machine learning and deep learning in the context of the book <a href="https://www.thelittlelearner.com/">"The Little Learner: A straight line to deep learning"</a> by <i>Daniel P. Friedman and Anurag Mintaka</i>.
 </p>
+</div>
+<div id="outline-container-org371ea22" class="outline-4">
+<h4 id="org371ea22">Basic machine learning</h4>
+<div class="outline-text-4" id="text-org371ea22">
+<p>
+Here's a plane graph plot of a line against the $x$-axis (<b>horizontal</b>) and the $y$-axis (<b>vertical</b>).
+</p>
+
+
+<div id="org65f8221" class="figure">
+<p><img src="img/LL_line_1.png" alt="LL_line_1.png" width="250px" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Plane graph plot</p>
+</div>
+
+<p>
+\(x\) is related with \(y\) for every point \((x, y)\) on the line by an <i>equation</i>.<br />
+Using arrows at both ends of the line means that it extends indefinitely in both directions. It follows that that there is a corresponding \(y\) for every \(x\).
+</p>
+
+
+<div id="org69f2c81" class="figure">
+<p><img src="img/LL_line_2.png" alt="LL_line_2.png" width="250px" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Plane graph plot</p>
+</div>
+
+<p>
+The point at which the $x$-axis and the $y$-axis meet is called the <i>origin</i>, the point (0, 0). The line in this particular graph passes through it.<br />
+Because this line passes through the origin, \(y\) is a multiple of \(x\) by a constant factor \(w\) (weight). \(w\) is called the <i>slope</i> of the line and the aforementioned equation is \(y=wx\)
+</p>
+
+
+<div id="org35a9677" class="figure">
+<p><img src="img/LL_line_3.png" alt="LL_line_3.png" width="250px" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Plane graph plot</p>
+</div>
+
+<p>
+In case the line does not go through the origin, this is what it looks like
+</p>
+
+
+<div id="orgdd0e708" class="figure">
+<p><img src="img/LL_line_4.png" alt="LL_line_4.png" width="250px" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Plane graph plot</p>
+</div>
+
+<p>
+Now the whole line is lifted by \(b\) (sometimes called the <i>bias</i>), and \(y\) for any \(x\) can be determined with the equation \(y=wx+b\).
+</p>
+
+<p>
+Here's an initial attempt at a <i>line</i> function, <b>it is a function of one argument which results in a function of two arguments</b>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(define line
+  (lambda (x)
+    (lambda (w b)
+      (+ (* w x) b))))
+</pre>
+</div>
+
+<p>
+Although this definition of <i>line</i> might seem not to accept the arguments of \(w\), \(b\) and \(x\) be in the correct order, one ought to understand that the kind of problem we are dealing with is where the values of \(x\) are known, and \(w\) and \(b\) must be figured out from number of given values of \(x\) and \(y\).<br />
+If we had \(w\) and \(b\) before \(x\), this would assume that they are known <b>prior</b> to the argument \(x\).
+</p>
+
+<p>
+Now \(w\) and \(b\) are used to determine the \(y\) corresponding to a given \(x\), they are considered a special kind of argument. They are referred to as <i>parameters</i> of <i>line</i>, whereas \(x\) is the <i>argument</i> of <i>line</i>.
+</p>
+
+<p>
+Here's an example of how to use <i>line</i>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(line 8)
+</pre>
+</div>
+
+<p>
+where (<i>line</i> 8) <b>is itself function</b> which remembers that \(x\) is 8, and is waiting to accept arguments (i.e. parameters) for its arguments \(w\) and \(b\), like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(lambda (w b)
+  (+ (* w 8) b))
+</pre>
+</div>
+
+<p>
+So when (<i>line</i> 8) is invoked on \(w\) and \(b\), we can determine \(y\).<br />
+If we were to invoke:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((line 8) 4 6)
+</pre>
+</div>
+
+<p>
+those would be the steps:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((lambda (w b)
+   (+ (* w 8) b)) 4 6)
+
+(+ (* 4 8) 6)
+
+(+ 32 6)
+
+=&gt; 38
+</pre>
+</div>
+
+<p>
+meaning that when \(x\) is 8, y is 38.
+</p>
+
+<p>
+Functions that accept parameters <b>after</b> the arguments are known as <a href="#org8b98f70">parameterized functions</a>, <i>line</i> is a parameterized function because it takes \(w\) and \(b\) after the argument \(x\).<br />
+Such functions are used where the correct values for the parameters (here \(w\) and \(b\)) must be figured from given values of \(x\) and the corresponding values of \(y\).<br />
+Here is an example, using the following dataset:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(define line-xs
+  [2.0 1.0 4.0 3.0])
+
+(define line-ys
+  [1.8 1.2 4.2 3.3])
+</pre>
+</div>
+
+<p>
+for each \(x\) coordinate in <i>line-xs</i>, there is a corresponding \(y\) coordinate in <i>line-ys</i>.<br />
+That's how the dataset <i>(line-xs, line-ys)</i> looks as points on a graph:
+</p>
+
+
+<div id="org132c625" class="figure">
+<p><img src="img/LL_line_5.png" alt="LL_line_5.png" width="250px" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Dataset plotted on plane graph</p>
+</div>
+
+<p>
+Going back to our <i>line</i> function, remember that it has two parameters, \(w\) and \(b\). If we were to draw a line close the four points, like this:
+</p>
+
+
+<div id="org95a30d8" class="figure">
+<p><img src="img/LL_line_6.png" alt="LL_line_6.png" width="250px" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Dataset with line plotted</p>
+</div>
+
+<p>
+we would say that this function is a simple line with parameters \(w\) = 1.0 and \(b\) = 0.0, since the line passes trough the origin, \(b\) is 0.0.<br />
+The \(x\) and \(y\) coordinates <b>on this line are always equal</b>. For instance, (0.0 0.0), (1.0 1.0), and so on. This is why \(w\) is 1.0.<br />
+Therefore, if we are given a new \(x\) coordinate, it's possible to <i>predict</i> the corresponding \(y\) coordinate from this <i>line</i> function. For instance if \(x = 3.79\), then:
+</p>
+
+<p>
+\(y=1.0*3.79+0=3.79\)
+</p>
+
+<p>
+This would be referred to as the <i>predicted</i> \(y\) for a given \(x\). Finding the parameters of a function from a dataset is called <i>learning</i>.<br />
+The parameters \(w\) and \(b\) are collectively known as the <i>parameter set, which is referenced to as &theta; (little-theta). &theta; in this case has two parameters, the first which is \(w\), is referred to as &theta;<sub>0</sub>, and \(b\) is &theta;<sub>1</sub>.<br />
+Our /line</i> function can then be rewritten like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(define line
+  (lambda (x)
+    (lambda (little-theta)
+      (+ (* (ref little-theta 0) x) (little-theta 1)))))
+</pre>
+</div>
+
+<p>
+So the dataset was examined on a graph, and from that it was possible to <b>estimate</b> a &theta;. This was used to <b>predict</b> a \(y\) coordinate for an \(x\) coordinate which might not be part of the initial dataset.
+</p>
+</div>
 </div>
 <div id="outline-container-orgb119b63" class="outline-4">
 <h4 id="orgb119b63">Functions</h4>
@@ -243,10 +453,7 @@ which in a "same-as" chart transcribes as:
 </div>
 
 <p>
-produces another function. This function which is produced when
-<b>l2-loss</b> is invoked with a <b>target</b> function (<b>line</b> in this case),
-is referred to as an <b>expectant</b> function. This is because it is
-<b>expecting</b> a data set as arguments.
+produces another function. This function which is produced when <b>l2-loss</b> is invoked with a <b>target</b> function (<b>line</b> in this case), is referred to as an <b>expectant</b> function. This is because it is <b>expecting</b> a data set as arguments.
 </p>
 
 <p>
@@ -272,11 +479,7 @@ which in a "same-as" chart transcribes as:
 </div>
 
 <p>
-it produces a function which <b>awaits</b> a &theta;. The name of the
-produced function is known as an <a id="org7925b9e"></a>*objective*
-function. When provided with a &theta;, the objective function
-returns a scalar representing the <a href="#orgee35afe">loss</a>, which is a measure of how
-far away we are from the well fitted &theta;.
+it produces a function which <b>awaits</b> a &theta;. The name of the produced function is known as an <a id="org7925b9e"></a>objective function. When provided with a &theta;, the objective function returns a scalar representing the <a href="#orgee35afe">loss</a>, which is a measure of how far away we are from the well fitted &theta;.
 </p>
 
 <p>
@@ -302,8 +505,7 @@ One ought to be mindful that
 </div>
 
 <p>
-is <b>not</b> a direct function call. It is itself a function which takes
-a &theta; as input.
+is <b>not</b> a direct function call. It is itself a function which takes a &theta; as input.
 </p>
 </div>
 </div>
@@ -312,9 +514,7 @@ a &theta; as input.
 <div class="outline-text-5" id="text-org38cd5df">
 <ul class="org-ul">
 <li><p>
-In the context of this book, some functions were built to work on
-both scalars and tensors. They are referred as <b>extended</b>
-functions.<br />
+In the context of this book, some functions were built to work on both scalars and tensors. They are referred as <b>extended</b> functions.<br />
 For instance, the function:
 </p>
 
@@ -329,8 +529,7 @@ Other functions that work with scalars can be extended similarly.
 </p></li>
 
 <li><p>
-In its "regular" (i.e. non-extended) way, the function + works as
-such:
+In its "regular" (i.e. non-extended) way, the function + works as such:
 </p>
 
 <div class="org-src-container">
@@ -340,8 +539,7 @@ such:
 </div>
 
 <p>
-However, because + is built using <b>extension</b> it can also work on
-tensors:
+However, because + is built using <b>extension</b> it can also work on tensors:
 </p>
 
 <div class="org-src-container">
@@ -362,8 +560,7 @@ here is a "same-as" chart to illustrate how this results in [9]:
 </div>
 
 <p>
-When there is a function invocation like + on tensors, we look
-inside those tensors to determine the invocation's final value.
+When there is a function invocation like + on tensors, we look inside those tensors to determine the invocation's final value.
 </p>
 
 <p>
@@ -394,9 +591,7 @@ and results in:
 </div>
 
 <p>
-It's as if + <b>descends</b> into its tensor<sup>1</sup> arguments to results in
-another tensor<sup>1</sup>. The last step results in the tensor<sup>1</sup> of the
-values of the three sums.
+It's as if + <b>descends</b> into its tensor<sup>1</sup> arguments to results in another tensor<sup>1</sup>. The last step results in the tensor<sup>1</sup> of the values of the three sums.
 </p>
 
 <p>
@@ -432,19 +627,11 @@ and results in:
 </div>
 
 <p>
-The authors then go on to explain that tensors <b>must</b> be of the same
-shape before they can be added together, and that getting functions
-such as + to work on tensors of <b>arbitrary</b> ranks is known as
-<b>pointwise extension</b>. This however seems to be more commonly known
-as <a href="#org5652949">elementwise operations</a>.
+The authors then go on to explain that tensors <b>must</b> be of the same shape before they can be added together, and that getting functions such as + to work on tensors of <b>arbitrary</b> ranks is known as <b>pointwise extension</b>. This however seems to be more commonly known as <a href="#org5652949">elementwise operations</a>.
 </p></li>
 
 <li><p>
-The point by the authors that tensors <b>must</b> have the same shape
-before computation can be performed on them is, later in the text,
-contradicted and unfortunately not very well explained. Nevertheless
-we are shown that the following operation can actually be performed
-on tensors:
+The point by the authors that tensors <b>must</b> have the same shape before computation can be performed on them is, later in the text, contradicted and unfortunately not very well explained. Nevertheless we are shown that the following operation can actually be performed on tensors:
 </p>
 
 <div class="org-src-container">
@@ -480,8 +667,7 @@ Another example given is:
 </div>
 
 <p>
-and in this case, we can look inside the tensor<sup>2</sup> argument and add
-the tensor<sup>1</sup> argument just as we did in the previous addition:
+and in this case, we can look inside the tensor<sup>2</sup> argument and add the tensor<sup>1</sup> argument just as we did in the previous addition:
 </p>
 
 <div class="org-src-container">
@@ -547,9 +733,7 @@ which returns:
 
 <p>
 We are told that this is the <b>Hadamard multiplication</b>.<br />
-Upon further research this does not appear to fit the definition of
-the Hadamard multiplication, or rather <a href="#org4cf7bc6">Hadamard product</a>, but a
-simple tensor to scalar multiplication which involves broadcasting.
+Upon further research this does not appear to fit the definition of the Hadamard multiplication, or rather <a href="#org4cf7bc6">Hadamard product</a>, but a simple tensor to scalar multiplication which involves broadcasting.
 </p></li>
 
 <li><p>
@@ -562,8 +746,7 @@ Other extended functions such as:
 </div>
 
 <p>
-descend into tensors. In the case of a tensor<sup>1</sup>, this is how sqrt
-works:
+descend into tensors. In the case of a tensor<sup>1</sup>, this is how sqrt works:
 </p>
 
 <div class="org-src-container">
@@ -606,10 +789,8 @@ and this results in:
 </div>
 
 <p>
-In other words, the function descends inside each tensor<sup>1</sup> until it
-finds a tensor<sup>0</sup> at which point it gets their square root.<br />
-However, not all extended functions descend until they find scalars.
-The function
+In other words, the function descends inside each tensor<sup>1</sup> until it finds a tensor<sup>0</sup> at which point it gets their square root.<br />
+However, not all extended functions descend until they find scalars.  The function
 </p>
 
 <div class="org-src-container">
@@ -627,8 +808,7 @@ which extends the function
 </div>
 
 <p>
-descends into its argument until it finds a tensor<sup>1</sup> instead of a
-tensor<sup>0</sup>.<br />
+descends into its argument until it finds a tensor<sup>1</sup> instead of a tensor<sup>0</sup>.<br />
 This is how sum-1 is defined:
 </p>
 
@@ -689,9 +869,7 @@ which results in:
 </div>
 
 <p>
-What can be noted about the rank of the resulting tensor is that it
-is <b>one rank less than the rank of the input</b>. In this case the
-input tensor was rank 3 and the output tensor is rank 2.
+What can be noted about the rank of the resulting tensor is that it is <b>one rank less than the rank of the input</b>. In this case the input tensor was rank 3 and the output tensor is rank 2.
 </p></li>
 </ul>
 </div>
@@ -700,30 +878,19 @@ input tensor was rank 3 and the output tensor is rank 2.
 <h5 id="orgee35afe">Loss function</h5>
 <div class="outline-text-5" id="text-orgee35afe">
 <p>
-The loss function, also called <b>cost</b> or <b>error</b> function (source:
-<a href="https://en.wikipedia.org/wiki/Loss_function">wikipedia</a>), is a mathematical process that quantifies the error margin
-between a model's prediction and the actual target value. It acts as a
-guide for the learning process within a machine learning algorithm
-(source: <a href="https://www.datacamp.com/tutorial/loss-function-in-machine-learning">datacamp</a>), to tell us how far we are from a well-fitted
-&theta;.
+The loss function, also called <b>cost</b> or <b>error</b> function (source: <a href="https://en.wikipedia.org/wiki/Loss_function">wikipedia</a>), is a mathematical process that quantifies the error margin between a model's prediction and the actual target value. It acts as a guide for the learning process within a machine learning algorithm (source: <a href="https://www.datacamp.com/tutorial/loss-function-in-machine-learning">datacamp</a>), to tell us how far we are from a well-fitted &theta;.
 </p>
 
 <p>
-A scalar is required in order to gauge how far we are from the
-well-fitted &theta;, which is known as the <b>loss</b>. The loss should be as
-close to 0.0 as possible.
+A scalar is required in order to gauge how far we are from the well-fitted &theta;, which is known as the <b>loss</b>. The loss should be as close to 0.0 as possible.
 </p>
 
 <p>
-This loss is determined every time &theta; is revised, and since the
-loss shows how far we are from the well-fitted &theta;, it is used as
-guide for revising &theta;.
+This loss is determined every time &theta; is revised, and since the loss shows how far we are from the well-fitted &theta;, it is used as guide for revising &theta;.
 </p>
 
 <p>
-The most straightforward way to determine how far we are is by
-figuring out the difference between the given <i>ys</i> and the predicted
-<i>ys</i>, by using a function as such:
+The most straightforward way to determine how far we are is by figuring out the difference between the given <i>ys</i> and the predicted <i>ys</i>, by using a function as such:
 </p>
 
 <div class="org-src-container">
@@ -733,8 +900,7 @@ figuring out the difference between the given <i>ys</i> and the predicted
 </div>
 
 <p>
-This however, would not be good enough as if we had a dataset and a
-&theta; that gave us a tensor difference of:
+This however, would not be good enough as if we had a dataset and a &theta; that gave us a tensor difference of:
 </p>
 
 <div class="org-src-container">
@@ -752,17 +918,11 @@ the result of:
 </div>
 
 <p>
-would return an ideal loss of 0.0, which is incorrect. As can be
-observed, although the individual difference are significant in most
-cases, the sum of 0.0 suggests that the &theta; is a perfect fit.
+would return an ideal loss of 0.0, which is incorrect. As can be observed, although the individual difference are significant in most cases, the sum of 0.0 suggests that the &theta; is a perfect fit.
 </p>
 
 <p>
-This problem arises from <b>having negative values</b> in the argument to
-the function <i>sum</i>. The way this can be remedied is by <b>squaring</b> each
-element in the tensor difference, which turns each negative element to
-positive (and the positive elements remain positive), calling the
-function like this:
+This problem arises from <b>having negative values</b> in the argument to the function <i>sum</i>. The way this can be remedied is by <b>squaring</b> each element in the tensor difference, which turns each negative element to positive (and the positive elements remain positive), calling the function like this:
 </p>
 
 <div class="org-src-container">
@@ -773,18 +933,12 @@ function like this:
 </div>
 
 <p>
-Now the sum of the squares is positive if at least one of the elements
-in the tensor difference is non-zero.<br />
-This function is called <b>l2-loss</b> and should <b>not</b> be confused with
-<i>mean squared error</i> (or <i>MSE</i>). <i>MSE</i> would divide the sum of the
-squares by the number of elements in the tensor.
+Now the sum of the squares is positive if at least one of the elements in the tensor difference is non-zero.<br />
+This function is called <b>l2-loss</b> and should <b>not</b> be confused with <i>mean squared error</i> (or <i>MSE</i>). <i>MSE</i> would divide the sum of the squares by the number of elements in the tensor.
 </p>
 
 <p>
-One thing to note about the l2-loss function is that it can in some
-case not perform well due to the presence of <a href="#org99c01cb">outliers</a>. This is
-because the squaring of an element from a tensor difference which
-belongs to an outlier can contribute disproportionately to the loss.
+One thing to note about the l2-loss function is that it can in some case not perform well due to the presence of <a href="#org99c01cb">outliers</a>. This is because the squaring of an element from a tensor difference which belongs to an outlier can contribute disproportionately to the loss.
 </p>
 </div>
 </div>
@@ -804,18 +958,15 @@ Functions such as:
 </div>
 
 <p>
-are known as <b>parameterized functions</b>.
+are known as <i>parameterized functions</i>.
 </p>
 
 <p>
-Parameterized functions are used where we must figure out the right
-values for the parameters (here, &theta;<sub>0</sub> and &theta;<sub>1</sub>) from given
-values of x and the corresponding values of y.
+Parameterized functions are used where we must figure out the right values for the parameters (here, &theta;<sub>0</sub> and &theta;<sub>1</sub>) from given values of x and the corresponding values of y.
 </p>
 
 <p>
-In this case when line is invoked, for example, with the <b>argument</b> 8
-as such:
+In this case when line is invoked, for example, with the <i>argument</i> 8 as such:
 </p>
 
 <div class="org-src-container">
@@ -824,13 +975,11 @@ as such:
 </div>
 
 <p>
-we can say that it is waiting to accept arguments for its parameters
-&theta;<sub>0</sub> and &theta;<sub>1</sub>.
+we can say that it is waiting to accept arguments for its parameters &theta;<sub>0</sub> and &theta;<sub>1</sub>.
 </p>
 
 <p>
-Another thing to note is that when (line 8) is invoked on &theta;<sub>0</sub> and
-&theta;<sub>1</sub> as such:
+When (line 8) is invoked on &theta;<sub>0</sub> and &theta;<sub>1</sub> as such:
 </p>
 
 <div class="org-src-container">
@@ -857,8 +1006,7 @@ we can then determine y.
 </p>
 
 <p>
-A gradient is a general way of understanding the rate of change of a
-parameterized function with respect to <b>all</b> its parameters.
+A gradient is a general way of understanding the rate of change of a parameterized function with respect to <b>all</b> its parameters.
 </p></li>
 
 <li><p>
@@ -866,15 +1014,11 @@ parameterized function with respect to <b>all</b> its parameters.
 </p>
 
 <p>
-The gradient is a fancy word for derivative, or the rate of change of
-a function.
+The gradient is a fancy word for derivative, or the rate of change of a function.
 </p>
 
 <p>
-The term "gradient" is typically used for functions with several
-inputs and a single output (a scalar field). Yes, you can say a line
-has a gradient (its slope), but using "gradient" for single-variable
-functions is unnecessarily confusing (source: <a href="https://betterexplained.com/articles/vector-calculus-understanding-the-gradient/">betterexplained</a>).
+The term "gradient" is typically used for functions with several inputs and a single output (a scalar field). Yes, you can say a line has a gradient (its slope), but using "gradient" for single-variable functions is unnecessarily confusing (source: <a href="https://betterexplained.com/articles/vector-calculus-understanding-the-gradient/">betterexplained</a>).
 </p></li>
 
 <li><p>
@@ -882,15 +1026,8 @@ functions is unnecessarily confusing (source: <a href="https://betterexplained.c
 </p>
 
 <p>
-To find the gradient of a function at given values of its arguments,
-we need to use the function &nabla; (i.e. <i>gradient-of</i>). The first
-argument to &nabla; is a function <i>f</i> (an <a href="#org7925b9e">objective function</a>) that
-computes the <a href="#orgee35afe">loss</a> (a scalar value) using a dataset and the list of
-parameters &theta; as its input. The second argument to &nabla; is the
-initial values of &theta;, the parameters for which we want to
-compute the gradients of the function <i>f</i>.<br />
-In other words &nabla; computes the gradient of <b>another function</b>
-with respect to its parameters.
+To find the gradient of a function at given values of its arguments, we need to use the function &nabla; (i.e. <i>gradient-of</i>). The first argument to &nabla; is a function <i>f</i> (an <a href="#org7925b9e">objective function</a>) that computes the <a href="#orgee35afe">loss</a> (a scalar value) using a dataset and the list of parameters &theta; as its input. The second argument to &nabla; is the initial values of &theta;, the parameters for which we want to compute the gradients of the function <i>f</i>.<br />
+In other words &nabla; computes the gradient of <b>another function</b> with respect to its parameters.
 </p>
 
 <p>
@@ -924,22 +1061,19 @@ The (<a href="#org7925b9e">objective</a>) function <i>f</i> generated by
 is designed to take &theta; (<b>a list of tensors</b>) as its input.
 </p></li>
 
-<li>The &nabla; function itself manages the passing of &theta; to <i>f</i>
-internally.</li>
+<li>The &nabla; function itself manages the passing of &theta; to <i>f</i> internally.</li>
 
 <li>Inside &nabla;:
 
 <ul class="org-ul">
-<li><i>f</i> is invoked with <i>dual numbers</i> version of &theta;.</li>
+<li><i>f</i> is invoked with <a href="#org67bce01">dual numbers</a> version of &theta;.</li>
 
 <li>This invocation effectively passes the &theta; values to <i>f</i>.</li>
 </ul></li>
 </ol>
 
 <p>
-The result of the &nabla; function is a list of gradients of the
-<a href="#org7925b9e">objective function</a> with respect to <b>each</b> parameter in &theta;, and
-is referred to as the gradient list.
+The result of the &nabla; function is a list of gradients of the <a href="#org7925b9e">objective function</a> with respect to <b>each</b> parameter in &theta;, and is referred to as the gradient list.
 </p></li>
 </ul>
 </div>
@@ -948,29 +1082,23 @@ is referred to as the gradient list.
 <h5 id="org7161a33">Gradient descent</h5>
 <div class="outline-text-5" id="text-org7161a33">
 <p>
-Here is a graph of what is referred to (in this particular book) as
-a <b>loss curve</b>:
+Here is a graph of what is referred to (in this particular book) as a <b>loss curve</b>:
 </p>
 
 
-<div id="org7f6f53b" class="figure">
+<div id="org93f58af" class="figure">
 <p><img src="img/LL_loss_curve.png" alt="LL_loss_curve.png" />
 </p>
-<p><span class="figure-number">Figure 3: </span>Loss curve</p>
+<p><span class="figure-number">Figure 9: </span>Loss curve</p>
 </div>
 
 <p>
-The <i>y</i>-axis represents the <a href="#orgee35afe">loss</a> and the <i>x</i>-axis represents &theta;<sub>0</sub>,
-which is also referred to as <b>weight</b>. So for any possible value of
-the weight, this graph shows the corresponding value of the loss <b>as
-an orange dot</b>.<br />
-To draw this graph five weights (i.e. <b>five different values for</b>
-&theta;<sub>0</sub>) were chosen, -1.0, 0.0, 1.0, 2.0, and 3.0.
+The <i>y</i>-axis represents the <a href="#orgee35afe">loss</a> and the <i>x</i>-axis represents &theta;<sub>0</sub>, which is also referred to as <b>weight</b>. So for any possible value of the weight, this graph shows the corresponding value of the loss <b>as an orange dot</b>.<br />
+To draw this graph five weights (i.e. <b>five different values for</b> &theta;<sub>0</sub>) were chosen, -1.0, 0.0, 1.0, 2.0, and 3.0.
 </p>
 
 <p>
-For each weight, we determine its corresponding loss while keeping
-&theta;<sub>1</sub> (i.e. the <b>bias</b>) at 0.0, using the following dataset:
+For each weight, we determine its corresponding loss while keeping &theta;<sub>1</sub> (i.e. the <b>bias</b>) at 0.0, using the following dataset:
 </p>
 
 <div class="org-src-container">
@@ -998,10 +1126,7 @@ Subsequently, this <a href="#org4444a28">objective functions</a> (<i>obj</i>) is
 </div>
 
 <p>
-by providing it with a &theta; which is constructed out of each of
-those five weights for &theta;<sub>0</sub>, and 0.0 for &theta;<sub>1</sub> (the bias). In
-other words, the <i>obj</i> expression takes parameters as its arguments
-and returns a scalar which represents the loss.<br />
+by providing it with a &theta; which is constructed out of each of those five weights for &theta;<sub>0</sub>, and 0.0 for &theta;<sub>1</sub> (the bias). In other words, the <i>obj</i> expression takes parameters as its arguments and returns a scalar which represents the loss.<br />
 Those are the corresponding losses for each weight:
 </p>
 
@@ -1041,37 +1166,23 @@ Those are the corresponding losses for each weight:
 </div>
 
 <p>
-This type of graph is used to show <i>quantities</i> that are <b>not</b> part of
-the dataset. In this context, <i>quantities</i> are values or metrics that
-are derived from the model and its training process (i.e. <b>the
-relationship between the loss and</b> &theta;) rather than being directly
-observed data points (i.e. <b>these are not part of the raw input
-data</b>).<br />
-In other words, the graph illustrates internal aspects of the model
-(like the parameter values and loss) rather than showing the raw input
-data directly. This distinction is important because it shifts the
-focus from the data itself to the model's behavior and performance
-during training.
+This type of graph is used to show <i>quantities</i> that are <b>not</b> part of the dataset. In this context, <i>quantities</i> are values or metrics that are derived from the model and its training process (i.e. <b>the relationship between the loss and</b> &theta;) rather than being directly observed data points (i.e. <b>these are not part of the raw input data</b>).<br />
+In other words, the graph illustrates internal aspects of the model (like the parameter values and loss) rather than showing the raw input data directly. This distinction is important because it shifts the focus from the data itself to the model's behavior and performance during training.
 </p>
 
 <p>
-We can see on the graph that an estimate weight value of 0.0 for
-&theta;<sub>0</sub> (whilst keeping &theta;<sub>1</sub> at 0.0) corresponds to a loss of
-33.21. The point (0.0, 33.21) is circled in this graph:
+We can see on the graph that an estimate weight value of 0.0 for &theta;<sub>0</sub> (whilst keeping &theta;<sub>1</sub> at 0.0) corresponds to a loss of 33.21. The point (0.0, 33.21) is circled in this graph:
 </p>
 
 
-<div id="orgb948b55" class="figure">
+<div id="org068a824" class="figure">
 <p><img src="img/LL_loss_curve_2.png" alt="LL_loss_curve_2.png" />
 </p>
-<p><span class="figure-number">Figure 4: </span>Loss curve</p>
+<p><span class="figure-number">Figure 10: </span>Loss curve</p>
 </div>
 
 <p>
-One can also observe that the loss is lowest at the <b>bottom</b> of the
-curve. Because of this, what we need to do is to <i>roll</i> down the curve
-to get to its bottom. The idea is to roll down as fast as possible
-without <a href="#org9beed48">overshooting</a>, we use the <a href="#org6e82853">rate of change</a> for this.
+One can also observe that the loss is lowest at the <b>bottom</b> of the curve. Because of this, what we need to do is to <i>roll</i> down the curve to get to its bottom. The idea is to roll down as fast as possible without <a href="#org9beed48">overshooting</a>, we use the <a href="#org6e82853">rate of change</a> for this.
 </p>
 
 <p>
@@ -1079,36 +1190,29 @@ Here's how the rate of change is represented on the loss curve:
 </p>
 
 
-<div id="org2dc1f56" class="figure">
+<div id="org012367a" class="figure">
 <p><img src="img/LL_loss_curve_3.png" alt="LL_loss_curve_3.png" />
 </p>
-<p><span class="figure-number">Figure 5: </span>Loss curve with tangent</p>
+<p><span class="figure-number">Figure 11: </span>Loss curve with tangent</p>
 </div>
 
 <p>
-The turquoise line is known as a <i>tangent</i> and touches the curve at
-exactly <b>one</b> point, which in this case is (0.0 33.21). The rate of
-change determined is the <i>slope</i> of the tangent, it is called the
-<a href="#org9639605">gradient</a>.
+The turquoise line is known as a <i>tangent</i> and touches the curve at exactly <b>one</b> point, which in this case is (0.0 33.21). The rate of change determined is the <i>slope</i> of the tangent, it is called the <a href="#org9639605">gradient</a>.
 </p>
 
 <p>
-Now if we were to <a href="#orgde0f8b8">revise</a> our &theta;<sub>0</sub> by, say 0.6623, this is how the
-loss curve would look like:
+Now if we were to <a href="#orgde0f8b8">revise</a> our &theta;<sub>0</sub> by, say 0.6623, this is how the loss curve would look like:
 </p>
 
 
-<div id="orgfa898cb" class="figure">
+<div id="org5a2804c" class="figure">
 <p><img src="img/LL_loss_curve_4.png" alt="LL_loss_curve_4.png" />
 </p>
-<p><span class="figure-number">Figure 6: </span>Loss curve with tangents</p>
+<p><span class="figure-number">Figure 12: </span>Loss curve with tangents</p>
 </div>
 
 <p>
-What's interesting about this graph is that the second (revised)
-tangent is less steep compared to the tangent for the initial &theta;<sub>0</sub>
-estimate (of 0.0). Therefore, the gradient of the second is lower than
-the first.
+What's interesting about this graph is that the second (revised) tangent is less steep compared to the tangent for the initial &theta;<sub>0</sub> estimate (of 0.0). Therefore, the gradient of the second is lower than the first.
 </p>
 
 <p>
@@ -1126,8 +1230,7 @@ In order to find the gradient we need to use the function <a href="#org0ce0959">
 </p>
 
 <p>
-The rate of change of a function (of the <a href="#org4444a28">objective</a> function in most
-cases), such as:
+The rate of change of a function (of the <a href="#org4444a28">objective</a> function in most cases), such as:
 </p>
 
 <div class="org-src-container">
@@ -1136,8 +1239,7 @@ cases), such as:
 </div>
 
 <p>
-determines how its result changes when its argument (i.e. &theta;) is
-revised.
+determines how its result changes when its argument (i.e. &theta;) is revised.
 </p>
 
 <p>
@@ -1145,8 +1247,7 @@ The rate of change is also known as the <b>derivative</b>.
 </p>
 
 <p>
-A more concrete example of this would be to invoke an objective
-function as such:
+A more concrete example of this would be to invoke an objective function as such:
 </p>
 
 <div class="org-src-container">
@@ -1155,17 +1256,11 @@ function as such:
 </div>
 
 <p>
-which would achieve the objective of finding a well-fitted &theta; by
-returning the <a href="#orgee35afe">loss</a> for this particular &theta;.
+which would achieve the objective of finding a well-fitted &theta; by returning the <a href="#orgee35afe">loss</a> for this particular &theta;.
 </p>
 
 <p>
-If the returned loss was, for instance, 33.21, we would test the
-behaviour of &theta;<sub>0</sub> to see how we should revise it. We then change
-&theta;<sub>0</sub> by increasing it a small amount for testing purposes, so
-that our new &theta;<sub>0</sub> is 0.0099. If the loss goes down, for
-instance, to 32.59, we are slightly closer to our ideal loss. In
-other words we changed the loss by:
+If the returned loss was, for instance, 33.21, we would test the behaviour of &theta;<sub>0</sub> to see how we should revise it. We then change &theta;<sub>0</sub> by increasing it a small amount for testing purposes, so that our new &theta;<sub>0</sub> is 0.0099. If the loss goes down, for instance, to 32.59, we are slightly closer to our ideal loss. In other words we changed the loss by:
 </p>
 
 <p>
@@ -1173,8 +1268,7 @@ other words we changed the loss by:
 </p>
 
 <p>
-Now that increasing our &theta;<sub>0</sub> by 0.0099 has changed our loss by
--0.62 we would say that our <b>rate of change</b> is:
+Now that increasing our &theta;<sub>0</sub> by 0.0099 has changed our loss by -0.62 we would say that our <b>rate of change</b> is:
 </p>
 
 <p>
@@ -1186,9 +1280,7 @@ Now that increasing our &theta;<sub>0</sub> by 0.0099 has changed our loss by
 </p>
 
 <p>
-The rate of change is determined by subtracting the old (which so far
-has been greater) loss from the new (which so far has been smaller)
-loss, and in our examples so far this has resulted in negative values.
+The rate of change is determined by subtracting the old (which so far has been greater) loss from the new (which so far has been smaller) loss, and in our examples so far this has resulted in negative values.
 </p></li>
 
 <li><p>
@@ -1196,22 +1288,15 @@ loss, and in our examples so far this has resulted in negative values.
 </p>
 
 <p>
-Increasing &theta; from 0.0 by a small value can result in a rate of
-change which has a large <b>absolute value</b>, meaning that a small
-increase in &theta; causes a relatively large decrease in its loss.
+Increasing &theta; from 0.0 by a small value can result in a rate of change which has a large <b>absolute value</b>, meaning that a small increase in &theta; causes a relatively large decrease in its loss.
 </p>
 
 <p>
-This idea can be used to determine how much further to revise &theta;
-so as to achieve a bigger loss. However we should be wary that the
-revision of &theta; moves us <b>closer</b> but does not <a id="org9beed48"></a>
-<b>overshoot</b> the ideal loss.
+This idea can be used to determine how much further to revise &theta; so as to achieve a bigger loss. However we should be wary that the revision of &theta; moves us <b>closer</b> but does not <a id="org9beed48"></a> <b>overshoot</b> the ideal loss.
 </p>
 
 <p>
-This problem can be resolved by taking a small scalar (like 0.01),
-<b>and multiply the rate of change by it and revise our</b> &theta; <b>by
-that amount</b>.
+This problem can be resolved by taking a small scalar (like 0.01), <b>and multiply the rate of change by it and revise our</b> &theta; <b>by that amount</b>.
 </p>
 
 <p>
@@ -1223,15 +1308,11 @@ This small scalar is known as the <b>learning rate</b>.
 </p>
 
 <p>
-The rate of change is multiplied by alpha (the learning rate) and the
-returned (negative) value used to update/revise &theta; by subtracting
-from &theta; this negative value (which has resulted in a positive
-revision of &theta; so far).
+The rate of change is multiplied by alpha (the learning rate) and the returned (negative) value used to update/revise &theta; by subtracting from &theta; this negative value (which has resulted in a positive revision of &theta; so far).
 </p>
 
 <p>
-The rate of change <b>cannot</b> be reused as it depends on the current
-&theta;.
+The rate of change <b>cannot</b> be reused as it depends on the current &theta;.
 </p></li>
 </ul>
 </div>
@@ -1245,20 +1326,15 @@ The rate of change <b>cannot</b> be reused as it depends on the current
 </p>
 
 <p>
-This algorithm works by modifying the <b>fraction</b> of the <b>gradient</b> used at
-each revision.
+This algorithm works by modifying the <b>fraction</b> of the <b>gradient</b> used at each revision.
 </p>
 
 <p>
-Since our alpha so far has been a constant, we know that it causes the
-velocity of the gradient descent to slow down in a similar way.
+Since our alpha so far has been a constant, we know that it causes the velocity of the gradient descent to slow down in a similar way.
 </p>
 
 <p>
-Because alpha represents the fraction of the gradient we're going to
-use as our velocity, another approach to addressing this problem is to
-make this fraction <b>adaptive</b>. Adaptive here means that the fraction
-is decided based on the gradient and its <b>historical</b> values.
+Because alpha represents the fraction of the gradient we're going to use as our velocity, another approach to addressing this problem is to make this fraction <b>adaptive</b>. Adaptive here means that the fraction is decided based on the gradient and its <b>historical</b> values.
 </p></li>
 
 <li><p>
@@ -1266,9 +1342,7 @@ is decided based on the gradient and its <b>historical</b> values.
 </p>
 
 <p>
-The gradient g can be negative, and if we get too many consecutive
-negative gradients, then our historical averages can themselves become
-negative.
+The gradient g can be negative, and if we get too many consecutive negative gradients, then our historical averages can themselves become negative.
 </p>
 
 <p>
@@ -1281,15 +1355,11 @@ This is a problem because r gets used by the <b>modifier</b>" G i.e.
 </div>
 
 <p>
-and its being negative can make alpha-hat (i.e. the learning rate)
-negative. When that happens, we end up ascending the gradient instead
-of descending it.
+and its being negative can make alpha-hat (i.e. the learning rate) negative. When that happens, we end up ascending the gradient instead of descending it.
 </p>
 
 <p>
-This means that we would move our &theta; in a direction that
-<b>increases</b> the loss instead of a direction that <b>decreases</b> the
-loss.
+This means that we would move our &theta; in a direction that <b>increases</b> the loss instead of a direction that <b>decreases</b> the loss.
 </p></li>
 </ul>
 </div>
@@ -1299,8 +1369,7 @@ loss.
 <div class="outline-text-4" id="text-org860c051">
 <ul class="org-ul">
 <li><p>
-Here is a tensor<sup>1</sup>. A tensor<sup>1</sup> has only <b>scalars</b> and groups scalars
-together:
+Here is a tensor<sup>1</sup>. A tensor<sup>1</sup> has only <b>scalars</b> and groups scalars together:
 </p>
 
 <div class="org-src-container">
@@ -1309,8 +1378,7 @@ together:
 </div></li>
 
 <li><p>
-A tensor<sup>2</sup> can be thought of as a <b>matrix</b> or a <b>two-dimensional
-array</b>. The elements of a tensor<sup>2</sup> are tensors<sup>1</sup>, for example:
+A tensor<sup>2</sup> can be thought of as a <b>matrix</b> or a <b>two-dimensional array</b>. The elements of a tensor<sup>2</sup> are tensors<sup>1</sup>, for example:
 </p>
 
 <div class="org-src-container">
@@ -1338,9 +1406,7 @@ and:
 </div>
 
 <p>
-Therefore if we have a tensor whose elements are tensors<sup>m</sup>, that
-makes it a tensor<sup>m+1</sup>. One condition however is that all the
-tensors<sup>m</sup> must have the same numbers of elements.
+Therefore if we have a tensor whose elements are tensors<sup>m</sup>, that makes it a tensor<sup>m+1</sup>. One condition however is that all the tensors<sup>m</sup> must have the same numbers of elements.
 </p></li>
 
 <li><p>
@@ -1353,8 +1419,7 @@ A scalar such as:
 </div>
 
 <p>
-is also a tensor. It is a tensor<sup>0</sup>, but <b>zero-dimensional</b> arrays
-are rarely mentioned.
+is also a tensor. It is a tensor<sup>0</sup>, but <b>zero-dimensional</b> arrays are rarely mentioned.
 </p></li>
 </ul>
 </div>
@@ -1363,9 +1428,7 @@ are rarely mentioned.
 <div class="outline-text-5" id="text-orge231765">
 <ul class="org-ul">
 <li><p>
-The above superscripts have a name, they are known as the <b>rank</b> of
-the tensor. The rank of a tensor tells us how deeply nested its
-elements are. For instance, here is a tensor<sup>3</sup>:
+The above superscripts have a name, they are known as the <b>rank</b> of the tensor. The rank of a tensor tells us how deeply nested its elements are. For instance, here is a tensor<sup>3</sup>:
 </p>
 
 <div class="org-src-container">
@@ -1374,20 +1437,15 @@ elements are. For instance, here is a tensor<sup>3</sup>:
 </div>
 
 <p>
-this is because it has 1 tensor<sup>2</sup> element that has 2 tensor<sup>1</sup>
-elements of 2 scalars each.
+this is because it has 1 tensor<sup>2</sup> element that has 2 tensor<sup>1</sup> elements of 2 scalars each.
 </p></li>
 
 <li><p>
-In any given tensor, the nested tensors have the same number of
-elements. For example, the nested tensors of tensors<sup>2</sup> are all
-tensors<sup>1</sup>, and each of those tensors<sup>1</sup> has the same number of
-tensors<sup>0</sup>.
+In any given tensor, the nested tensors have the same number of elements. For example, the nested tensors of tensors<sup>2</sup> are all tensors<sup>1</sup>, and each of those tensors<sup>1</sup> has the same number of tensors<sup>0</sup>.
 </p>
 
 <p>
-This means that the tensors<sup>m</sup> that are elements of a tensor<sup>m+1</sup>
-have the same <b>shape</b>.
+This means that the tensors<sup>m</sup> that are elements of a tensor<sup>m+1</sup> have the same <b>shape</b>.
 </p></li>
 </ul>
 </div>
@@ -1415,8 +1473,7 @@ is this list of positive natural numbers:
 </div>
 
 <p>
-because it is a tensor<sup>2</sup> of 2 tensors<sup>1</sup>, each of which has 3
-tensors<sup>0</sup> elements.
+because it is a tensor<sup>2</sup> of 2 tensors<sup>1</sup>, each of which has 3 tensors<sup>0</sup> elements.
 </p>
 
 <p>
@@ -1449,8 +1506,7 @@ It is:
 <li>Each of those tensor<sup>1</sup> has 1 tensor<sup>0</sup> element, which is a scalar.</li>
 </ul></li>
 
-<li>Another useful thing to note is that the rank of a tensor is equal
-to the length of its shape.</li>
+<li>Another useful thing to note is that the rank of a tensor is equal to the length of its shape.</li>
 </ul>
 </div>
 </div>
@@ -1470,9 +1526,7 @@ The following function:
 </div>
 
 <p>
-updates the parameters by multiplying the gradient g by the learning
-rate alpha, and subtracts the result from the parameter P to yield the
-next P, so that ultimately we get closer to a well-fitted &theta;.
+updates the parameters by multiplying the gradient g by the learning rate alpha, and subtracts the result from the parameter P to yield the next P, so that ultimately we get closer to a well-fitted &theta;.
 </p>
 </div>
 </div>
@@ -1485,8 +1539,7 @@ next P, so that ultimately we get closer to a well-fitted &theta;.
 </p>
 
 <p>
-The <b>change</b> that we make to a given parameter at each revision is known
-as the <b>velocity of descent</b>.
+The <b>change</b> that we make to a given parameter at each revision is known as the <b>velocity of descent</b>.
 </p>
 
 <p>
@@ -1501,8 +1554,7 @@ In the following expression:
 </div>
 
 <p>
-since we subtract (* alpha g), the change to P, (i.e., the velocity)
-is:
+since we subtract (* alpha g), the change to P, (i.e., the velocity) is:
 </p>
 
 <div class="org-src-container">
@@ -1515,20 +1567,15 @@ is:
 </p>
 
 <p>
-We can observe from a loss graph with tangents, that as each tangent
-approaches the lowest point on a graph, they get less and less steep
-towards the bottom of the curve i.e. their slope (<b>the gradient</b>) gets
-smaller.
+We can observe from a loss graph with tangents, that as each tangent approaches the lowest point on a graph, they get less and less steep towards the bottom of the curve i.e. their slope (<b>the gradient</b>) gets smaller.
 </p>
 
 <p>
-In fact, as the curve's bottom is approached, the gradient gets closer
-and closer to 0.0.
+In fact, as the curve's bottom is approached, the gradient gets closer and closer to 0.0.
 </p>
 
 <p>
-What happens when we multiply a really small gradient with a really
-small learning rate as we do:
+What happens when we multiply a really small gradient with a really small learning rate as we do:
 </p>
 
 <div class="org-src-container">
@@ -1537,14 +1584,11 @@ small learning rate as we do:
 </div>
 
 <p>
-in update functions is that we get something even smaller. So at each
-revision closer to the bottom, the amount of change to each parameter
-gets smaller and smaller.
+in update functions is that we get something even smaller. So at each revision closer to the bottom, the amount of change to each parameter gets smaller and smaller.
 </p>
 
 <p>
-Therefore we can say the <b>velocity of descent</b> slows down as we
-approach the bottom of the curve.
+Therefore we can say the <b>velocity of descent</b> slows down as we approach the bottom of the curve.
 </p></li>
 
 <li><p>
@@ -1552,10 +1596,7 @@ approach the bottom of the curve.
 </p>
 
 <p>
-The problem of the <b>velocity of descent</b> slowing down can be remedied
-by boosting our velocity. This is achieved by adding some fraction
-<b>mu</b> of the velocity <b>v</b>, of the previous revision, to the change we
-expect to make in the current revision.
+The problem of the <b>velocity of descent</b> slowing down can be remedied by boosting our velocity. This is achieved by adding some fraction <b>mu</b> of the velocity <b>v</b>, of the previous revision, to the change we expect to make in the current revision.
 </p>
 
 <p>
@@ -1596,7 +1637,7 @@ Here, <b>v</b> represents the velocity of the most recent revision.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: dm</p>
-<p class="date">Created: 2024-06-01 Sat 06:56</p>
+<p class="date">Created: 2024-06-06 Thu 20:18</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
