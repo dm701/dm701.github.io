@@ -3,18 +3,199 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-06-11 Tue 19:43 -->
+<!-- 2024-06-22 Sat 08:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>dm701</title>
 <meta name="author" content="dm" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet"
+                         href="../other/mystyle.css"
+                         type="text/css"/>
 <script>
   window.MathJax = {
     tex: {
@@ -55,61 +236,66 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb9cc023">Github repositories</a></li>
-<li><a href="#org17eb1b2">Machine learning and deep learning</a>
+<li><a href="#orga7870df">Github repositories</a></li>
+<li><a href="#org7207ef3">Machine learning and deep learning</a>
 <ul>
-<li><a href="#org8b0eb00">General</a>
+<li><a href="#org0cd027d">General</a>
 <ul>
-<li><a href="#org42785c0"><span class="todo TODO">TODO</span> Automatic differentiation</a></li>
-<li><a href="#orge3945f2"><span class="todo TODO">TODO</span> Complex numbers</a></li>
-<li><a href="#orge9336c7"><span class="todo TODO">TODO</span> Dual numbers</a></li>
-<li><a href="#org5652949">Elementwise operations</a></li>
-<li><a href="#org4cf7bc6">Hadamard product</a></li>
-<li><a href="#orga32549c"><span class="todo TODO">TODO</span> Imaginary numbers</a></li>
-<li><a href="#org733c1c9">Non-linear functions</a></li>
-<li><a href="#org99c01cb">Outliers</a></li>
-<li><a href="#org5c60265">Quadratic equations</a>
+<li><a href="#org23d7172"><span class="todo TODO">TODO</span> Automatic differentiation</a></li>
+<li><a href="#org96b40d0"><span class="todo TODO">TODO</span> Complex numbers</a></li>
+<li><a href="#org33885ea"><span class="todo TODO">TODO</span> Dual numbers</a></li>
+<li><a href="#orgcbd8c67">Elementwise operations</a></li>
+<li><a href="#org6f349a0">Hadamard product</a></li>
+<li><a href="#orgf542efa"><span class="todo TODO">TODO</span> Imaginary numbers</a></li>
+<li><a href="#org4a10078">Non-linear functions</a></li>
+<li><a href="#org935e858">Outliers</a></li>
+<li><a href="#orgf20a51b">Quadratic equations</a>
 <ul>
-<li><a href="#orge053fbe">Hidden quadratic equations</a></li>
-<li><a href="#orgee489dd">Solving quadratic equations</a></li>
-<li><a href="#org755ea30">Using the quadratic formula</a>
+<li><a href="#org50e3b48">Hidden quadratic equations</a></li>
+<li><a href="#org270c666">Solving quadratic equations</a></li>
+<li><a href="#org293e665">Using the quadratic formula</a>
 <ul>
-<li><a href="#org594e22a">Complex solutions</a></li>
+<li><a href="#orga28b2c2">Complex solutions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org87f96a4">Tensor broadcasting</a></li>
+<li><a href="#orgdb2c2c8">Tensor broadcasting</a></li>
 </ul>
 </li>
-<li><a href="#org708d982">Little learner</a>
+<li><a href="#orgc578a0d">Little learner</a>
 <ul>
-<li><a href="#org371ea22">Basic machine learning</a></li>
-<li><a href="#orgb119b63">Functions</a>
+<li><a href="#org0321f62">Basic machine learning</a></li>
+<li><a href="#orgc631602">Functions</a>
 <ul>
-<li><a href="#org4444a28">Expectant and objective functions</a></li>
-<li><a href="#org38cd5df">Extended functions</a></li>
-<li><a href="#orgee35afe">Loss function</a></li>
-<li><a href="#org8b98f70">Parameterized functions</a></li>
+<li><a href="#orgf252d17">Expectant and objective functions</a></li>
+<li><a href="#org9481b3f">Extended functions</a></li>
+<li><a href="#orgd426ad4">Loss function</a></li>
+<li><a href="#org39437b3">Parameterized functions</a></li>
 </ul>
 </li>
-<li><a href="#orgde32033">Gradients</a>
+<li><a href="#orgd131526">Gradients</a>
 <ul>
-<li><a href="#org9639605">Nomenclature</a></li>
-<li><a href="#org7161a33">Gradient descent</a></li>
-<li><a href="#org894d37c">Stochastic gradient descent</a></li>
+<li><a href="#orge69378d">Nomenclature</a></li>
+<li><a href="#org157580b">Gradient descent</a></li>
+<li><a href="#orgf4a1ecc">Optimizers</a>
+<ul>
+<li><a href="#orgef1c387">Stochastic gradient descent</a></li>
+<li><a href="#orgad48faf">Momentum gradient descent</a></li>
+<li><a href="#org9596294">RMSProp</a></li>
 </ul>
 </li>
-<li><a href="#org6e82853">Rate of change</a></li>
-<li><a href="#org2d775a1">RMSProp</a></li>
-<li><a href="#org860c051">Tensors</a>
-<ul>
-<li><a href="#orge231765">Tensor rank</a></li>
-<li><a href="#orgd4ebb43">Tensor shape</a></li>
 </ul>
 </li>
-<li><a href="#org72e1185">Update of parameters</a></li>
-<li><a href="#org36681e1">Velocity</a></li>
+<li><a href="#org547febf">Rate of change</a></li>
+<li><a href="#org626d160">Smoothing</a></li>
+<li><a href="#org6ba01ac">Tensors</a>
+<ul>
+<li><a href="#org83b62ec">Tensor rank</a></li>
+<li><a href="#orgc5f34e0">Tensor shape</a></li>
+</ul>
+</li>
+<li><a href="#org50893a4">Update of parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -117,10 +303,9 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgb9cc023" class="outline-2">
-<h2 id="orgb9cc023">Github repositories</h2>
-<div class="outline-text-2" id="text-orgb9cc023">
+<div id="outline-container-orga7870df" class="outline-2">
+<h2 id="orga7870df">Github repositories</h2>
+<div class="outline-text-2" id="text-orga7870df">
 <ul class="org-ul">
 <li><a href="https://github.com/dm701/AI-for-media">AI for media</a></li>
 <li><a href="https://github.com/dm701/Data-Science-assignments">Data science assignments</a></li>
@@ -130,54 +315,54 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org17eb1b2" class="outline-2">
-<h2 id="org17eb1b2">Machine learning and deep learning</h2>
-<div class="outline-text-2" id="text-org17eb1b2">
+<div id="outline-container-org7207ef3" class="outline-2">
+<h2 id="org7207ef3">Machine learning and deep learning</h2>
+<div class="outline-text-2" id="text-org7207ef3">
 </div>
-<div id="outline-container-org8b0eb00" class="outline-3">
-<h3 id="org8b0eb00">General</h3>
-<div class="outline-text-3" id="text-org8b0eb00">
+<div id="outline-container-org0cd027d" class="outline-3">
+<h3 id="org0cd027d">General</h3>
+<div class="outline-text-3" id="text-org0cd027d">
 </div>
-<div id="outline-container-org42785c0" class="outline-4">
-<h4 id="org42785c0"><span class="todo TODO">TODO</span> Automatic differentiation</h4>
+<div id="outline-container-org23d7172" class="outline-4">
+<h4 id="org23d7172"><span class="todo TODO">TODO</span> Automatic differentiation</h4>
 </div>
-<div id="outline-container-orge3945f2" class="outline-4">
-<h4 id="orge3945f2"><span class="todo TODO">TODO</span> Complex numbers</h4>
+<div id="outline-container-org96b40d0" class="outline-4">
+<h4 id="org96b40d0"><span class="todo TODO">TODO</span> Complex numbers</h4>
 </div>
-<div id="outline-container-orge9336c7" class="outline-4">
-<h4 id="orge9336c7"><span class="todo TODO">TODO</span> <a id="org67bce01"></a>Dual numbers</h4>
+<div id="outline-container-org33885ea" class="outline-4">
+<h4 id="org33885ea"><span class="todo TODO">TODO</span> <a id="org5490c99"></a>Dual numbers</h4>
 </div>
-<div id="outline-container-org5652949" class="outline-4">
-<h4 id="org5652949">Elementwise operations</h4>
-<div class="outline-text-4" id="text-org5652949">
+<div id="outline-container-orgcbd8c67" class="outline-4">
+<h4 id="orgcbd8c67">Elementwise operations</h4>
+<div class="outline-text-4" id="text-orgcbd8c67">
 <p>
-In elementwise operations like addition, subtraction, and division, values that correspond positionally are combined to produce a new tensor. The first value in tensor <i>A</i> is paired with the first value in tensor <i>B</i>. The second value is paired with the second, and so on. This means the tensors must have equal dimensions (i.e. equal <a href="#orgd4ebb43">shapes</a>) in order to complete the operation (source: <a href="https://ml-cheatsheet.readthedocs.io/en/latest/linear_algebra.html#elementwise-operations">ml-cheatsheets</a>).
+In elementwise operations like addition, subtraction, and division, values that correspond positionally are combined to produce a new tensor. The first value in tensor <i>A</i> is paired with the first value in tensor <i>B</i>. The second value is paired with the second, and so on. This means the tensors must have equal dimensions (i.e. equal <a href="#orgc5f34e0">shapes</a>) in order to complete the operation (source: <a href="https://ml-cheatsheet.readthedocs.io/en/latest/linear_algebra.html#elementwise-operations">ml-cheatsheets</a>).
 </p>
 
 
-<div id="org34fec6e" class="figure">
+<div id="org89b71f1" class="figure">
 <p><img src="img/Elementwise_operations.png" alt="Elementwise_operations.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Elementwise operation</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org4cf7bc6" class="outline-4">
-<h4 id="org4cf7bc6">Hadamard product</h4>
-<div class="outline-text-4" id="text-org4cf7bc6">
+<div id="outline-container-org6f349a0" class="outline-4">
+<h4 id="org6f349a0">Hadamard product</h4>
+<div class="outline-text-4" id="text-org6f349a0">
 <p>
 The <b>Hadamard product</b> (also known as <b>element wise product</b>) is an operation which takes in two matrices of the same shape and returns a matrix of the multiplied corresponding elements (source: <a href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">wikipedia</a>).
 </p>
 </div>
 </div>
-<div id="outline-container-orga32549c" class="outline-4">
-<h4 id="orga32549c"><span class="todo TODO">TODO</span> Imaginary numbers</h4>
+<div id="outline-container-orgf542efa" class="outline-4">
+<h4 id="orgf542efa"><span class="todo TODO">TODO</span> Imaginary numbers</h4>
 </div>
-<div id="outline-container-org733c1c9" class="outline-4">
-<h4 id="org733c1c9"><a id="orgf2cb2c5"></a>Non-linear functions</h4>
-<div class="outline-text-4" id="text-org733c1c9">
+<div id="outline-container-org4a10078" class="outline-4">
+<h4 id="org4a10078"><a id="orgad31dd3"></a>Non-linear functions</h4>
+<div class="outline-text-4" id="text-org4a10078">
 <p>
-Often a <a href="#org0eb55f4">linear</a> function cannot explain the relationship between variables, in such cases a non-linear function must be used.<br />
+Often a <a href="#orgdc9ba80">linear</a> function cannot explain the relationship between variables, in such cases a non-linear function must be used.<br />
 Non-linear means the graph is not a straight line, therefore the graph of a non-linear function is a curved line.
 </p>
 
@@ -188,7 +373,7 @@ Examples of non-linear functions are:
 
 <ul class="org-ul">
 <li>Exponential functions</li>
-<li><a href="#orgb8b4d0f">Quadratic</a> functions</li>
+<li><a href="#org431fada">Quadratic</a> functions</li>
 <li>Logarithmic functions</li>
 </ul>
 
@@ -197,9 +382,9 @@ Examples of non-linear functions are:
 </p>
 </div>
 </div>
-<div id="outline-container-org99c01cb" class="outline-4">
-<h4 id="org99c01cb">Outliers</h4>
-<div class="outline-text-4" id="text-org99c01cb">
+<div id="outline-container-org935e858" class="outline-4">
+<h4 id="org935e858">Outliers</h4>
+<div class="outline-text-4" id="text-org935e858">
 <p>
 An outlier is a data point significantly different from other data points in a dataset. Outliers can occur for various reasons, such as measurement errors, data entry errors, or natural variations in the data. They can significantly impact analysis in machine learning.
 </p>
@@ -209,7 +394,7 @@ An example of this is if we were to take the following dataset:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[15 101 18 7 13 16 11 21 5 15 10 9]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">15</span> <span style="color: #a9a1e1;">101</span> <span style="color: #a9a1e1;">18</span> <span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">13</span> <span style="color: #a9a1e1;">16</span> <span style="color: #a9a1e1;">11</span> <span style="color: #a9a1e1;">21</span> <span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">15</span> <span style="color: #a9a1e1;">10</span> <span style="color: #a9a1e1;">9</span>]
 </pre>
 </div>
 
@@ -218,9 +403,9 @@ just by looking at it, one can quickly say ‘101’ is an outlier because it is
 </p>
 </div>
 </div>
-<div id="outline-container-org5c60265" class="outline-4">
-<h4 id="org5c60265"><a id="orgb8b4d0f"></a>Quadratic equations</h4>
-<div class="outline-text-4" id="text-org5c60265">
+<div id="outline-container-orgf20a51b" class="outline-4">
+<h4 id="orgf20a51b"><a id="org431fada"></a>Quadratic equations</h4>
+<div class="outline-text-4" id="text-orgf20a51b">
 <p>
 Here's an example of a <b>standard</b> <i>quadratic equation</i>:
 </p>
@@ -303,9 +488,9 @@ Since \(a=0\), the equation does not meet the criteria for being quadratic. A qu
 \[ax+b=0\]
 </p>
 </div>
-<div id="outline-container-orge053fbe" class="outline-5">
-<h5 id="orge053fbe">Hidden quadratic equations</h5>
-<div class="outline-text-5" id="text-orge053fbe">
+<div id="outline-container-org50e3b48" class="outline-5">
+<h5 id="org50e3b48">Hidden quadratic equations</h5>
+<div class="outline-text-5" id="text-org50e3b48">
 <p>
 Sometimes a quadratic equation does not look like \(5x^2+3x+3=0\), for example:
 </p>
@@ -359,9 +544,9 @@ Sometimes a quadratic equation does not look like \(5x^2+3x+3=0\), for example:
 </p>
 </div>
 </div>
-<div id="outline-container-orgee489dd" class="outline-5">
-<h5 id="orgee489dd">Solving quadratic equations</h5>
-<div class="outline-text-5" id="text-orgee489dd">
+<div id="outline-container-org270c666" class="outline-5">
+<h5 id="org270c666">Solving quadratic equations</h5>
+<div class="outline-text-5" id="text-org270c666">
 <p>
 The <i>solutions</i> to a quadratic equation is where the value of \(x\) that make the equation equal to zero. These solution are also called <i>roots</i> or sometimes <i>zeroes</i>.
 </p>
@@ -371,7 +556,7 @@ There are usually two solutions to a quadratic equation, as per this graph
 </p>
 
 
-<div id="org0212e7e" class="figure">
+<div id="org8977d3d" class="figure">
 <p><img src="img/quadratic_graph.png" alt="quadratic_graph.png" width="250px" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Quadratic graph</p>
@@ -402,7 +587,7 @@ and
 </p>
 
 <p>
-The term under the square root, \(b^2-4ac\) is called the <a id="org44aa9d5"></a>/discriminant/, because it can <b>discriminate</b> between the possible types of solutions:
+The term under the square root, \(b^2-4ac\) is called the <a id="org810f0ac"></a>/discriminant/, because it can <b>discriminate</b> between the possible types of solutions:
 </p>
 
 <ul class="org-ul">
@@ -412,9 +597,9 @@ The term under the square root, \(b^2-4ac\) is called the <a id="org44aa9d5"></a
 </ul>
 </div>
 </div>
-<div id="outline-container-org755ea30" class="outline-5">
-<h5 id="org755ea30">Using the quadratic formula</h5>
-<div class="outline-text-5" id="text-org755ea30">
+<div id="outline-container-org293e665" class="outline-5">
+<h5 id="org293e665">Using the quadratic formula</h5>
+<div class="outline-text-5" id="text-org293e665">
 <ul class="org-ul">
 <li>Coefficients are: \[a=5 b=6 c=1\]</li>
 <li>Quadratic formula: \[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</li>
@@ -427,7 +612,7 @@ The solutions can be visualised on this graph
 </p>
 
 
-<div id="orge237521" class="figure">
+<div id="org59c642d" class="figure">
 <p><img src="img/quadratic_graph_2.png" alt="quadratic_graph_2.png" width="350px" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Quadratic graph real solutions</p>
@@ -460,7 +645,7 @@ If the solution was a repeated root, the parabola on the graph would only touch 
 </p>
 
 
-<div id="org1195982" class="figure">
+<div id="org3aaeb83" class="figure">
 <p><img src="img/quadratic_graph_3.png" alt="quadratic_graph_3.png" width="350px" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Quadratic graph repeated root</p>
@@ -470,11 +655,11 @@ If the solution was a repeated root, the parabola on the graph would only touch 
 (source: <a href="https://www.mathsisfun.com/algebra/quadratic-equation.html">mathsisfun</a>)
 </p>
 </div>
-<div id="outline-container-org594e22a" class="outline-6">
-<h6 id="org594e22a">Complex solutions</h6>
-<div class="outline-text-6" id="text-org594e22a">
+<div id="outline-container-orga28b2c2" class="outline-6">
+<h6 id="orga28b2c2">Complex solutions</h6>
+<div class="outline-text-6" id="text-orga28b2c2">
 <p>
-When the <a href="#org44aa9d5">discriminant</a> is negative we get a pair of <b>complex</b> solutions, meaning that the results will include <b>imaginary numbers</b>. For example, if we wanted to solve \[5x^2+2x+1=0\]
+When the <a href="#org810f0ac">discriminant</a> is negative we get a pair of <b>complex</b> solutions, meaning that the results will include <b>imaginary numbers</b>. For example, if we wanted to solve \[5x^2+2x+1=0\]
 </p>
 
 <p>
@@ -498,7 +683,7 @@ Viewing on a graph, the curve does not cross the \(x\) axis, which is why we end
 </p>
 
 
-<div id="org59c642d" class="figure">
+<div id="org1dedafe" class="figure">
 <p><img src="img/quadratic_graph_4.png" alt="quadratic_graph_4.png" width="350px" />
 </p>
 <p><span class="figure-number">Figure 5: </span>Quadratic graph complex solution</p>
@@ -511,15 +696,15 @@ Viewing on a graph, the curve does not cross the \(x\) axis, which is why we end
 </div>
 </div>
 </div>
-<div id="outline-container-org87f96a4" class="outline-4">
-<h4 id="org87f96a4">Tensor broadcasting</h4>
-<div class="outline-text-4" id="text-org87f96a4">
+<div id="outline-container-orgdb2c2c8" class="outline-4">
+<h4 id="orgdb2c2c8">Tensor broadcasting</h4>
+<div class="outline-text-4" id="text-orgdb2c2c8">
 <p>
 According to <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">numpy</a>, tensor operations are usually done on pairs of tensors on an element-by-element basis. In the simplest case, the two tensors must have the exact same shape. For example:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(* [1.0 2.0 3.0] [2.0 2.0 2.0])
+<pre class="src src-racket">(<span style="color: #c678dd;">*</span> [<span style="color: #a9a1e1;">1.0</span> <span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">3.0</span>] [<span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">2.0</span>])
 </pre>
 </div>
 
@@ -528,7 +713,7 @@ will return:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[2.0 4.0 6.0]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">4.0</span> <span style="color: #a9a1e1;">6.0</span>]
 </pre>
 </div>
 
@@ -537,7 +722,7 @@ Broadcasting rules can <b>relax</b> these constraints when the tensors' shapes m
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(* [1.0 2.0 3.0] 2.0)
+<pre class="src src-racket">(<span style="color: #c678dd;">*</span> [<span style="color: #a9a1e1;">1.0</span> <span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">3.0</span>] <span style="color: #a9a1e1;">2.0</span>)
 </pre>
 </div>
 
@@ -546,7 +731,7 @@ returns:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[2.0 4.0 6.0]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">4.0</span> <span style="color: #a9a1e1;">6.0</span>]
 </pre>
 </div>
 
@@ -555,7 +740,7 @@ We can think of the scalar being <b>stretched</b> during the arithmetic operatio
 </p>
 
 
-<div id="orgabbfd5d" class="figure">
+<div id="orgc7937f2" class="figure">
 <p><img src="img/broadcasting_1.png" alt="broadcasting_1.png" />
 </p>
 <p><span class="figure-number">Figure 6: </span>In the simplest example of broadcasting, the scalar <b>b</b> is stretched to become an array of same shape as <b>a</b> so the shapes are compatible for element-by-element multiplication (source: <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">numpy</a>).</p>
@@ -563,22 +748,22 @@ We can think of the scalar being <b>stretched</b> during the arithmetic operatio
 </div>
 </div>
 </div>
-<div id="outline-container-org708d982" class="outline-3">
-<h3 id="org708d982">Little learner</h3>
-<div class="outline-text-3" id="text-org708d982">
+<div id="outline-container-orgc578a0d" class="outline-3">
+<h3 id="orgc578a0d">Little learner</h3>
+<div class="outline-text-3" id="text-orgc578a0d">
 <p>
 This section is a series of notes about machine learning and deep learning in the context of the book <a href="https://www.thelittlelearner.com/">"The Little Learner: A straight line to deep learning"</a> by <i>Daniel P. Friedman and Anurag Mintaka</i>.
 </p>
 </div>
-<div id="outline-container-org371ea22" class="outline-4">
-<h4 id="org371ea22">Basic machine learning</h4>
-<div class="outline-text-4" id="text-org371ea22">
+<div id="outline-container-org0321f62" class="outline-4">
+<h4 id="org0321f62">Basic machine learning</h4>
+<div class="outline-text-4" id="text-org0321f62">
 <p>
 Here's a plane graph plot of a line against the \(x\) axis (<b>horizontal</b>) and the \(y\) axis (<b>vertical</b>).
 </p>
 
 
-<div id="org02f63b3" class="figure">
+<div id="org58549ac" class="figure">
 <p><img src="img/LL_line_1.png" alt="LL_line_1.png" width="250px" />
 </p>
 <p><span class="figure-number">Figure 7: </span>Plane graph plot</p>
@@ -590,7 +775,7 @@ Using arrows at both ends of the line means that it extends indefinitely in both
 </p>
 
 
-<div id="org7bb8311" class="figure">
+<div id="orge7c842c" class="figure">
 <p><img src="img/LL_line_2.png" alt="LL_line_2.png" width="250px" />
 </p>
 <p><span class="figure-number">Figure 8: </span>Plane graph plot</p>
@@ -602,7 +787,7 @@ Because this line passes through the origin, \(y\) is a multiple of \(x\) by a c
 </p>
 
 
-<div id="org0f3d72f" class="figure">
+<div id="org783a955" class="figure">
 <p><img src="img/LL_line_3.png" alt="LL_line_3.png" width="250px" />
 </p>
 <p><span class="figure-number">Figure 9: </span>Plane graph plot</p>
@@ -613,7 +798,7 @@ In case the line does not go through the origin, this is what it looks like
 </p>
 
 
-<div id="org306dfb5" class="figure">
+<div id="org4c1e529" class="figure">
 <p><img src="img/LL_line_4.png" alt="LL_line_4.png" width="250px" />
 </p>
 <p><span class="figure-number">Figure 10: </span>Plane graph plot</p>
@@ -624,14 +809,14 @@ Now the whole line is lifted by \(b\) (sometimes called the <i>bias</i>), and \(
 </p>
 
 <p>
-Here's an initial attempt at a <a id="org0eb55f4"></a>/line/ function, <b>it is a function of one argument which results in a function of two arguments</b>:
+Here's an initial attempt at a <a id="orgdc9ba80"></a> <i>line</i> function, <b>it is a function of one argument which results in a function of two arguments</b>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(define line
-  (lambda (x)
-    (lambda (w b)
-      (+ (* w x) b))))
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">line</span>
+  (<span style="color: #51afef;">lambda</span> (x)
+    (<span style="color: #51afef;">lambda</span> (w b)
+      (<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> w x) b))))
 </pre>
 </div>
 
@@ -649,7 +834,7 @@ Here's an example of how to use <i>line</i>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(line 8)
+<pre class="src src-racket">(line <span style="color: #a9a1e1;">8</span>)
 </pre>
 </div>
 
@@ -658,8 +843,8 @@ where (<i>line</i> 8) <b>is itself function</b> which remembers that \(x\) is 8,
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(lambda (w b)
-  (+ (* w 8) b))
+<pre class="src src-racket">(<span style="color: #51afef;">lambda</span> (w b)
+  (<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> w <span style="color: #a9a1e1;">8</span>) b))
 </pre>
 </div>
 
@@ -669,7 +854,7 @@ If we were to invoke:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">((line 8) 4 6)
+<pre class="src src-racket">((line <span style="color: #a9a1e1;">8</span>) <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span>)
 </pre>
 </div>
 
@@ -678,14 +863,14 @@ those would be the steps:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">((lambda (w b)
-   (+ (* w 8) b)) 4 6)
+<pre class="src src-racket">((<span style="color: #51afef;">lambda</span> (w b)
+   (<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> w <span style="color: #a9a1e1;">8</span>) b)) <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span>)
 
-(+ (* 4 8) 6)
+(<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">8</span>) <span style="color: #a9a1e1;">6</span>)
 
-(+ 32 6)
+(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">32</span> <span style="color: #a9a1e1;">6</span>)
 
-=&gt; 38
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">38</span>
 </pre>
 </div>
 
@@ -694,17 +879,17 @@ meaning that when \(x\) is 8, y is 38.
 </p>
 
 <p>
-Functions that accept parameters <b>after</b> the arguments are known as <a href="#org8b98f70">parameterized functions</a>, <i>line</i> is a parameterized function because it takes \(w\) and \(b\) after the argument \(x\).<br />
+Functions that accept parameters <b>after</b> the arguments are known as <a href="#org39437b3">parameterized functions</a>, <i>line</i> is a parameterized function because it takes \(w\) and \(b\) after the argument \(x\).<br />
 Such functions are used where the correct values for the parameters (here \(w\) and \(b\)) must be figured from given values of \(x\) and the corresponding values of \(y\).<br />
-Here is an example, using the following <a id="orgd3109a0"></a>dataset:
+Here is an example, using the following <a id="orgac6458a"></a>dataset:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(define line-xs
-  [2.0 1.0 4.0 3.0])
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">line-xs</span>
+  [<span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">1.0</span> <span style="color: #a9a1e1;">4.0</span> <span style="color: #a9a1e1;">3.0</span>])
 
-(define line-ys
-  [1.8 1.2 4.2 3.3])
+(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">line-ys</span>
+  [<span style="color: #a9a1e1;">1.8</span> <span style="color: #a9a1e1;">1.2</span> <span style="color: #a9a1e1;">4.2</span> <span style="color: #a9a1e1;">3.3</span>])
 </pre>
 </div>
 
@@ -714,7 +899,7 @@ That's how the dataset <i>(line-xs, line-ys)</i> looks as points on a graph:
 </p>
 
 
-<div id="orgfd249af" class="figure">
+<div id="org8ca98fc" class="figure">
 <p><img src="img/LL_line_5.png" alt="LL_line_5.png" width="250px" />
 </p>
 <p><span class="figure-number">Figure 11: </span>Dataset plotted on plane graph</p>
@@ -725,7 +910,7 @@ Going back to our <i>line</i> function, remember that it has two parameters, \(w
 </p>
 
 
-<div id="org67aaa77" class="figure">
+<div id="org21cd336" class="figure">
 <p><img src="img/LL_line_6.png" alt="LL_line_6.png" width="250px" />
 </p>
 <p><span class="figure-number">Figure 12: </span>Dataset with line plotted</p>
@@ -734,29 +919,25 @@ Going back to our <i>line</i> function, remember that it has two parameters, \(w
 <p>
 we would say that this function is a simple line with parameters \(w\) = 1.0 and \(b\) = 0.0, since the line passes trough the origin, \(b\) is 0.0.<br />
 The \(x\) and \(y\) coordinates <b>on this line are always equal</b>. For instance, (0.0 0.0), (1.0 1.0), and so on. This is why \(w\) is 1.0.<br />
-Therefore, if we are given a new \(x\) coordinate, it's possible to <i>predict</i> the corresponding \(y\) coordinate from this <i>line</i> function. For instance if \(x = 3.79\), then:
-</p>
-
-<p>
-\(y=1.0*3.79+0=3.79\)
+Therefore, if we are given a new \(x\) coordinate, it's possible to <i>predict</i> the corresponding \(y\) coordinate from this <i>line</i> function. For instance if \(x = 3.79\), then \[y=1.0*3.79+0=3.79\]
 </p>
 
 <p>
 This would be referred to as the <i>predicted</i> \(y\) for a given \(x\). Finding the parameters of a function from a dataset is called <i>learning</i>.<br />
-The parameters \(w\) and \(b\) are collectively known as the <i>parameter set, which is referenced to as &theta; (little-theta). &theta; in this case has two parameters, the first which is \(w\), is referred to as &theta;<sub>0</sub>, and \(b\) is &theta;<sub>1</sub>.<br />
+The parameters \(w\) and \(b\) are collectively known as the <i>parameter set, which is referenced to as &theta; (little-theta). &theta; in this case has two parameters, the first which is \(w\), is referred to as \(\theta_0\), and \(b\) is \(\theta_1\).<br />
 Our /line</i> function can then be rewritten like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(define line
-  (lambda (x)
-    (lambda (little-theta)
-      (+ (* (ref little-theta 0) x) (ref little-theta 1)))))
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">line</span>
+  (<span style="color: #51afef;">lambda</span> (x)
+    (<span style="color: #51afef;">lambda</span> (little-theta)
+      (<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> (ref little-theta <span style="color: #a9a1e1;">0</span>) x) (ref little-theta <span style="color: #a9a1e1;">1</span>)))))
 </pre>
 </div>
 
 <p>
-So the dataset was examined on a graph, and from that it was possible to <b>estimate</b> a &theta;. This was used to <b>predict</b> a \(y\) coordinate for an \(x\) coordinate which might not be part of the initial dataset.
+So the dataset was examined on a graph, and from that it was possible to <b>estimate</b> a \(\theta\). This was used to <b>predict</b> a \(y\) coordinate for an \(x\) coordinate which might not be part of the initial dataset.
 </p>
 
 <p>
@@ -764,32 +945,32 @@ One final thing to note is that <i>line</i> is what's commonly called a <i>linea
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(* 5.0 x)
+<pre class="src src-racket">(<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">5.0</span> x)
 </pre>
 </div>
 
 <p>
-scales the value of \(x\) by 5.0. If we had a parameter &theta;<sub>0</sub>, then
+scales the value of \(x\) by 5.0. If we had a parameter \(\theta_0\), then
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(* (ref theta 0) x)
+<pre class="src src-racket">(<span style="color: #c678dd;">*</span> (ref theta <span style="color: #a9a1e1;">0</span>) x)
 </pre>
 </div>
 
 <p>
-scales the value of \(x\) by &theta;<sub>0</sub>.
-This explains why <i>line</i> is a linear function, it scales its argument \(x\) with &theta;<sub>0</sub> and <b>adds</b> &theta;<sub>1</sub> to it. This is in contrast to <a href="#orgf2cb2c5">non-linear</a> functions, such as quadratic functions which use squaring.
+scales the value of \(x\) by \(\theta_0\).
+This explains why <i>line</i> is a linear function, it scales its argument \(x\) with \(\theta_0\) and <b>adds</b> \(\theta_1\) to it. This is in contrast to <a href="#orgad31dd3">non-linear</a> functions, such as quadratic functions which use squaring.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb119b63" class="outline-4">
-<h4 id="orgb119b63">Functions</h4>
-<div class="outline-text-4" id="text-orgb119b63">
+<div id="outline-container-orgc631602" class="outline-4">
+<h4 id="orgc631602">Functions</h4>
+<div class="outline-text-4" id="text-orgc631602">
 </div>
-<div id="outline-container-org4444a28" class="outline-5">
-<h5 id="org4444a28">Expectant and objective functions</h5>
-<div class="outline-text-5" id="text-org4444a28">
+<div id="outline-container-orgf252d17" class="outline-5">
+<h5 id="orgf252d17">Expectant and objective functions</h5>
+<div class="outline-text-5" id="text-orgf252d17">
 <p>
 A function invocation such as:
 </p>
@@ -804,12 +985,12 @@ which in a "same-as" chart transcribes as:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(lambda (xs ys)
-  (lambda (theta)
-    (let ((pred-ys ((line xs) theta)))
+<pre class="src src-racket">(<span style="color: #51afef;">lambda</span> (xs ys)
+  (<span style="color: #51afef;">lambda</span> (theta)
+    (<span style="color: #51afef;">let</span> ((<span style="color: #dcaeea;">pred-ys</span> ((line xs) theta)))
       (sum
-       (sqr
-        (- ys pred-ys)))))
+       (<span style="color: #c678dd;">sqr</span>
+        (<span style="color: #c678dd;">-</span> ys pred-ys)))))
 </pre>
 </div>
 
@@ -831,16 +1012,16 @@ which in a "same-as" chart transcribes as:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(lambda (theta)
-  (let ((pred-ys ((line line-xs) theta)))
+<pre class="src src-racket">(<span style="color: #51afef;">lambda</span> (theta)
+  (<span style="color: #51afef;">let</span> ((<span style="color: #dcaeea;">pred-ys</span> ((line line-xs) theta)))
     (sum
-     (sqr
-      (- line-ys pred-ys)))))
+     (<span style="color: #c678dd;">sqr</span>
+      (<span style="color: #c678dd;">-</span> line-ys pred-ys)))))
 </pre>
 </div>
 
 <p>
-it produces a function which <b>awaits</b> a &theta;. The name of the produced function is known as an <a id="org7925b9e"></a>objective function. When provided with a &theta;, the objective function returns a scalar representing the <a href="#orgee35afe">loss</a>, which is a measure of how far away we are from the well fitted &theta;.
+it produces a function which <b>awaits</b> a &theta;. The name of the produced function is known as an <a id="orge38f97b"></a>objective function. When provided with a \(\theta\), the objective function returns a scalar representing the <a href="#orgd426ad4">loss</a>, which is a measure of how far away we are from the well fitted \(\theta\).
 </p>
 
 <p>
@@ -848,7 +1029,7 @@ The objective function would be called as such:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(((l2-loss line) line-xs line-ys) (list 0.0 0.0))
+<pre class="src src-racket">(((l2-loss line) line-xs line-ys) (<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">0.0</span>))
 </pre>
 </div>
 
@@ -866,13 +1047,13 @@ One ought to be mindful that
 </div>
 
 <p>
-is <b>not</b> a direct function call. It is itself a function which takes a &theta; as input.
+is <b>not</b> a direct function call. It is itself a function which takes a \(\theta\) as input.
 </p>
 </div>
 </div>
-<div id="outline-container-org38cd5df" class="outline-5">
-<h5 id="org38cd5df">Extended functions</h5>
-<div class="outline-text-5" id="text-org38cd5df">
+<div id="outline-container-org9481b3f" class="outline-5">
+<h5 id="org9481b3f">Extended functions</h5>
+<div class="outline-text-5" id="text-org9481b3f">
 <ul class="org-ul">
 <li><p>
 In the context of this book, some functions were built to work on both scalars and tensors. They are referred as <b>extended</b> functions.<br />
@@ -880,7 +1061,7 @@ For instance, the function:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">+
+<pre class="src src-racket"><span style="color: #c678dd;">+</span>
 </pre>
 </div>
 
@@ -894,8 +1075,8 @@ In its "regular" (i.e. non-extended) way, the function + works as such:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(+ 1 1)
-5
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">1</span>)
+<span style="color: #a9a1e1;">5</span>
 </pre>
 </div>
 
@@ -904,8 +1085,8 @@ However, because + is built using <b>extension</b> it can also work on tensors:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(+ [2] [7])
-[9]
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> [<span style="color: #a9a1e1;">2</span>] [<span style="color: #a9a1e1;">7</span>])
+[<span style="color: #a9a1e1;">9</span>]
 </pre>
 </div>
 
@@ -914,9 +1095,9 @@ here is a "same-as" chart to illustrate how this results in [9]:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(+ [2] [7])
-[(+ 2 7)]
-[9]
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> [<span style="color: #a9a1e1;">2</span>] [<span style="color: #a9a1e1;">7</span>])
+[(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">7</span>)]
+[<span style="color: #a9a1e1;">9</span>]
 </pre>
 </div>
 
@@ -929,7 +1110,7 @@ Here is another example:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(+ [5 6 7] [2 0 1])
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> [<span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">7</span>] [<span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">0</span> <span style="color: #a9a1e1;">1</span>])
 </pre>
 </div>
 
@@ -938,7 +1119,7 @@ transcribes as:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[(+ 5 2) (+ 6 0) (+ 7 1)]
+<pre class="src src-racket">[(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">2</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">0</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">1</span>)]
 </pre>
 </div>
 
@@ -947,7 +1128,7 @@ and results in:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[7 6 8]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">8</span>]
 </pre>
 </div>
 
@@ -960,8 +1141,8 @@ We can also add 2 tensors<sup>2</sup> of the same shape, for instance:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(+ [[4 6 7] [2 0 1]]
-   [[1 2 2] [6 3 1]])
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> [[<span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">7</span>] [<span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">0</span> <span style="color: #a9a1e1;">1</span>]]
+   [[<span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">2</span>] [<span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">1</span>]])
 </pre>
 </div>
 
@@ -970,11 +1151,11 @@ transcribes as:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[(+ [4 6 7] [1 2 2])
- (+ [2 0 1] [6 3 1])]
+<pre class="src src-racket">[(<span style="color: #c678dd;">+</span> [<span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">7</span>] [<span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">2</span>])
+ (<span style="color: #c678dd;">+</span> [<span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">0</span> <span style="color: #a9a1e1;">1</span>] [<span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">1</span>])]
 
-[[(+ 4 1) (+ 6 2) (+ 7 2)]
- [(+ 2 6) (+ 0 3) (+ 1 1)]]
+[[(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">1</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">2</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">2</span>)]
+ [(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">6</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">0</span> <span style="color: #a9a1e1;">3</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">1</span>)]]
 </pre>
 </div>
 
@@ -983,12 +1164,12 @@ and results in:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[5 8 9] [8 3 2]]
+<pre class="src src-racket">[[<span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">8</span> <span style="color: #a9a1e1;">9</span>] [<span style="color: #a9a1e1;">8</span> <span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">2</span>]]
 </pre>
 </div>
 
 <p>
-The authors then go on to explain that tensors <b>must</b> be of the same shape before they can be added together, and that getting functions such as + to work on tensors of <b>arbitrary</b> ranks is known as <b>pointwise extension</b>. This however seems to be more commonly known as <a href="#org5652949">elementwise operations</a>.
+The authors then go on to explain that tensors <b>must</b> be of the same shape before they can be added together, and that getting functions such as + to work on tensors of <b>arbitrary</b> ranks is known as <b>pointwise extension</b>. This however seems to be more commonly known as <a href="#orgcbd8c67">elementwise operations</a>.
 </p></li>
 
 <li><p>
@@ -996,7 +1177,7 @@ The point by the authors that tensors <b>must</b> have the same shape before com
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(+ 4 [3 6 5])
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">4</span> [<span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">5</span>])
 </pre>
 </div>
 
@@ -1005,7 +1186,7 @@ by doing this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[(+ 4 3) (+ 4 6) (+ 4 5)]
+<pre class="src src-racket">[(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">3</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">5</span>)]
 </pre>
 </div>
 
@@ -1014,7 +1195,7 @@ which results in:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[7 10 9]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">10</span> <span style="color: #a9a1e1;">9</span>]
 </pre>
 </div>
 
@@ -1023,7 +1204,7 @@ Another example given is:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(+ [6 9 1] [[4 3 8] [7 4 7]])
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> [<span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">1</span>] [[<span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">8</span>] [<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">7</span>]])
 </pre>
 </div>
 
@@ -1032,11 +1213,11 @@ and in this case, we can look inside the tensor<sup>2</sup> argument and add the
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[(+ [6 9 1] [4 3 8])
- (+ [6 9 1] [7 4 7])]
+<pre class="src src-racket">[(<span style="color: #c678dd;">+</span> [<span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">1</span>] [<span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">8</span>])
+ (<span style="color: #c678dd;">+</span> [<span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">1</span>] [<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">7</span>])]
 
-[[(+ 6 4) (+ 9 3) (+ 1 8)]
- [(+ 6 7) (+ 9 4) (+ 1 7)]]
+[[(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">4</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">3</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">8</span>)]
+ [(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">7</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">4</span>) (<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">7</span>)]]
 </pre>
 </div>
 
@@ -1045,12 +1226,12 @@ which results in:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[10 12 9] [13 13 8]]
+<pre class="src src-racket">[[<span style="color: #a9a1e1;">10</span> <span style="color: #a9a1e1;">12</span> <span style="color: #a9a1e1;">9</span>] [<span style="color: #a9a1e1;">13</span> <span style="color: #a9a1e1;">13</span> <span style="color: #a9a1e1;">8</span>]]
 </pre>
 </div>
 
 <p>
-This is in fact called <a href="#org87f96a4">tensor broadcasting</a>.
+This is in fact called <a href="#orgdb2c2c8">tensor broadcasting</a>.
 </p></li>
 
 <li><p>
@@ -1058,7 +1239,7 @@ The reader is subsequently introduced to the extended version of:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">*
+<pre class="src src-racket"><span style="color: #c678dd;">*</span>
 </pre>
 </div>
 
@@ -1067,7 +1248,7 @@ with the following operation:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(* [[4 6 5] [6 9 7]] 3)
+<pre class="src src-racket">(<span style="color: #c678dd;">*</span> [[<span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">5</span>] [<span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">7</span>]] <span style="color: #a9a1e1;">3</span>)
 </pre>
 </div>
 
@@ -1076,10 +1257,10 @@ and these are the steps:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[(* [4 6 5] 3) (* [6 9 7] 3)]
+<pre class="src src-racket">[(<span style="color: #c678dd;">*</span> [<span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">5</span>] <span style="color: #a9a1e1;">3</span>) (<span style="color: #c678dd;">*</span> [<span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">7</span>] <span style="color: #a9a1e1;">3</span>)]
 
-[[(* 4 3) (* 6 3) (* 5 3)]
- [(* 6 3) (* 9 3) (* 7 3)]]
+[[(<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">3</span>) (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">3</span>) (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">3</span>)]
+ [(<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">3</span>) (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">3</span>) (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">3</span>)]]
 </pre>
 </div>
 
@@ -1088,13 +1269,13 @@ which returns:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[12 18 15] [18 27 14]]
+<pre class="src src-racket">[[<span style="color: #a9a1e1;">12</span> <span style="color: #a9a1e1;">18</span> <span style="color: #a9a1e1;">15</span>] [<span style="color: #a9a1e1;">18</span> <span style="color: #a9a1e1;">27</span> <span style="color: #a9a1e1;">14</span>]]
 </pre>
 </div>
 
 <p>
 We are told that this is the <b>Hadamard multiplication</b>.<br />
-Upon further research this does not appear to fit the definition of the Hadamard multiplication, or rather <a href="#org4cf7bc6">Hadamard product</a>, but a simple tensor to scalar multiplication which involves broadcasting.
+Upon further research this does not appear to fit the definition of the Hadamard multiplication, or rather <a href="#org6f349a0">Hadamard product</a>, but a simple tensor to scalar multiplication which involves broadcasting.
 </p></li>
 
 <li><p>
@@ -1102,7 +1283,7 @@ Other extended functions such as:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">sqrt
+<pre class="src src-racket"><span style="color: #c678dd;">sqrt</span>
 </pre>
 </div>
 
@@ -1111,9 +1292,9 @@ descend into tensors. In the case of a tensor<sup>1</sup>, this is how sqrt work
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(sqrt [9 16 25])
+<pre class="src src-racket">(<span style="color: #c678dd;">sqrt</span> [<span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">16</span> <span style="color: #a9a1e1;">25</span>])
 
-[(sqrt 9) (sqrt 16) (sqrt 25)]
+[(<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">9</span>) (<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">16</span>) (<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">25</span>)]
 </pre>
 </div>
 
@@ -1122,7 +1303,7 @@ which returns:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[3 4 5]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">5</span>]
 </pre>
 </div>
 
@@ -1131,12 +1312,12 @@ In the case of a tensor<sup>2</sup>, it works this way:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(sqrt [[49 81 16] [64 25 36]])
+<pre class="src src-racket">(<span style="color: #c678dd;">sqrt</span> [[<span style="color: #a9a1e1;">49</span> <span style="color: #a9a1e1;">81</span> <span style="color: #a9a1e1;">16</span>] [<span style="color: #a9a1e1;">64</span> <span style="color: #a9a1e1;">25</span> <span style="color: #a9a1e1;">36</span>]])
 
-[(sqrt [[49 81 16]]) (sqrt [[64 25 36]])]
+[(<span style="color: #c678dd;">sqrt</span> [[<span style="color: #a9a1e1;">49</span> <span style="color: #a9a1e1;">81</span> <span style="color: #a9a1e1;">16</span>]]) (<span style="color: #c678dd;">sqrt</span> [[<span style="color: #a9a1e1;">64</span> <span style="color: #a9a1e1;">25</span> <span style="color: #a9a1e1;">36</span>]])]
 
-[[(sqrt 49) (sqrt 81) (sqrt 16)]
- [(sqrt 64) (sqrt 25) (sqrt 36)]]
+[[(<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">49</span>) (<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">81</span>) (<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">16</span>)]
+ [(<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">64</span>) (<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">25</span>) (<span style="color: #c678dd;">sqrt</span> <span style="color: #a9a1e1;">36</span>)]]
 </pre>
 </div>
 
@@ -1145,7 +1326,7 @@ and this results in:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[7 9 4] [8 5 6]]
+<pre class="src src-racket">[[<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">4</span>] [<span style="color: #a9a1e1;">8</span> <span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">6</span>]]
 </pre>
 </div>
 
@@ -1174,16 +1355,16 @@ This is how sum-1 is defined:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(define sum1
-  (lambda (t)
-    (summed t (sub1 ) 0.0)))
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">sum1</span>
+  (<span style="color: #51afef;">lambda</span> (t)
+    (summed t (<span style="color: #c678dd;">sub1</span> ) <span style="color: #a9a1e1;">0.0</span>)))
 
-(define summed
-  (lambda (t i a)
-    (cond
-      ((zero? i) (+ (tref t 0) a))
-      (else
-       (summed t (sub1 i) (+ (tref t i) a))))))
+(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">summed</span>
+  (<span style="color: #51afef;">lambda</span> (t i a)
+    (<span style="color: #51afef;">cond</span>
+      ((<span style="color: #c678dd;">zero?</span> i) (<span style="color: #c678dd;">+</span> (tref t <span style="color: #a9a1e1;">0</span>) a))
+      (<span style="color: #51afef;">else</span>
+       (summed t (<span style="color: #c678dd;">sub1</span> i) (<span style="color: #c678dd;">+</span> (tref t i) a))))))
 </pre>
 </div>
 
@@ -1192,7 +1373,7 @@ And this is how it behaves:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(sum-1 [10.0 12.0 14.0])
+<pre class="src src-racket">(sum-1 [<span style="color: #a9a1e1;">10.0</span> <span style="color: #a9a1e1;">12.0</span> <span style="color: #a9a1e1;">14.0</span>])
 </pre>
 </div>
 
@@ -1201,7 +1382,7 @@ which returns:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">32
+<pre class="src src-racket"><span style="color: #a9a1e1;">32</span>
 </pre>
 </div>
 
@@ -1210,13 +1391,13 @@ Here's <i>sum</i> working on a tensor<sup>3</sup>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(sum [[[1 2] [3 4]] [[5 6] [7 8]]])
+<pre class="src src-racket">(sum [[[<span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">2</span>] [<span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">4</span>]] [[<span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">6</span>] [<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">8</span>]]])
 
-[(sum [[1 2] [3 4]])
- (sum [[5 6] [7 8]])]
+[(sum [[<span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">2</span>] [<span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">4</span>]])
+ (sum [[<span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">6</span>] [<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">8</span>]])]
 
-[[(sum-1 [1 2]) (sum-1 [3 4])]
- [(sum-1 [5 6]) (sum-1 [7 8])]]
+[[(sum-1 [<span style="color: #a9a1e1;">1</span> <span style="color: #a9a1e1;">2</span>]) (sum-1 [<span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">4</span>])]
+ [(sum-1 [<span style="color: #a9a1e1;">5</span> <span style="color: #a9a1e1;">6</span>]) (sum-1 [<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">8</span>])]]
 </pre>
 </div>
 
@@ -1225,7 +1406,7 @@ which results in:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[3 7] [11 15]]
+<pre class="src src-racket">[[<span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">7</span>] [<span style="color: #a9a1e1;">11</span> <span style="color: #a9a1e1;">15</span>]]
 </pre>
 </div>
 
@@ -1235,19 +1416,19 @@ What can be noted about the rank of the resulting tensor is that it is <b>one ra
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee35afe" class="outline-5">
-<h5 id="orgee35afe">Loss function</h5>
-<div class="outline-text-5" id="text-orgee35afe">
+<div id="outline-container-orgd426ad4" class="outline-5">
+<h5 id="orgd426ad4">Loss function</h5>
+<div class="outline-text-5" id="text-orgd426ad4">
 <p>
-The loss function, also called <b>cost</b> or <b>error</b> function (source: <a href="https://en.wikipedia.org/wiki/Loss_function">wikipedia</a>), is a mathematical process that quantifies the error margin between a model's prediction and the actual target value. It acts as a guide for the learning process within a machine learning algorithm (source: <a href="https://www.datacamp.com/tutorial/loss-function-in-machine-learning">datacamp</a>), to tell us how far we are from a well-fitted &theta;.
+The loss function, also called <b>cost</b> or <b>error</b> function (source: <a href="https://en.wikipedia.org/wiki/Loss_function">wikipedia</a>), is a mathematical process that quantifies the error margin between a model's prediction and the actual target value. It acts as a guide for the learning process within a machine learning algorithm (source: <a href="https://www.datacamp.com/tutorial/loss-function-in-machine-learning">datacamp</a>), to tell us how far we are from a well-fitted \(\theta\).
 </p>
 
 <p>
-A scalar is required in order to gauge how far we are from the well-fitted &theta;, which is known as the <b>loss</b>. The loss should be as close to 0.0 as possible.
+A scalar is required in order to gauge how far we are from the well-fitted \(\theta\), which is known as the <b>loss</b>. The loss should be as close to 0.0 as possible.
 </p>
 
 <p>
-This loss is determined every time &theta; is revised, and since the loss shows how far we are from the well-fitted &theta;, it is used as guide for revising &theta;.
+This loss is determined every time \(\theta\) is revised, and since the loss shows how far we are from the well-fitted \(\theta\), it is used as guide for revising \(\theta\).
 </p>
 
 <p>
@@ -1256,16 +1437,16 @@ The most straightforward way to determine how far we are is by figuring out the 
 
 <div class="org-src-container">
 <pre class="src src-racket">(sum
- (- line-ys ((line line-xs) (theta-0 theta-1))))
+ (<span style="color: #c678dd;">-</span> line-ys ((line line-xs) (theta-0 theta-1))))
 </pre>
 </div>
 
 <p>
-This however, would not be good enough as if we had a dataset and a &theta; that gave us a tensor difference of:
+This however, would not be good enough as if we had a dataset and a \(\theta\) that gave us a tensor difference of:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[4.0 -3.0 0.0 -4.0 3.0]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">4.0</span> <span style="color: #a9a1e1;">-3.0</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">-4.0</span> <span style="color: #a9a1e1;">3.0</span>]
 </pre>
 </div>
 
@@ -1274,12 +1455,12 @@ the result of:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(sum [4.0 -3.0 0.0 -4.0 3.0])
+<pre class="src src-racket">(sum [<span style="color: #a9a1e1;">4.0</span> <span style="color: #a9a1e1;">-3.0</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">-4.0</span> <span style="color: #a9a1e1;">3.0</span>])
 </pre>
 </div>
 
 <p>
-would return an ideal loss of 0.0, which is incorrect. As can be observed, although the individual difference are significant in most cases, the sum of 0.0 suggests that the &theta; is a perfect fit.
+would return an ideal loss of 0.0, which is incorrect. As can be observed, although the individual difference are significant in most cases, the sum of 0.0 suggests that the \(\theta\) is a perfect fit.
 </p>
 
 <p>
@@ -1288,8 +1469,8 @@ This problem arises from <b>having negative values</b> in the argument to the fu
 
 <div class="org-src-container">
 <pre class="src src-racket">(sum
- (sqr
-  (- line-ys ((line line-xs) (theta-0 theta-1)))))
+ (<span style="color: #c678dd;">sqr</span>
+  (<span style="color: #c678dd;">-</span> line-ys ((line line-xs) (theta-0 theta-1)))))
 </pre>
 </div>
 
@@ -1299,31 +1480,31 @@ This function is called <b>l2-loss</b> and should <b>not</b> be confused with <i
 </p>
 
 <p>
-One thing to note about the l2-loss function is that it can in some case not perform well due to the presence of <a href="#org99c01cb">outliers</a>. This is because the squaring of an element from a tensor difference which belongs to an outlier can contribute disproportionately to the loss.
+One thing to note about the l2-loss function is that it can in some case not perform well due to the presence of <a href="#org935e858">outliers</a>. This is because the squaring of an element from a tensor difference which belongs to an outlier can contribute disproportionately to the loss.
 </p>
 </div>
 </div>
-<div id="outline-container-org8b98f70" class="outline-5">
-<h5 id="org8b98f70">Parameterized functions</h5>
-<div class="outline-text-5" id="text-org8b98f70">
+<div id="outline-container-org39437b3" class="outline-5">
+<h5 id="org39437b3">Parameterized functions</h5>
+<div class="outline-text-5" id="text-org39437b3">
 <p>
 Functions such as:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(define line
-  (lambda (x)
-    (lambda (theta)
-      (+ (* (ref theta 0) x) (ref theta 1)))))
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">line</span>
+  (<span style="color: #51afef;">lambda</span> (x)
+    (<span style="color: #51afef;">lambda</span> (theta)
+      (<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> (ref theta <span style="color: #a9a1e1;">0</span>) x) (ref theta <span style="color: #a9a1e1;">1</span>)))))
 </pre>
 </div>
 
 <p>
-are known as <i>parameterized functions</i>.
+are known as <i>parameterized</i> functions.
 </p>
 
 <p>
-Parameterized functions are used where we must figure out the right values for the parameters (here, &theta;<sub>0</sub> and &theta;<sub>1</sub>) from given values of x and the corresponding values of y.
+Parameterized functions are used where we must figure out the right values for the parameters (here, \(\theta_0\) and \(\theta_1\)) from given values of \(x\) and the corresponding values of \(y\).
 </p>
 
 <p>
@@ -1331,43 +1512,43 @@ In this case when line is invoked, for example, with the <i>argument</i> 8 as su
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(line 8)
+<pre class="src src-racket">(line <span style="color: #a9a1e1;">8</span>)
 </pre>
 </div>
 
 <p>
-we can say that it is waiting to accept arguments for its parameters &theta;<sub>0</sub> and &theta;<sub>1</sub>.
+we can say that it is waiting to accept arguments for its parameters \(\theta_0\) and \(\theta_1\).
 </p>
 
 <p>
-When (line 8) is invoked on &theta;<sub>0</sub> and &theta;<sub>1</sub> as such:
+When (line 8) is invoked on \(\theta_0\) and \(\theta_1\) as such:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">((line 8) 4 6)
+<pre class="src src-racket">((line <span style="color: #a9a1e1;">8</span>) <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span>)
 </pre>
 </div>
 
 <p>
-we can then determine y.
+we can then determine \(y\).
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgde32033" class="outline-4">
-<h4 id="orgde32033">Gradients</h4>
-<div class="outline-text-4" id="text-orgde32033">
+<div id="outline-container-orgd131526" class="outline-4">
+<h4 id="orgd131526">Gradients</h4>
+<div class="outline-text-4" id="text-orgd131526">
 </div>
-<div id="outline-container-org9639605" class="outline-5">
-<h5 id="org9639605">Nomenclature</h5>
-<div class="outline-text-5" id="text-org9639605">
+<div id="outline-container-orge69378d" class="outline-5">
+<h5 id="orge69378d">Nomenclature</h5>
+<div class="outline-text-5" id="text-orge69378d">
 <ul class="org-ul">
 <li><p>
 <span class="underline">Gradient short definition</span>
 </p>
 
 <p>
-A gradient is a general way of understanding the rate of change of a parameterized function with respect to <b>all</b> its parameters.
+A <i>gradient</i> is a general way of understanding the <a href="#org2f961e5">rate of change</a> of a parameterized function with respect to <b>all</b> its parameters.
 </p></li>
 
 <li><p>
@@ -1379,24 +1560,24 @@ The gradient is a fancy word for derivative, or the rate of change of a function
 </p>
 
 <p>
-The term "gradient" is typically used for functions with several inputs and a single output (a scalar field). Yes, you can say a line has a gradient (its slope), but using "gradient" for single-variable functions is unnecessarily confusing (source: <a href="https://betterexplained.com/articles/vector-calculus-understanding-the-gradient/">betterexplained</a>).
+The term gradient is typically used for functions with several inputs and a single output (a scalar field). Yes, you can say a line has a gradient (its slope), but using "gradient" for single-variable functions is unnecessarily confusing (source: <a href="https://betterexplained.com/articles/vector-calculus-understanding-the-gradient/">betterexplained</a>).
 </p></li>
 
 <li><p>
-<span class="underline"><a id="org0ce0959"></a>&nabla; function short explanation</span>
+<span class="underline"><a id="org0048001"></a>&nabla; function short explanation</span>
 </p>
 
 <p>
-To find the gradient of a function at given values of its arguments, we need to use the function &nabla; (i.e. <i>gradient-of</i>). The first argument to &nabla; is a function <i>f</i> (an <a href="#org7925b9e">objective function</a>) that computes the <a href="#orgee35afe">loss</a> (a scalar value) using a dataset and the list of parameters &theta; as its input. The second argument to &nabla; is the initial values of &theta;, the parameters for which we want to compute the gradients of the function <i>f</i>.<br />
+To find the gradient of a function at given values of its arguments, we need to use the function \(\nabla\) (i.e. <i>gradient-of</i>). The first argument to \(\nabla\) is a function \(f\) (an <a href="#orge38f97b">objective function</a>) that computes the <a href="#orgd426ad4">loss</a> (a scalar value) using a dataset and the list of parameters \(\theta\) as its input. The second argument to \(\nabla\) is the initial values of \(\theta\), the parameters for which we want to compute the gradients of the function \(f\).<br />
 In other words &nabla; computes the gradient of <b>another function</b> with respect to its parameters.
 </p>
 
 <p>
-The way to call &nabla; is like this:
+The way to call \(\nabla\) is like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(gradient-of ((l2-loss line) line-xs line-ys) (list 0.0 0.0))
+<pre class="src src-racket">(gradient-of ((l2-loss line) line-xs line-ys) (<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">0.0</span>))
 </pre>
 </div>
 
@@ -1410,7 +1591,7 @@ and this is a detailed explanation of how it works:
 
 <ol class="org-ol">
 <li><p>
-The (<a href="#org7925b9e">objective</a>) function <i>f</i> generated by
+The (<a href="#orge38f97b">objective</a>) function \(f\) generated by
 </p>
 
 <div class="org-src-container">
@@ -1419,66 +1600,66 @@ The (<a href="#org7925b9e">objective</a>) function <i>f</i> generated by
 </div>
 
 <p>
-is designed to take &theta; (<b>a list of tensors</b>) as its input.
+is designed to take \(\theta\) (<b>a list of tensors</b>) as its input.
 </p></li>
 
-<li>The &nabla; function itself manages the passing of &theta; to <i>f</i> internally.</li>
+<li>The \(\nabla\) function itself manages the passing of \(\theta\) to \(f\) internally.</li>
 
-<li>Inside &nabla;:
+<li>Inside \(\nabla\):
 
 <ul class="org-ul">
-<li><i>f</i> is invoked with <a href="#org67bce01">dual numbers</a> version of &theta;.</li>
+<li>\(f\) is invoked with <a href="#org5490c99">dual numbers</a> version of \(\theta\).</li>
 
-<li>This invocation effectively passes the &theta; values to <i>f</i>.</li>
+<li>This invocation effectively passes the \(\theta\) values to \(f\).</li>
 </ul></li>
 </ol>
 
 <p>
-The result of the &nabla; function is a list of gradients of the <a href="#org7925b9e">objective function</a> with respect to <b>each</b> parameter in &theta;, and is referred to as the gradient list.
+The result of the \(\nabla\) function is a list of gradients of the <a href="#orge38f97b">objective function</a> with respect to <b>each</b> parameter in \(\theta\), and is referred to as the <i>gradient list</i>.
 </p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7161a33" class="outline-5">
-<h5 id="org7161a33">Gradient descent</h5>
-<div class="outline-text-5" id="text-org7161a33">
+<div id="outline-container-org157580b" class="outline-5">
+<h5 id="org157580b">Gradient descent</h5>
+<div class="outline-text-5" id="text-org157580b">
 <p>
 Here is a graph of what is referred to (in this particular book) as a <b>loss curve</b>:
 </p>
 
 
-<div id="orgf204074" class="figure">
+<div id="org60da571" class="figure">
 <p><img src="img/LL_loss_curve.png" alt="LL_loss_curve.png" />
 </p>
 <p><span class="figure-number">Figure 13: </span>Loss curve</p>
 </div>
 
 <p>
-The <i>y</i>-axis represents the <a href="#orgee35afe">loss</a> and the <i>x</i>-axis represents &theta;<sub>0</sub>, which is also referred to as <b>weight</b>. So for any possible value of the weight, this graph shows the corresponding value of the loss <b>as an orange dot</b>.<br />
-To draw this graph five weights (i.e. <b>five different values for</b> &theta;<sub>0</sub>) were chosen, -1.0, 0.0, 1.0, 2.0, and 3.0.
+The <i>y</i>-axis represents the <a href="#orgd426ad4">loss</a> and the <i>x</i>-axis represents \(\theta_0\), which is also referred to as <b>weight</b>. So for any possible value of the weight, this graph shows the corresponding value of the loss <b>as an orange dot</b>.<br />
+To draw this graph five weights (i.e. <b>five different values for</b> \(\theta_0\)) were chosen, -1.0, 0.0, 1.0, 2.0, and 3.0.
 </p>
 
 <p>
-For each weight, we determine its corresponding loss while keeping &theta;<sub>1</sub> (i.e. the <b>bias</b>) at 0.0, using the following dataset:
+For each weight, we determine its corresponding loss while keeping \(\theta_1\) (i.e. the <b>bias</b>) at 0.0, using the following dataset:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[2.0 1.0 4.0 3.0]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">1.0</span> <span style="color: #a9a1e1;">4.0</span> <span style="color: #a9a1e1;">3.0</span>]
 </pre>
 </div>
 
 <p>
-for the x values (<i>line-xs</i>), and
+for the \(x\) values (<i>line-xs</i>), and
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[1.8 1.2 4.2 3.3]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">1.8</span> <span style="color: #a9a1e1;">1.2</span> <span style="color: #a9a1e1;">4.2</span> <span style="color: #a9a1e1;">3.3</span>]
 </pre>
 </div>
 
 <p>
-for the y values (<i>line-ys</i>).<br />
-Subsequently, this <a href="#org4444a28">objective functions</a> (<i>obj</i>) is used:
+for the \(y\) values (<i>line-ys</i>).<br />
+Subsequently, this <a href="#orgf252d17">objective functions</a> (<i>obj</i>) is used:
 </p>
 
 <div class="org-src-container">
@@ -1487,63 +1668,63 @@ Subsequently, this <a href="#org4444a28">objective functions</a> (<i>obj</i>) is
 </div>
 
 <p>
-by providing it with a &theta; which is constructed out of each of those five weights for &theta;<sub>0</sub>, and 0.0 for &theta;<sub>1</sub> (the bias). In other words, the <i>obj</i> expression takes parameters as its arguments and returns a scalar which represents the loss.<br />
+by providing it with a \(\theta\) which is constructed out of each of those five weights for \(\theta_0\), and 0.0 for \(\theta_1\) (the bias). In other words, the <i>obj</i> expression takes parameters as its arguments and returns a scalar which represents the loss.<br />
 Those are the corresponding losses for each weight:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(obj (list -1.0 0.0))
+<pre class="src src-racket">(obj (<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">-1.0</span> <span style="color: #a9a1e1;">0.0</span>))
 
-=&gt; 126.21
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">126.21</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-racket">(obj (list 0.0 0.0))
+<pre class="src src-racket">(obj (<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">0.0</span>))
 
-=&gt; 33.21
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">33.21</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-racket">(obj (list 1.0 0.0))
+<pre class="src src-racket">(obj (<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">1.0</span> <span style="color: #a9a1e1;">0.0</span>))
 
-=&gt; 0.21
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">0.21</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-racket">(obj (list 2.0 0.0))
+<pre class="src src-racket">(obj (<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">2.0</span> <span style="color: #a9a1e1;">0.0</span>))
 
-=&gt; 27.21
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">27.21</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-racket">(obj (list 3.0 0.0))
+<pre class="src src-racket">(obj (<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">3.0</span> <span style="color: #a9a1e1;">0.0</span>))
 
-=&gt; 114.21
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">114.21</span>
 </pre>
 </div>
 
 <p>
-This type of graph is used to show <i>quantities</i> that are <b>not</b> part of the dataset. In this context, <i>quantities</i> are values or metrics that are derived from the model and its training process (i.e. <b>the relationship between the loss and</b> &theta;) rather than being directly observed data points (i.e. <b>these are not part of the raw input data</b>).<br />
+This type of graph is used to show <i>quantities</i> that are <b>not</b> part of the dataset. In this context, <i>quantities</i> are values or metrics that are derived from the model and its training process (i.e. <b>the relationship between the loss and</b> \(\theta\)) rather than being directly observed data points (i.e. <b>these are not part of the raw input data</b>).<br />
 In other words, the graph illustrates internal aspects of the model (like the parameter values and loss) rather than showing the raw input data directly. This distinction is important because it shifts the focus from the data itself to the model's behavior and performance during training.
 </p>
 
 <p>
-We can see on the graph that an estimate weight value of 0.0 for &theta;<sub>0</sub> (whilst keeping &theta;<sub>1</sub> at 0.0) corresponds to a loss of 33.21. The point (0.0, 33.21) is circled in this graph:
+We can see on the graph that an estimate weight value of 0.0 for \(\theta_0\) (whilst keeping \(\theta_1\) at 0.0) corresponds to a loss of 33.21. The point (0.0, 33.21) is circled in this graph:
 </p>
 
 
-<div id="org9a96c40" class="figure">
+<div id="org93e6f49" class="figure">
 <p><img src="img/LL_loss_curve_2.png" alt="LL_loss_curve_2.png" />
 </p>
 <p><span class="figure-number">Figure 14: </span>Loss curve</p>
 </div>
 
 <p>
-One can also observe that the loss is lowest at the <b>bottom</b> of the curve. Because of this, what we need to do is to <i>roll</i> down the curve to get to its bottom. The idea is to roll down as fast as possible without <a href="#org9beed48">overshooting</a>, we use the <a href="#org6e82853">rate of change</a> for this.
+One can also observe that the loss is lowest at the <b>bottom</b> of the curve. Because of this, what we need to do is to <i>roll</i> down the curve to get to its bottom. The idea is to roll down as fast as possible without <a href="#org0a803f9">overshooting</a>, we use the <a href="#org547febf">rate of change</a> for this.
 </p>
 
 <p>
@@ -1551,41 +1732,45 @@ Here's how the rate of change is represented on the loss curve:
 </p>
 
 
-<div id="org69f22c3" class="figure">
+<div id="orgdcb911d" class="figure">
 <p><img src="img/LL_loss_curve_3.png" alt="LL_loss_curve_3.png" />
 </p>
 <p><span class="figure-number">Figure 15: </span>Loss curve with tangent</p>
 </div>
 
 <p>
-The turquoise line is known as a <i>tangent</i> and touches the curve at exactly <b>one</b> point, which in this case is (0.0 33.21). The rate of change determined is the <i>slope</i> of the tangent, it is called the <a href="#org9639605">gradient</a>.
+The turquoise line is known as a <i>tangent</i> and touches the curve at exactly <b>one</b> point, which in this case is (0.0 33.21). The rate of change determined is the <i>slope</i> of the tangent, it is called the <a href="#orge69378d">gradient</a>.
 </p>
 
 <p>
-Now if we were to <a href="#orgde0f8b8">revise</a> our &theta;<sub>0</sub> by, say 0.6623, this is how the loss curve would look like:
+Now if we were to <a href="#org1e6608a">revise</a> our \(\theta_0\) by, say 0.6623, this is how the loss curve would look like:
 </p>
 
 
-<div id="orgabd427e" class="figure">
+<div id="org2408d3e" class="figure">
 <p><img src="img/LL_loss_curve_4.png" alt="LL_loss_curve_4.png" />
 </p>
 <p><span class="figure-number">Figure 16: </span>Loss curve with tangents</p>
 </div>
 
 <p>
-What's interesting about this graph is that the second (revised) tangent is less steep compared to the tangent for the initial &theta;<sub>0</sub> estimate (of 0.0). Therefore, the gradient of the second is lower than the first.
+What's interesting about this graph is that the second (revised) tangent is less steep compared to the tangent for the initial \(\theta_0\) estimate (of 0.0). Therefore, the gradient of the second is lower than the first.
 </p>
 
 <p>
-In order to find the gradient we need to use the function <a href="#org0ce0959">&nabla;</a>.
+In order to find the gradient we need to use the function <a href="#org0048001">&nabla;</a>.
 </p>
 </div>
 </div>
-<div id="outline-container-org894d37c" class="outline-5">
-<h5 id="org894d37c">Stochastic gradient descent</h5>
-<div class="outline-text-5" id="text-org894d37c">
+<div id="outline-container-orgf4a1ecc" class="outline-5">
+<h5 id="orgf4a1ecc">Optimizers</h5>
+<div class="outline-text-5" id="text-orgf4a1ecc">
+</div>
+<div id="outline-container-orgef1c387" class="outline-6">
+<h6 id="orgef1c387">Stochastic gradient descent</h6>
+<div class="outline-text-6" id="text-orgef1c387">
 <p>
-The <a href="#orgd3109a0">dataset</a> which we looked at previously contains very few points. Real datasets by comparison can have as much as <b>billion</b> of points. Our <a href="#orgee35afe">loss function</a> uses the <b>entire</b> dataset when it is invoked, that's because it is finding the difference between the \(ys\) in the dataset and the corresponding predicted \(ys\).
+The <a href="#orgac6458a">dataset</a> which we looked at previously contains very few points. Real datasets by comparison can have as much as <b>billion</b> of points. Our <a href="#orgd426ad4">loss function</a> uses the <b>entire</b> dataset when it is invoked, that's because it is finding the difference between the \(ys\) in the dataset and the corresponding predicted \(ys\).<br />
 There is a better way which does not require traversing the entire dataset thousands of time, by means of <i>sampling</i>.
 </p>
 
@@ -1595,21 +1780,268 @@ This is repeated over many revisions, with new samples for each revision, to get
 </p>
 
 <p>
-This kind of gradient descent where the <a href="#org4444a28">objective functions</a> uses sampling is known as <i>stochastic gradient descent</i>. Stochastic is another way of saying that random numbers are used to determine the results. Using samples as part of the objective function is what makes it stochastic.
+This kind of gradient descent where the <a href="#orgf252d17">objective functions</a> uses sampling is known as <i>stochastic gradient descent</i>. <i>Stochastic</i> is another way of saying that random numbers are used to determine the results. Using samples as part of the objective function is what makes it stochastic.
 </p>
 </div>
 </div>
+<div id="outline-container-orgad48faf" class="outline-6">
+<h6 id="orgad48faf">Momentum gradient descent</h6>
+<div class="outline-text-6" id="text-orgad48faf">
+<p>
+<i>Momentum gradient descent</i> is a method which reaches a well-fitted \(\theta\) with fewer revisions.<br />
+Going back to this loss graph
+</p>
+
+
+<div id="orgf150b0a" class="figure">
+<p><img src="img/LL_loss_curve_4.png" alt="LL_loss_curve_4.png" />
+</p>
+<p><span class="figure-number">Figure 17: </span>Loss curve with tangents</p>
 </div>
-<div id="outline-container-org6e82853" class="outline-4">
-<h4 id="org6e82853">Rate of change</h4>
-<div class="outline-text-4" id="text-org6e82853">
-<ul class="org-ul">
-<li><p>
-<span class="underline">Rate of change short definition</span>
+
+<p>
+we know that each tangent gets less and less steep as it approaches the bottom of the curve. In other words the slope of tangent (i.e. the gradient), gets smaller. In fact, as the bottom of the curve is approached, the gradient gets closer and closer to 0.0. Furthermore, at the very bottom of the curve, the gradient is exactly 0.0.<br />
+What happens when a very small gradient is multiplied by a very small <a href="#org1848946">learning rate</a>, as in update functions, is that <b>we get something even smaller</b>. So at each <a href="#org1e6608a">revision</a> closer to the bottom, <b>the amount of change to each parameter gets smaller and smaller</b>.
 </p>
 
 <p>
-The rate of change of a function (of the <a href="#org4444a28">objective</a> function in most cases), such as:
+Now, the change made to a given parameter at each revision is known as the <a id="orgd370e2c"></a> <i>velocity</i> of descent. Therefore we can say that the velocity of descent <b>slows down</b> as it approaches the bottom of the curve, <b>but</b>, it can be sped up.<br />
+Here is an example function which updates \(\theta\):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">naked-u</span>
+  (<span style="color: #51afef;">lambda</span> (P g)
+    (&#8722; P (<span style="color: #c678dd;">*</span> alpha g))))
+</pre>
+</div>
+
+<p>
+in this expression since we subtract (* alpha g), the change to \(P\), (i.e., the velocity) is:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(&#8722; (<span style="color: #c678dd;">*</span> alpha g))
+</pre>
+</div>
+
+<p>
+The problem of the velocity of descent slowing down can be remedied by <b>boosting</b> our velocity. This is achieved by adding some fraction \(\mu\) of the velocity \(v\), of the previous revision, <b>to the change we expect to make in the current revision</b>.
+</p>
+
+<p>
+Therefore our velocity which was:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(&#8722; (<span style="color: #c678dd;">*</span> alpha g))
+</pre>
+</div>
+
+<p>
+becomes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> <span style="color: #c678dd;">mu</span> v) (<span style="color: #c678dd;">-</span> (<span style="color: #c678dd;">*</span> alpha g)))
+</pre>
+</div>
+
+<p>
+which is better written as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #c678dd;">-</span> (<span style="color: #c678dd;">*</span> <span style="color: #c678dd;">mu</span> v) (<span style="color: #c678dd;">*</span> alpha g))
+</pre>
+</div>
+
+<p>
+where \(\mu\) is a hyperparameter between 0.0 and 1.0 (usually 0.9) which represents the decimal fraction of the previous velocity we want to retain for the next velocity. \(v\) represents the velocity of the most recent revision and it is an accompaniment of its corresponding parameter, which should have the same shape as its parameter.<br />
+Here's the <i>inflate</i> function for the velocity algorithm:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">velocity-i</span>
+  (<span style="color: #51afef;">lambda</span> (p)
+    (<span style="color: #c678dd;">list</span> p (zeroes p))))
+</pre>
+</div>
+
+<p>
+it adds an initial accompaniment to the parameter \(p\).<br />
+The function <i>zeroes</i> produces a tensor with the same shape as its argument, made up entirely of 0.0s. Here's a chart for it:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(zeroes (tensor (tensor <span style="color: #a9a1e1;">2.1</span> <span style="color: #a9a1e1;">9.3</span> <span style="color: #a9a1e1;">1.5</span>) (tensor <span style="color: #a9a1e1;">7.2</span> <span style="color: #a9a1e1;">3.3</span> <span style="color: #a9a1e1;">6.6</span>)))
+
+<span style="color: #51afef;">=&gt;</span> (tensor (tensor <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">0.0</span>) (tensor <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">0.0</span>))
+</pre>
+</div>
+
+<p>
+The reason for initially setting the velocity to be a zeroed tensor is because at the first revision, there hasn't been any change to any of the parameters.<br />
+Here's the corresponding <i>deflate</i> function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">velocity-d</span>
+  (<span style="color: #51afef;">lambda</span> (P)
+    (ref P <span style="color: #a9a1e1;">0</span>)))
+</pre>
+</div>
+
+<p>
+which results in the parameter that is indexed at 0 in the inflated representation. And finally, this is the update function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">velocity-u</span>
+  (<span style="color: #51afef;">lambda</span> (P g)
+    (<span style="color: #51afef;">let</span> ((<span style="color: #dcaeea;">v</span> (<span style="color: #c678dd;">-</span> (<span style="color: #c678dd;">*</span> <span style="color: #c678dd;">mu</span> (ref P <span style="color: #a9a1e1;">1</span>)) (<span style="color: #c678dd;">*</span> alpha g))))
+      (<span style="color: #c678dd;">list</span> (<span style="color: #c678dd;">+</span> (ref P <span style="color: #a9a1e1;">0</span>) v) v))))
+</pre>
+</div>
+
+<p>
+which expects an accompanied parameter \(P\) where the parameter \(P_0\) is accompanied by its velocity \(P_1\) from the last revision. The gradient gradient \(g\) is its second argument.
+</p>
+</div>
+</div>
+<div id="outline-container-org9596294" class="outline-6">
+<h6 id="org9596294">RMSProp</h6>
+<div class="outline-text-6" id="text-org9596294">
+<p>
+The <a href="#orgad48faf">momentum gradient descent</a> algorithm <b>improves the velocity of a revision by borrowing some velocity from the preceding revision</b>.<br />
+There are other ways to improve the velocity of a revision. <b>RMSProp is an algorithms that works by modifying the fraction of the gradient used at each revision</b>.
+</p>
+
+<p>
+We know that the gradient approaches 0.0 as we roll down to the bottom of the incline. Similarly to our problem of <a href="#orgd370e2c">velocity of descent</a>, <b>where the amount of change to each parameter gets smaller and smaller</b>, we observe the same behavior with the velocity of the gradient. In <a href="#orgad48faf">momentum gradient descent</a>, \(\alpha\) (the learning rate) is a constant, which causes the velocity of the gradient descent to slow down in a similar way.
+</p>
+
+<p>
+Since \(\alpha\) represents the fraction of the gradient used as the velocity, another approach to addressing this problem is to make this fraction <i>adaptive</i>. Adaptive means that the fraction is decided based on the gradient and its historical values. To do that \(\alpha\) is multiplied with a factor \(D\) that reacts to the current gradient and it's historical values.<br />
+The fraction of the gradient used as the velocity at every revision should reduce more slowly than the rate at which the gradient reduces, so the way in which \(D\) behaves means that it must get larger as the gradient gets smaller since \(\alpha\) itself is a constant.
+</p>
+
+<p>
+We say that \(D\) varies <i>inversely</i> as the gradient. A simple way to make something vary inversely is to divide 1.0 by it. So \(D\) looks something like \[\frac{1}{G}\] Here \(G\) is referred to as a <i>modifier</i>.<br />
+Now the task is to find \(G\), which must depend on the gradient and its history. Another thing to remember is that when multiplying \(\alpha\) by \(D\), we're doing \[\alpha * D = \alpha * \frac{1}{G} = \frac{\alpha}{G}\] So \(\alpha\) has to be divided by the modifier to change the fraction of the gradient we must use. This can be achieved by using something which takes the history of the gradient into account but is not susceptible to all the variations in it, so that its effect is not nullified.<br />
+The solution is to use <a href="#org626d160">smoothing</a> to historically accumulate a modifier which is based on the gradient.
+</p>
+
+<p>
+We need a representation with an accompaniment based on our smoothed gradients. Here's the definition of the <i>rms-u</i> function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">rms-u</span>
+  (<span style="color: #51afef;">lambda</span> (P g)
+    (<span style="color: #51afef;">let</span> ((<span style="color: #dcaeea;">r</span> (smooth beta (ref P <span style="color: #a9a1e1;">1</span>) (<span style="color: #c678dd;">sqr</span> g))))
+      (<span style="color: #51afef;">let</span> ((<span style="color: #dcaeea;">alpha-hat</span> (<span style="color: #c678dd;">/</span> alpha (<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">sqrt</span> r) epsilon))))
+        (<span style="color: #c678dd;">list</span> (<span style="color: #c678dd;">-</span> (ref P <span style="color: #a9a1e1;">0</span>) (<span style="color: #c678dd;">*</span> alpha-hat g)) r)))))
+</pre>
+</div>
+
+<p>
+Like other update functions, <i>rms-u</i> takes an accompanied parameter and a gradient and revises the accompanied parameter. Here's a breakdown of the function:
+</p>
+
+<ul class="org-ul">
+<li>The accompaniment \(P_1\) is the smoothed value derived from the gradient \(g\).</li>
+<li>\(r\) is the value we determine as the new accompaniment. It is part of the returned accompanied parameter.</li>
+<li>\(\beta\) is a hyperparameter for the decay rate.</li>
+<li><p>
+The gradient \(g\) in the function call
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(smooth beta (ref P <span style="color: #a9a1e1;">1</span>) (<span style="color: #c678dd;">sqr</span> g))
+</pre>
+</div>
+
+<p>
+has to be squared because \(g\) can be negative, and if we get too many consecutive negative gradients, then our historical averages can themselves become negative. This is a problem because r gets used by the modifier" G i.e.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">sqrt</span> r) epsilon)
+</pre>
+</div>
+
+<p>
+and its being negative can make \(\hat{\alpha}\) (i.e. the learning rate) negative. When that happens, we end up ascending the gradient instead of descending it. This means that we would move our &theta; in a direction that <b>increases</b> the loss instead of a direction that <b>decreases</b> the loss.
+</p></li>
+<li><p>
+In this expression:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((r (smooth beta (ref P <span style="color: #a9a1e1;">1</span>) (<span style="color: #c678dd;">sqr</span> g))))
+</pre>
+</div>
+
+<p>
+the problem with squares is that they grow much faster than the scalar that is being squared. Since \(r\) gets used inside
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">((alpha-hat (<span style="color: #c678dd;">/</span> alpha (<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">sqrt</span> r) epsilon))))
+</pre>
+</div>
+
+<p>
+as the modifier, the modified learning rate would increase at a faster than the rate at which the gradient reduce. This could cause the descent to <a href="#org0a803f9">overshoot</a> the lowest point in the loss curve. Therefore the idea of taking the square root with <i>sqrt</i>, is to modify \(r\) so that it tracks the gradient more closely instead of tracking the square of the gradient.<br />
+However we need to account for the possibility that  \(r\) could be 0.0, which would cause the division of &alpha; to be undefined. This is easily solved, by adding a tiny constant &epsilon; known as the <i>stabilizer</i>, to (<i>sqrt</i> \(r\))
+</p></li>
+</ul>
+
+<p>
+Finally, those are the definitions for inflate and deflate functions:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">rms-i</span>
+  (<span style="color: #51afef;">lambda</span> (p)
+    (<span style="color: #c678dd;">list</span> p (zeroes p))))
+</pre>
+</div>
+
+<p>
+for <i>inflate</i>, where we accompany \(p\) with \(r\). \(r\) is a zeroed tensor.<br />
+And
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">rms-d</span>
+  (<span style="color: #51afef;">lambda</span> (P)
+    (ref P <span style="color: #a9a1e1;">0</span>)))
+</pre>
+</div>
+
+<p>
+for <i>deflate</i>, where we extract the parameter \(p\) from the accompanied parameter.
+</p>
+
+<p>
+This version of gradient descent is called RMSProp. The term <i>RMS</i> stands for <i>root mean square</i>, which reflects the fact that we use the <i>mean</i> (i.e. the smoothed historical average) of the <i>squares</i> and then take its square <i>root</i>. The suffix <i>Prop</i> is a contraction of the term <i>back propagation</i>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org547febf" class="outline-4">
+<h4 id="org547febf">Rate of change</h4>
+<div class="outline-text-4" id="text-org547febf">
+<ul class="org-ul">
+<li><p>
+<span class="underline">Rate of change short definition</span> <a id="org2f961e5"></a>
+</p>
+
+<p>
+The rate of change of a function (of the <a href="#orgf252d17">objective</a> function in most cases), such as:
 </p>
 
 <div class="org-src-container">
@@ -1630,12 +2062,12 @@ A more concrete example of this would be to invoke an objective function as such
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(((l2-loss line) line-xs line-ys) (list 0.0 0.0))
+<pre class="src src-racket">(((l2-loss line) line-xs line-ys) (<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">0.0</span>))
 </pre>
 </div>
 
 <p>
-which would achieve the objective of finding a well-fitted &theta; by returning the <a href="#orgee35afe">loss</a> for this particular &theta;.
+which would achieve the objective of finding a well-fitted &theta; by returning the <a href="#orgd426ad4">loss</a> for this particular &theta;.
 </p>
 
 <p>
@@ -1671,7 +2103,7 @@ Increasing &theta; from 0.0 by a small value can result in a rate of change whic
 </p>
 
 <p>
-This idea can be used to determine how much further to revise &theta; so as to achieve a bigger loss. However we should be wary that the revision of &theta; moves us <b>closer</b> but does not <a id="org9beed48"></a> <b>overshoot</b> the ideal loss.
+This idea can be used to determine how much further to revise &theta; so as to achieve a bigger loss. However we should be wary that the revision of &theta; moves us <b>closer</b> but does not <a id="org0a803f9"></a> <b>overshoot</b> the ideal loss.
 </p>
 
 <p>
@@ -1683,11 +2115,11 @@ This small scalar is known as the <b>learning rate</b>.
 </p></li>
 
 <li><p>
-<span class="underline">&theta; <a id="orgde0f8b8"></a>revision after finding the rate of change</span>
+<span class="underline">&theta; <a id="org1e6608a"></a>revision after finding the rate of change</span>
 </p>
 
 <p>
-The rate of change is multiplied by alpha (the learning rate) and the returned (negative) value used to update/revise &theta; by subtracting from &theta; this negative value (which has resulted in a positive revision of &theta; so far).
+The rate of change is multiplied by &alpha; (the <a id="org1848946"></a>learning rate) and the returned (negative) value used to update/revise &theta; by subtracting from &theta; this negative value (which has resulted in a positive revision of &theta; so far).
 </p>
 
 <p>
@@ -1696,63 +2128,160 @@ The rate of change <b>cannot</b> be reused as it depends on the current &theta;.
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d775a1" class="outline-4">
-<h4 id="org2d775a1">RMSProp</h4>
-<div class="outline-text-4" id="text-org2d775a1">
-<ul class="org-ul">
-<li><p>
-<span class="underline">RMSProp short definition</span>
+<div id="outline-container-org626d160" class="outline-4">
+<h4 id="org626d160">Smoothing</h4>
+<div class="outline-text-4" id="text-org626d160">
+<p>
+To smooth a data set is to create an approximating function that attempts to capture important patterns in the data, while leaving out noise or other fine-scale structures/rapid phenomena. In smoothing, the data points of a signal are modified so individual points higher than the adjacent points (presumably because of noise) are reduced, and points that are lower than the adjacent points are increased leading to a smoother signal. (source: <a href="https://en.wikipedia.org/wiki/Smoothing">wikipedia</a>)
 </p>
 
 <p>
-This algorithm works by modifying the <b>fraction</b> of the <b>gradient</b> used at each revision.
-</p>
-
-<p>
-Since our alpha so far has been a constant, we know that it causes the velocity of the gradient descent to slow down in a similar way.
-</p>
-
-<p>
-Because alpha represents the fraction of the gradient we're going to use as our velocity, another approach to addressing this problem is to make this fraction <b>adaptive</b>. Adaptive here means that the fraction is decided based on the gradient and its <b>historical</b> values.
-</p></li>
-
-<li><p>
-<span class="underline">RMSProp reason for squaring gradient in smooth invocation</span>
-</p>
-
-<p>
-The gradient g can be negative, and if we get too many consecutive negative gradients, then our historical averages can themselves become negative.
-</p>
-
-<p>
-This is a problem because r gets used by the <b>modifier</b>" G i.e.
+Here's a smoothing function:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(+ (sqrt r) epsilon)
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">smooth</span>
+  (<span style="color: #51afef;">lambda</span> (decay-rate average g)
+    (<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> decay-rate average)
+       (<span style="color: #c678dd;">*</span> (<span style="color: #c678dd;">-</span> <span style="color: #a9a1e1;">1.0</span> decay-rate) g))))
 </pre>
 </div>
 
 <p>
-and its being negative can make alpha-hat (i.e. the learning rate) negative. When that happens, we end up ascending the gradient instead of descending it.
+where <i>decay-rate</i> <b>must</b> always be a scalar between 0.0 and 1.0, <i>average</i> is a historically-accumulated average (or <i>historical average</i>), and \(g\) is a gradient. Both <i>average</i> and \(g\) must be tensors of the same shape. The function blends two tensors using <i>decay-rate</i> and
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #c678dd;">-</span> <span style="color: #a9a1e1;">1.0</span> decay-rate)
+</pre>
+</div>
+
+<p>
+<b>as weights</b>.<br />
+Here's an example of how it is used using these seven scalars
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket"><span style="color: #a9a1e1;">50.3</span> <span style="color: #a9a1e1;">22.7</span> <span style="color: #a9a1e1;">4.3</span> <span style="color: #a9a1e1;">2.7</span> <span style="color: #a9a1e1;">1.8</span> <span style="color: #a9a1e1;">2.2</span> <span style="color: #a9a1e1;">0.6</span>
+</pre>
+</div>
+
+<p>
+and finding (<i>smooth</i> 0.9 <span class="underline">0.0</span> 50.3)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(smooth <span style="color: #a9a1e1;">0.9</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">50.3</span>)
+
+(<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">0.9</span> <span style="color: #a9a1e1;">0.0</span>) (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">0.1</span> <span style="color: #a9a1e1;">50.3</span>))
+
+(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">0.0</span> <span style="color: #a9a1e1;">5.03</span>)
+
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">5.03</span>
+</pre>
+</div>
+
+<p>
+Next, finding (<i>smooth</i> 0.9 <span class="underline">5.03</span> 22.7)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(smooth <span style="color: #a9a1e1;">0.9</span> <span style="color: #a9a1e1;">5.03</span> <span style="color: #a9a1e1;">22.7</span>)
+
+(<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">0.9</span> <span style="color: #a9a1e1;">5.03</span>) (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">0.1</span> <span style="color: #a9a1e1;">22.7</span>))
+
+(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">4.53</span> <span style="color: #a9a1e1;">2.27</span>)
+
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">6.8</span>
+</pre>
+</div>
+
+<p>
+Once again, finding (<i>smooth</i> 0.9 <span class="underline">6.8</span> 4.3)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(smooth <span style="color: #a9a1e1;">0.9</span> <span style="color: #a9a1e1;">6.8</span> <span style="color: #a9a1e1;">4.3</span>)
+
+(<span style="color: #c678dd;">+</span> (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">0.9</span> <span style="color: #a9a1e1;">6.8</span>) (<span style="color: #c678dd;">*</span> <span style="color: #a9a1e1;">0.1</span> <span style="color: #a9a1e1;">4.3</span>))
+
+(<span style="color: #c678dd;">+</span> <span style="color: #a9a1e1;">6.12</span> <span style="color: #a9a1e1;">0.43</span>)
+
+<span style="color: #51afef;">=&gt;</span> <span style="color: #a9a1e1;">6.55</span>
+</pre>
+</div>
+
+<p>
+Here are the original scalars
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket"><span style="color: #a9a1e1;">50.3</span> <span style="color: #a9a1e1;">22.7</span> <span style="color: #a9a1e1;">4.3</span> <span style="color: #a9a1e1;">2.7</span> <span style="color: #a9a1e1;">1.8</span> <span style="color: #a9a1e1;">2.2</span> <span style="color: #a9a1e1;">0.6</span>
+</pre>
+</div>
+
+<p>
+and those are the historical averages after they've been smoothed
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket"><span style="color: #a9a1e1;">5.03</span> <span style="color: #a9a1e1;">6.8</span> <span style="color: #a9a1e1;">6.55</span> <span style="color: #a9a1e1;">6.16</span> <span style="color: #a9a1e1;">6.07</span> <span style="color: #a9a1e1;">5.64</span> <span style="color: #a9a1e1;">5.14</span>
+</pre>
+</div>
+
+<p>
+Comparing the smoothed scalars to the original ones, one can tell that the smoothed ones don't vary as much and that the variations between them are much gentler.<br />
+Repeatedly invoking <i>smooth</i> over these scalars <b>averages out variations by blending historical scalars with newer ones</b>. The importance of 0.9 that is passed as the <i>decay-rate</i> means that in order to find the new historical average, only 90% of the prior historical average is used, and every new scalar encountered is diminished to 10% of its value. Therefore, new scalars that vary wildly from the historical average contribute only to a small fraction to the new historical average.
 </p>
 
 <p>
-This means that we would move our &theta; in a direction that <b>increases</b> the loss instead of a direction that <b>decreases</b> the loss.
-</p></li>
+Let's consider the first scalar 50.3. The first time <i>smooth</i> is invoked, it is multiplied by 0.1 and results in 5.03. The next time <i>smooth</i> is invoked, 5.03 is multiplied by 0.9. This means that the contribution of the <b>first</b> scalar to the next <b>smoothed</b> result is \[0.9*0.1*50.3=4.53\] meaning that it contributes less and less to the historical average as newer data is encountered.<br />
+The <i>decay-rate</i> is referred to as the <i>rate-of-contribution</i> because the contribution of earlier items decays as more items are incorporated. The formula for the contribution of the scalar 50.3 after \(n\) invocations of <i>smooth</i> is \[0.9^{n-1}*0.1*50.3\]
+</p>
+
+<p>
+Breaking down the formula:
+</p>
+
+<ul class="org-ul">
+<li>\(0.9^{n-1}\): is the exponential decay factor where \(n\) is the time step. The base, 0.9, is the value decreases by 10% for each successive step. The exponent \(n-1\) is the factor which changes with each step of \(n\). The \(-1\) in this expression <b>arises from how indices are handled in time series or iterative processes</b>, where when \(n=1\) <b>is treated specially</b>. By using \(n-1\), the initial term (i.e. when \(n=1\)) which is \(0.9^0\), equals 1. This means that the influence of the initial value is fully retained at the start. <b>This is particularly important in smoothing applications where the first value has to maintain its full weight before starting the decay process</b>.</li>
+<li><p>
+\(0.1\): is the weighting factor, coming from
+</p>
+
+<div class="org-src-container">
+<pre class="src src-racket">(<span style="color: #c678dd;">-</span> <span style="color: #a9a1e1;">1.0</span> decay-rate)
+</pre>
+</div></li>
+
+<li>50.3: is the initial value.</li>
 </ul>
+
+<p>
+In practical terms, it looks like this in the time series smoothing context:
+</p>
+
+<ul class="org-ul">
+<li>At \(n=1\): \(0.9^{1-1}*0.1*50.3=1*0.1*50.3=5.03\)</li>
+<li>At \(n=2\): \(0.9^{2-1}*0.1*50.3=0.9*0.1*50.3=4.527\)</li>
+<li>At \(n=3\): \(0.9^{3-1}*0.1*50.3=0.81*0.1*50.3=4.0743\)</li>
+</ul>
+
+<p>
+In general this formula is true for any scalar encountered. The contribution of that scalar decays over time. Smoothing is a method of incorporating historical information which is less relevant as we move forward, and it is true for tensors of any ranks.
+</p>
 </div>
 </div>
-<div id="outline-container-org860c051" class="outline-4">
-<h4 id="org860c051">Tensors</h4>
-<div class="outline-text-4" id="text-org860c051">
+<div id="outline-container-org6ba01ac" class="outline-4">
+<h4 id="org6ba01ac">Tensors</h4>
+<div class="outline-text-4" id="text-org6ba01ac">
 <ul class="org-ul">
 <li><p>
 Here is a tensor<sup>1</sup>. A tensor<sup>1</sup> has only <b>scalars</b> and groups scalars together:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[5.0 7.18 3.1416]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">5.0</span> <span style="color: #a9a1e1;">7.18</span> <span style="color: #a9a1e1;">3.1416</span>]
 </pre>
 </div></li>
 
@@ -1761,7 +2290,7 @@ A tensor<sup>2</sup> can be thought of as a <b>matrix</b> or a <b>two-dimensiona
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[7 6 2 5] [3 8 6 9] [9 4 6 5]]
+<pre class="src src-racket">[[<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">5</span>] [<span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">8</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">9</span>] [<span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">5</span>]]
 </pre>
 </div>
 
@@ -1770,8 +2299,8 @@ has 3 elements:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[7 6 2 5]
-[3 8 6 9]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">7</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">5</span>]
+[<span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">8</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">9</span>]
 </pre>
 </div>
 
@@ -1780,7 +2309,7 @@ and:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[9 4 6 5]
+<pre class="src src-racket">[<span style="color: #a9a1e1;">9</span> <span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">6</span> <span style="color: #a9a1e1;">5</span>]
 </pre>
 </div>
 
@@ -1793,7 +2322,7 @@ A scalar such as:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">9
+<pre class="src src-racket"><span style="color: #a9a1e1;">9</span>
 </pre>
 </div>
 
@@ -1802,16 +2331,16 @@ is also a tensor. It is a tensor<sup>0</sup>, but <b>zero-dimensional</b> arrays
 </p></li>
 </ul>
 </div>
-<div id="outline-container-orge231765" class="outline-5">
-<h5 id="orge231765">Tensor rank</h5>
-<div class="outline-text-5" id="text-orge231765">
+<div id="outline-container-org83b62ec" class="outline-5">
+<h5 id="org83b62ec">Tensor rank</h5>
+<div class="outline-text-5" id="text-org83b62ec">
 <ul class="org-ul">
 <li><p>
 The above superscripts have a name, they are known as the <b>rank</b> of the tensor. The rank of a tensor tells us how deeply nested its elements are. For instance, here is a tensor<sup>3</sup>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[[8 9] [4 7]]]
+<pre class="src src-racket">[[[<span style="color: #a9a1e1;">8</span> <span style="color: #a9a1e1;">9</span>] [<span style="color: #a9a1e1;">4</span> <span style="color: #a9a1e1;">7</span>]]]
 </pre>
 </div>
 
@@ -1829,16 +2358,16 @@ This means that the tensors<sup>m</sup> that are elements of a tensor<sup>m+1</s
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd4ebb43" class="outline-5">
-<h5 id="orgd4ebb43">Tensor shape</h5>
-<div class="outline-text-5" id="text-orgd4ebb43">
+<div id="outline-container-orgc5f34e0" class="outline-5">
+<h5 id="orgc5f34e0">Tensor shape</h5>
+<div class="outline-text-5" id="text-orgc5f34e0">
 <ul class="org-ul">
 <li><p>
 The <b>shape</b> of:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[5.2 6.3 8.0] [6.9 7.1 0.5]]
+<pre class="src src-racket">[[<span style="color: #a9a1e1;">5.2</span> <span style="color: #a9a1e1;">6.3</span> <span style="color: #a9a1e1;">8.0</span>] [<span style="color: #a9a1e1;">6.9</span> <span style="color: #a9a1e1;">7.1</span> <span style="color: #a9a1e1;">0.5</span>]]
 </pre>
 </div>
 
@@ -1847,7 +2376,7 @@ is this list of positive natural numbers:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(list 2 3)
+<pre class="src src-racket">(<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">3</span>)
 </pre>
 </div>
 
@@ -1860,7 +2389,7 @@ The shape of:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">[[[5] [6] [8]] [[7] [9] [5]]]
+<pre class="src src-racket">[[[<span style="color: #a9a1e1;">5</span>] [<span style="color: #a9a1e1;">6</span>] [<span style="color: #a9a1e1;">8</span>]] [[<span style="color: #a9a1e1;">7</span>] [<span style="color: #a9a1e1;">9</span>] [<span style="color: #a9a1e1;">5</span>]]]
 </pre>
 </div>
 
@@ -1869,7 +2398,7 @@ is:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(list 2 3 1)
+<pre class="src src-racket">(<span style="color: #c678dd;">list</span> <span style="color: #a9a1e1;">2</span> <span style="color: #a9a1e1;">3</span> <span style="color: #a9a1e1;">1</span>)
 </pre>
 </div>
 
@@ -1890,17 +2419,17 @@ It is:
 </div>
 </div>
 </div>
-<div id="outline-container-org72e1185" class="outline-4">
-<h4 id="org72e1185">Update of parameters</h4>
-<div class="outline-text-4" id="text-org72e1185">
+<div id="outline-container-org50893a4" class="outline-4">
+<h4 id="org50893a4">Update of parameters</h4>
+<div class="outline-text-4" id="text-org50893a4">
 <p>
 The following function:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(define naked-u
-  (lambda (P g)
-    (− P (* alpha g))))
+<pre class="src src-racket">(<span style="color: #51afef;">define</span> <span style="color: #dcaeea;">naked-u</span>
+  (<span style="color: #51afef;">lambda</span> (P g)
+    (&#8722; P (<span style="color: #c678dd;">*</span> alpha g))))
 </pre>
 </div>
 
@@ -1909,114 +2438,12 @@ updates the parameters by multiplying the gradient g by the learning rate alpha,
 </p>
 </div>
 </div>
-<div id="outline-container-org36681e1" class="outline-4">
-<h4 id="org36681e1">Velocity</h4>
-<div class="outline-text-4" id="text-org36681e1">
-<ul class="org-ul">
-<li><p>
-<span class="underline">Velocity of descent short definition</span>
-</p>
-
-<p>
-The <b>change</b> that we make to a given parameter at each revision is known as the <b>velocity of descent</b>.
-</p>
-
-<p>
-In the following expression:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-racket">(define naked-u
-  (lambda (P g)
-    (− P (* alpha g))))
-</pre>
-</div>
-
-<p>
-since we subtract (* alpha g), the change to P, (i.e., the velocity) is:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-racket">(− (* alpha g))
-</pre>
-</div></li>
-
-<li><p>
-<span class="underline">Velocity of descent slowing concept</span>
-</p>
-
-<p>
-We can observe from a loss graph with tangents, that as each tangent approaches the lowest point on a graph, they get less and less steep towards the bottom of the curve i.e. their slope (<b>the gradient</b>) gets smaller.
-</p>
-
-<p>
-In fact, as the curve's bottom is approached, the gradient gets closer and closer to 0.0.
-</p>
-
-<p>
-What happens when we multiply a really small gradient with a really small learning rate as we do:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-racket">(* alpha g)
-</pre>
-</div>
-
-<p>
-in update functions is that we get something even smaller. So at each revision closer to the bottom, the amount of change to each parameter gets smaller and smaller.
-</p>
-
-<p>
-Therefore we can say the <b>velocity of descent</b> slows down as we approach the bottom of the curve.
-</p></li>
-
-<li><p>
-<span class="underline">Velocity of descent speed up concept</span>
-</p>
-
-<p>
-The problem of the <b>velocity of descent</b> slowing down can be remedied by boosting our velocity. This is achieved by adding some fraction <b>mu</b> of the velocity <b>v</b>, of the previous revision, to the change we expect to make in the current revision.
-</p>
-
-<p>
-Therefore our velocity which was:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-racket">(− (* alpha g))
-</pre>
-</div>
-
-<p>
-becomes:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-racket">(+ (* mu v) (- (* alpha g)))
-</pre>
-</div>
-
-<p>
-which is better written as:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-racket">(- (* mu v) (* alpha g))
-</pre>
-</div>
-
-<p>
-Here, <b>v</b> represents the velocity of the most recent revision.
-</p></li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: dm</p>
-<p class="date">Created: 2024-06-11 Tue 19:43</p>
+<p class="date">Created: 2024-06-22 Sat 08:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
